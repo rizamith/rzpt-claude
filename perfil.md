@@ -108,23 +108,52 @@ Pontos FINA de 2026: 50 Bruços 445 vs 100 Bruços 398. E em 2013, 100 Bruços v
 era então o seu melhor evento. **A resistência é o que se perdeu; a velocidade pura resistiu.**
 Concentrar nos 50.
 
-### Alvos recalibrados contra o próprio histórico
+### Contexto: nadador federado de longa data
 
-| Prova (25 m) | Atual | Alvo declarado | Veredicto | Alvo realista março 2027 |
+**Melhor de sempre absoluto: 100 Livres em 53.30, piscina de 50 m, em 2001, aos 25 anos.**
+Não é um praticante amador — é um nadador competitivo com 25 anos de acumulação técnica.
+Isto sustenta a tese do próprio atleta: o motor e a técnica existem; o que limita é a massa.
+
+### Alvos — **ambas as provas alvo são em piscina de 50 m**
+
+Confirmado 2026-08-07: nacionais de março **e** de julho de 2027 são em piscina longa.
+Toda a calibração passa a ser em 50 m — os tempos de 25 m servem de indicador, nunca de alvo.
+
+| Prova (50 m) | Melhor de sempre | Quando | Atual 2026 | Alvo março 2027 |
 | --- | --- | --- | --- | --- |
-| 50 Bruços | 32.66 | sub-32.0 | **Viável** — fez 32.03 em nov/2024, aos 48 | **31.9–32.0** |
-| 50 Livres | 26.18 | sub-25.0 | **Não** — nunca esteve abaixo de 25. Melhor de sempre: 25.14 aos 37 | **25.6** (suficiente para vencer) |
+| 50 Bruços | **33.64** | jul/2023 (47 a) | ⚠️ sem tempo desde jun/2025 (33.68) | regressar a ~33.5 |
+| 50 Livres | **26.60** | jan/2024 (48 a) | 27.36 | regressar a ~26.6 |
+| 100 Livres | **59.07** | jul/2024 (48 a) | ~59 (estimado pelo atleta) | sub-59 |
+| 100 Bruços | **1:16.45** | jul/2023 (47 a) | 1:17.29 | sub-1:16 |
 
-⚠️ **O 50 Bruços é a prova do título.** Sub-32 não é território novo — é regressar a onde
-esteve há dois anos. O recorde nacional (~31.9) está a 0.13 s do seu próprio melhor de sempre.
+⚠️ **Tempo vencedor do 50 Bruços +50: 31.90** — mas **falta saber em que piscina**. O diferencial
+do atleta entre 25 m e 50 m nos 50 Bruços é de **1.61 s** (32.03 vs 33.64), por isso a resposta
+muda completamente o tamanho do desafio:
 
-O sub-25 nos livres exigiria bater, aos 51 anos, um recorde pessoal de 2013. Fica como projeto
-de longo prazo, não como alvo de março. Para **ganhar** os 50 Livres bastam ~25.6.
+- Se 31.90 foi em **25 m** → está a 0.13 s do melhor de sempre dele. Alcançável.
+- Se 31.90 foi em **50 m** → está a 1.74 s do melhor de sempre dele. Muito difícil.
 
-⚠️ **Por confirmar:** piscina dos nacionais de março (25 m ou 50 m) e tempo vencedor do 50 Bruços +50.
+⚠️ **Sem tempo de 50 Bruços em piscina de 50 m desde junho/2025.** É a prova do título e não há
+referência recente. Precisa de uma prova de aferição antes de março.
 
 Provas que nada: 50 e 100 Livres, 50 e 100 Bruços. 200 L / 200 B só "se tiver margem" —
 **não recomendado**: 200 Estilos 2026 vale 370 pts, o evento mais fraco.
+
+---
+
+## Divisão de responsabilidades _(definida pelo atleta, 2026-08-07)_
+
+> "Preocupa-te com o meu peso, eu trato do resto. Se me puseres com 90 kg eu voo na água."
+
+| Ricardo trata | O PT trata |
+| --- | --- |
+| Técnica, partidas, viragens, pullout | **Peso e composição corporal** |
+| Planeamento das sessões de natação | Nutrição e orçamento calórico |
+| Escolha de provas e calendário | Sono, recuperação, gestão de carga |
+| | Análise de dados e deteção de tendências |
+
+**Não escrever planos de treino de natação.** Os tempos registam-se e analisam-se como
+_medição do efeito do peso_ — é assim que se verifica se o plano nutricional está a funcionar.
 
 ## Histórico ponderal (Fev–Jun 2026)
 

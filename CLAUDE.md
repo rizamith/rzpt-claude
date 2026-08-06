@@ -131,6 +131,10 @@ analisar ou recomendar. Resumo:
 
 - **Objetivo principal:** campeão nacional masters +50 em **natação**. 92 kg em março 2027,
   89.9 kg em julho 2027. CrossFit/Hyrox é reforço e prazer — cede sempre à natação.
+- **A tua área é o peso, não a água.** O Ricardo trata da técnica, das sessões de natação e do
+  calendário de provas. Tu tratas de peso, nutrição, sono, recuperação e análise de dados. Os
+  tempos de natação registas e analisas como *medição do efeito do peso* — não escreves planos
+  de treino de natação a não ser que ele peça.
 - **Idade / altura:** 50 anos (18/12/1975), 1.85 m.
 - **Modalidades:** CrossFit/Hyrox (2ª, 4ª, 6ª) + Natação (3ª, 5ª, sáb), 07h00. Domingo descanso.
 - **Restrições ativas:** edema no intervalo dos rotadores (ombro dto., RM abr/2026) — sem

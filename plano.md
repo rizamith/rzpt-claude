@@ -178,29 +178,19 @@ não vai lá** — desenhamos em torno dos 25.6, que dão o título.
 horário os puser depois dos 50; treinar para eles, nunca — diluem o trabalho de sprint nas duas
 provas onde há medalha.
 
-### Onde estão as décimas
+### A técnica é do Ricardo — este plano não lhe toca
 
-Não estão na condição física. Num 50 em piscina de 25 m, a partida e a única viragem valem ~30 %
-do tempo total, e é aí que um masters amador deixa rotineiramente 0.5 a 1.0 s:
+Partidas, viragens e pullout são trabalho dele, e ele trata disso. Ver a divisão de
+responsabilidades em [perfil.md](perfil.md).
 
-1. **Partida** — reação, distância de voo, profundidade e timing da saída de bracejada
-2. **Viragem** — aproximação à parede, impulsão, hidrodinâmica
-3. **Pullout do bruços** — a bracejada submersa. Meio segundo que quase ninguém trabalha, e é a
-   prova do título
-4. **−8 kg de arrasto** — real à velocidade de sprint, e vem de graça com o plano nutricional
-5. **Potência** — o caminho mais lento e mais caro. Onde todos se concentram, e o último da lista
+**O que este plano entrega à natação é uma coisa só: menos massa, com a mesma potência.**
 
-### Janela dos 6 sem piscina (agora → 15/set): trabalho seco específico
+### Como o CrossFit serve a natação nesta fase
 
-- **Impulsão de partida** — a partida é um salto em comprimento. Agachamento com salto, saltos
-  horizontais, trap bar. O CrossFit já faz metade disto; é dirigi-lo.
-- **Tornozelo e rotação interna da coxa** — o pontapé de bruços vive da mobilidade do tornozelo.
-  Totalmente treinável em seco, e é onde há tempo escondido.
-- **Manguito rotador e estabilidade escapular** — construir os últimos 5 % do ombro.
-- **Core em posição hidrodinâmica** — hollow holds, dead bugs.
-- Em défice, o CrossFit deixa de ser onde procuras condição e passa a ser onde **protege a massa
-  magra**: manter intensidade e carga, reduzir volume. Menos metcons longos, mais força com
-  descanso a sério.
+Em défice calórico, o CrossFit deixa de ser onde se procura condição e passa a ser **onde se
+protege a massa magra**. Isso significa manter a intensidade e a carga e reduzir o volume —
+menos metcons longos, mais trabalho de força com descanso a sério. Se a massa magra descer nos
+registos de `dados/corpo.csv`, é aqui que se corrige primeiro.
 
 **Força, em défice, aos 50 anos:** o CrossFit deixa de ser onde procuras condição e passa a ser
 onde protege a massa magra. Isso quer dizer manter intensidade (carga) e reduzir volume, não o
@@ -227,17 +217,16 @@ aparece na balança e **não é gordura**; ignora-se.
 
 ---
 
-## 6. O que falta para fechar o plano de natação
+## 6. Em aberto
 
-1. **Os nacionais de março são em piscina de 25 m ou 50 m?** Muda todos os tempos-alvo.
-2. **Que tempo ganhou o 50 Bruços +50** no último nacional? É a prova do título e é o único
-   número que falta para calibrar.
-3. **Há treinador no Clube Naval Povoense** que possa trabalhar partida, viragem e pullout? É aí
-   que estão as décimas — e não é trabalho que se faça sozinho.
-4. **Consegue-se uma 4ª sessão** a partir de 15/set? Para sprint, 4 sessões de qualidade valem
-   mais que 6 de volume.
-5. **Confirmar a margem do ombro** com médico ou fisioterapeuta antes de subir volume de bruços —
+1. **O 31.90 do 50 Bruços vencedor foi em piscina de 25 m ou 50 m?** O diferencial do Ricardo
+   entre piscinas nesta prova é 1.61 s — a resposta muda o alvo por completo.
+2. **Quanto pesava em janeiro e novembro de 2024?** Foi o pico de forma (26.60 nos 50 L, 32.03
+   nos 50 B). Com esse número consigo estimar quantas décimas vale cada quilo **nos dados dele**,
+   em vez de teoria geral. É a peça mais valiosa que falta.
+3. **Confirmar a margem do ombro** com médico ou fisioterapeuta antes de subir volume de bruços —
    a prova do título é precisamente o estilo que a RM de abril proibia.
+4. **Análises de sangue** — ver [clinico.md](clinico.md).
 
 ---
 
