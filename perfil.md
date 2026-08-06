@@ -41,8 +41,45 @@ marcados com ⚠️ são inconsistentes ou não confirmados — não usar em an�
 | --- | --- | --- |
 | Back Squat | 125 kg | |
 | Clean & Jerk | 85 kg | 60 kg é a carga técnica de trabalho |
-| 50 m Livres | 28.8 s | ⚠️ relatórios dizem "+2 s de lag por fadiga" — não é claro se 28.8 é o PR ou o tempo atual |
-| Prova alvo | 11 jul 2026 — 100 B e 50 L | Resultado **desconhecido** |
+
+### Natação — recordes pessoais, época 2026
+
+Fonte: swimrankings.net, atleta **PASSOS, Ricardo Zamith** (ID 4427050).
+Clube: **Clube Naval Povoense**.
+
+| Prova | Piscina | Tempo | Pontos | Data | Prova |
+| --- | --- | --- | --- | --- | --- |
+| 50 Livres | 50 m | **27.36** | 446 | 11/07/2026 | OPEN Int. Master, Famalicão |
+| 50 Livres | 25 m | **26.18** | 439 | 01/11/2025 | Troféu Clube Fluvial, Porto |
+| 50 Bruços | 25 m | **32.66** | 445 | 01/11/2025 | Troféu Clube Fluvial, Porto |
+| 100 Bruços | 50 m | **1:17.29** | 398 | 11/07/2026 | OPEN Int. Master, Famalicão |
+| 50 Mariposa | 25 m | 29.68 | 370 | 23/01/2026 | OPEN Masters Inverno, Torres Novas |
+| 200 Estilos | 25 m | 2:31.65 | 370 | 23/01/2026 | OPEN Masters Inverno, Torres Novas |
+
+⚠️ **Correção importante:** os relatórios importados afirmavam um 50 Livres de **28.8 s** e
+construíram toda uma narrativa de "perda de 2 segundos por inflamação e fadiga". **É falso.**
+O tempo real é 27.36 (50 m) e 26.18 (25 m). Nunca usar dados dos `.docx` importados sobre
+performance de natação — usar só o swimrankings.
+
+**A prova de 11/07/2026 correu bem**, ao contrário do que o tom dos relatórios previa: com
+100.1 kg, fez os seus melhores tempos da época em piscina de 50 m (50 L e 100 B).
+
+⚠️ Sem tempo de **100 Livres** na época 2026. Sem 50 Bruços em piscina de 50 m.
+
+### Perfil de nadador: sprinter
+
+Os pontos FINA revelam o padrão — 50 Bruços 445 vs 100 Bruços 398. A queda no segundo 50 é
+significativa. **É um sprinter puro**, com tolerância lática limitada. O plano deve concentrar-se
+nos 50, onde é competitivo a nível nacional.
+
+### Alvos declarados
+
+| Prova | Atual (25 m) | Alvo | Referência |
+| --- | --- | --- | --- |
+| 50 Livres | 26.18 | sub-25.0 | Vencedor +50 fez 25.7 |
+| 50 Bruços | 32.66 | sub-32.0 | Recorde nacional ~31.9 |
+
+Provas que nada: 50 e 100 Livres, 50 e 100 Bruços. 200 L / 200 B só "se tiver margem".
 
 ## Histórico ponderal (Fev–Jun 2026)
 

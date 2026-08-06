@@ -1,21 +1,24 @@
 # YYYY-MM-DD
 
-## Corpo
-
-- **Peso:** — kg
-- **Medidas:** _(cintura / peito / braço / coxa — só quando medidas)_
+> Estrutura de referência — não é um registo.
+> **Os números vivem em `dados/*.csv`, não aqui.** Este ficheiro é para o que não é número:
+> contexto, sensações, o que correu bem ou mal. Omitem-se as secções sem dados.
 
 ## Sessão — <tipo de treino>
 
-_(ex: "Superiores — push", "Pernas", "Corrida", "Descanso")_
+_(ex: "CrossFit", "Natação — 25 m", "Hyrox", "Descanso")_
 
-| Exercício | Séries × Reps | Carga | Notas |
-| --- | --- | --- | --- |
-|  |  |  |  |
+O que se fez, por palavras. Séries, reps e cargas vão para `dados/forca.csv`;
+tempos de natação para `dados/natacao.csv`. Aqui fica o resto — como correu, o que se sentiu,
+o que se decidiu mudar a meio.
 
 ## Subjetivo
 
 - **Energia:** —/5
-- **Sono:** — h, qualidade —/5
 - **Dor / desconforto:** _(onde, intensidade, se piorou ou melhorou)_
-- **Notas:** _(alimentação, stress, o que correu bem ou mal)_
+- **Notas:** _(sono, alimentação, stress, trabalho)_
+
+## Nutrição
+
+Desvios ao [plano](../plano.md), não a refeição completa. O que interessa registar é
+o que saiu do orçamento e porquê.

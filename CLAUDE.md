@@ -17,24 +17,58 @@ Respondes sempre em **português de Portugal**.
 
 ## Estrutura dos dados
 
-```
-registos/
-├── 2026-08-06.md        ← um ficheiro por dia
-├── 2026-08-07.md
-└── _TEMPLATE.md         ← estrutura de referência (não é um registo)
+```text
+CLAUDE.md            este ficheiro — o sistema
+perfil.md            quem é o atleta: objetivos, PRs, restrições. Muda devagar.
+plano.md             o plano ativo (Ago/2026 → Jul/2027)
+clinico.md           cronologia clínica: lesões, medicação, exames. Append-only.
+
+dados/               NÚMEROS — séries temporais em CSV, append-only
+├── README.md        o contrato de cada ficheiro: colunas e valores válidos
+├── corpo.csv        peso e composição corporal (diário)
+├── natacao.csv      tempos de prova e de treino
+├── forca.csv        cargas de exercícios e PRs
+├── treinos.csv      uma linha por sessão: modalidade, RPE, dor
+└── sono.csv         sono e recuperação (Amazfit Balance)
+
+registos/            NARRATIVA — um .md por dia
+├── _TEMPLATE.md     estrutura de referência (não é um registo)
+└── YYYY-MM-DD.md
+
+analises/            relatórios de análise que produzires (Opus)
+import/             estágio para material a importar. Fora do git.
 ```
 
-- **Um ficheiro por dia**, nome `YYYY-MM-DD.md`. Se houver duas sessões no mesmo dia, são
-  duas secções `## Sessão` dentro do mesmo ficheiro — não crias ficheiros separados.
-- Markdown, seguindo o `_TEMPLATE.md`. Omites secções sem dados em vez de as deixar vazias.
-- Campos a registar quando existirem: data, tipo de treino, exercícios (séries × reps × carga),
-  peso corporal, medidas, notas subjetivas (energia, dor, sono).
+### A divisão que manda em tudo
+
+**Números vão para `dados/*.csv`. Narrativa vai para `registos/YYYY-MM-DD.md`.**
+
+Razão: uma análise de tendência tem de ler **um** ficheiro, não duzentos. Se o peso diário
+viver dentro dos registos diários, ao fim de um ano o histórico é inanalisável.
+
+Em caso de conflito entre um CSV e um registo diário, **o CSV é a verdade.**
+
+**Antes de escrever num CSV, lê `dados/README.md`** — tem as colunas e os valores válidos de
+cada coluna. Nunca acrescentes colunas sem me dizer. Campos sem dado ficam vazios: não
+inventas, não interpolas, não estimas.
 
 ### Regra de ouro sobre o histórico
 
-**Nunca alteras nem apagas registos antigos sem eu pedir explicitamente.** Se detetares um
-valor que parece errado num ficheiro passado, **dizes-me e perguntas** — não corriges por
-iniciativa própria. Acrescentar ao ficheiro de hoje é livre; mexer no passado exige autorização.
+**Nunca alteras nem apagas registos antigos sem eu pedir explicitamente.** Isto vale para os
+`.md` e para as linhas já escritas nos `.csv`. Se detetares um valor que parece errado no
+passado, **dizes-me e perguntas** — não corriges por iniciativa própria. Acrescentar ao fim é
+livre; mexer no passado exige autorização.
+
+### Sessões no telemóvel e no PC — sempre sincronizar
+
+O registo diário faz-se pela app do Claude Code no Android; as análises fazem-se no PC. Os dois
+escrevem no mesmo repositório, por isso:
+
+1. **No início de cada sessão: `git pull`.** Sem exceção.
+2. **No fim de cada registo: `commit` + `push`.** Não deixes trabalho por committar — a próxima
+   sessão pode ser noutro dispositivo.
+3. Se houver conflito, **paras e perguntas**. Não resolves um conflito em dados de saúde por
+   iniciativa própria.
 
 ---
 
@@ -44,14 +78,21 @@ iniciativa própria. Acrescentar ao ficheiro de hoje é livre; mexer no passado 
 
 Quando eu enviar uma foto ou descrever um treino:
 
-1. Extrai os dados relevantes.
-2. Se algo estiver ambíguo (carga ilegível, número de séries pouco claro, unidade duvidosa),
+1. `git pull`.
+2. Extrai os dados relevantes.
+3. Se algo estiver ambíguo (carga ilegível, número de séries pouco claro, unidade duvidosa),
    **pergunta antes de escrever**. Não inventes nem assumes valores.
-3. Escreve em `registos/YYYY-MM-DD.md` (cria ou acrescenta ao ficheiro do dia).
-4. `git add` + `git commit` + `git push`. Mensagem de commit: `registo: YYYY-MM-DD — <resumo curto>`.
-5. Confirma-me o que ficou registado, em duas ou três linhas.
+4. **Acrescenta uma linha aos CSV relevantes** em `dados/` — corpo, treinos, natação, força, sono.
+   É este o passo que não se pode falhar: os CSV são a base da análise.
+5. Escreve a narrativa e o subjetivo em `registos/YYYY-MM-DD.md` (cria ou acrescenta ao ficheiro
+   do dia). **Sem repetir os números que já foram para os CSV.**
+6. `git add` + `git commit` + `git push`. Mensagem: `registo: YYYY-MM-DD — <resumo curto>`.
+7. Confirma-me o que ficou registado, em duas ou três linhas.
 
 Se o dia já tiver ficheiro, lê-o primeiro para não duplicar nem contradizer o que lá está.
+
+**Peso diário:** basta-me mandar o número ou a foto da balança. Registas em `dados/corpo.csv` e
+não precisas de criar registo diário nenhum se não houve treino nem nada a dizer.
 
 ### 2. Análise / revisão (modelo forte — Opus)
 
