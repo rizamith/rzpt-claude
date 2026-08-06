@@ -11,3 +11,7 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Pasta de estágio para material a importar — o que fica é o registo escrito extraído
+/import/
+rzpt-claude.code-workspace

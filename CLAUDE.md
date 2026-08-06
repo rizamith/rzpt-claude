@@ -84,8 +84,14 @@ rodapé em cada resposta.
 > Mantém esta secção atualizada à medida que eu for dizendo coisas. Quando alterares algo aqui,
 > commita junto com o registo do dia.
 
-- **Objetivo principal:** _(a definir)_
-- **Restrições / condições relevantes:** _(a definir)_
-- **Frequência de treino:** _(a definir)_
-- **Equipamento disponível:** _(a definir)_
-- **Histórico de lesões:** _(a definir)_
+O perfil detalhado — PRs, quadro clínico, histórico ponderal, padrões alimentares — está em
+[perfil.md](perfil.md). Lê-o sempre antes de analisar ou recomendar. Resumo:
+
+- **Objetivo principal:** _(a definir — meta 2027 em discussão)_
+- **Modalidades:** CrossFit/Hyrox (2ª, 4ª, 6ª) + Natação (3ª, 5ª, sáb), 07h00. Domingo descanso.
+- **Restrições ativas:** edema no intervalo dos rotadores (ombro dto., RM abr/2026) — sem
+  overhead pesado, natação só crawl; epicondilite lateral (cotovelo dto.) — pulso neutro.
+- **Clínico:** ansiedade crónica sob escitalopram (Cipralex), tinnitus reativo como indicador
+  de sobrecarga do SNC.
+- **Equipamento / dados:** Amazfit Balance + balança Xiaomi, via app Zepp.
+- **Padrão a corrigir:** ciclo restrição durante a semana → compensação ao fim de semana.
