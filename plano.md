@@ -59,6 +59,23 @@ Para perder **0.25 kg/semana** preciso de um défice de ~2000 kcal/semana — ou
 | Domingo | Descanso + **almoço de família** | 2500 |
 | **Semana** | | **18 200** → −0.25 kg |
 
+### ⚠️ Revisão para Agosto → 15 de setembro: a piscina está fechada
+
+Sem natação, são **3 sessões por semana e não 6**. O gasto diário cai para **~2700 kcal**
+(18 900/semana), por isso a tabela acima só entra em vigor a 15 de setembro. Até lá:
+
+| Dia | kcal alvo |
+| --- | --- |
+| 2ª a 5ª | 2150 cada |
+| 6ª (sushi + vinho) | 2800 |
+| Sábado (francesinha sem batatas + cerveja) | 3000 |
+| Domingo (família, sem pão nem sobremesa) | 2200 |
+| **Semana** | **16 600** → −0.3 kg |
+
+**Estas 6 semanas são a janela de peso do ano.** Não há performance de natação a proteger, logo
+é o único período em que um défice um pouco mais firme não custa nada. Alvo: **~97.5 kg a 15 de
+setembro**, para entrar na época já mais leve.
+
 Repara no que isto significa: os dias "maus" ficam. O que muda é que a semana deixa de ser um
 deserto — 2400 kcal de 2ª a 5ª é **comer**, não sobreviver.
 
