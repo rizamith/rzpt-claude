@@ -6,6 +6,27 @@ marcados com ⚠️ são inconsistentes ou não confirmados — não usar em an�
 
 ---
 
+## Identidade
+
+- **Nascido:** 18/12/1975 — **50 anos** (faz 51 em dez/2026). Categoria masters **+50**.
+- **Altura:** 1.85 m (confirmado pelo atleta)
+
+## Hierarquia de objetivos _(confirmado 2026-08-06)_
+
+1. **Natação é a prioridade.** Objetivo: **campeão nacional masters +50**.
+2. **Composição corporal** serve a natação: 92 kg em março 2027, 89.9 kg em julho 2027.
+3. **CrossFit / Hyrox são por prazer e reforço muscular** — não são objetivo competitivo.
+   Quando houver conflito de carga, cede o CrossFit, nunca a natação.
+
+### Provas alvo
+
+| Data | Prova | Peso alvo |
+| --- | --- | --- |
+| Março 2027 | Campeonatos Nacionais Masters +50 (inverno) | 92 kg |
+| Julho 2027 | Nacionais de verão | 89.9 kg |
+
+⚠️ **Por confirmar:** provas/distâncias exatas e tempos atuais. Sem isso não há plano de natação.
+
 ## Modalidades e calendário
 
 - **CrossFit / Hyrox** — 2ª, 4ª, 6ª
@@ -45,26 +66,45 @@ mas o peso chegou lá com ~3 semanas de atraso.
 Os relatórios importados não têm composição corporal medida — só qualificadores ("Elevada",
 "Pico Inflam.", "2150 kcal (Est.)"). A série a sério começa em 06/08/2026.
 
-## Quadro clínico
+## Quadro clínico — atualizado 2026-08-06
 
 | Condição | Estado | Restrição |
 | --- | --- | --- |
-| **Edema no intervalo dos rotadores** (ombro dto.) | Confirmado por RM em abril 2026. Etodolac + Condroitina | Sem overhead pesado. Natação: **só crawl** — bruços e mariposa proibidos |
-| **Epicondilite lateral** (cotovelo dto.) | Ativa. Causa apontada: grip isométrico + vibração no guiador da trotinete | Pulso neutro, grip relaxado. Sem extensão forçada do pulso com carga |
-| **Contusão no cóccix** | Residual, de quedas de snowboard | Monitorizar posição sentada |
-| **Ansiedade crónica** | Cipralex (escitalopram). Dose oscilada por iniciativa própria entre 20 mg e 10 mg | Dose a estabilizar **com o médico** |
-| **Tinnitus** | Reativo — pico com falta de sono e stress | Usado como indicador de sobrecarga do SNC |
+| **Edema no intervalo dos rotadores** (ombro dto.) | **Melhorado — "faço tudo a 95 %"**. Diagnóstico original por RM abr/2026 | ⚠️ Reavaliar se bruços/mariposa voltam. Sem alta clínica documentada |
+| **Epicondilite lateral** (cotovelo dto.) | Persistente mas tolerável — "uns dias melhores, outros piores". Atleta pediu para **despriorizar** | Pulso neutro na trotinete. Monitorizar, não travar treino |
+| **Contusão no cóccix** | Presumido resolvido — não mencionado desde jun/2026 | — |
+| **Ansiedade crónica** | **Cipralex 10 mg/dia, estável. Sente-se bem.** Sem oscilação de dose | Manter estabilidade — a dose já não é um problema |
+| **Tinnitus** | ⚠️ Estado atual não confirmado. Historicamente reativo a falta de sono e stress | Indicador de sobrecarga do SNC |
 
-## Padrões alimentares identificados
+## Sono — atualizado 2026-08-06
 
-O ciclo central diagnosticado nos relatórios:
+Deita-se às **23h00**, acorda às **06h47** → ~7h45 na cama. Melhoria grande face aos relatórios
+importados (que descrevem deitar à 01h00). Usa o Amazfit Balance a dormir — dados por importar.
 
-- **2ª a 5ª — restrição severa** ("deserto calórico"), jejuns desestruturados
-- **6ª a domingo — compensação** — sushi + vinho à sexta, francesinha ao sábado, cerveja,
-  sódio alto. Fins de semana na Póvoa.
-- **Grazing** de frutos secos (cajus, amêndoas) no escritório, ~16h–18h. Estimativa da fonte:
-  dois punhados ≈ 500 kcal.
-- Resultado: o défice da semana é anulado; o peso oscila por inflamação e retenção hídrica.
+## Padrões alimentares — realidade declarada 2026-08-06
+
+**Inegociáveis** (declarados pelo atleta, a planear _com_ eles, não contra eles):
+
+- **2 garrafas de vinho por semana** — dado como certo
+- **6ª feira:** sushi com vinho branco
+- **Sábado:** francesinha com cerveja
+- **Domingo:** almoço de família
+
+**O que já está a funcionar** (manter, não mexer):
+
+- Evita álcool durante a semana
+- "Gins" falsos — água com gás, gelo e limão. Substituição eficaz.
+- Almoço fácil de controlar
+
+**A confirmar:** ⚠️ a Coca-Cola do almoço é normal ou zero? Se normal, ~1000 kcal/semana
+invisíveis. ⚠️ O grazing de cajus ao fim da tarde cessou?
+
+**Ponto crítico do diagnóstico anterior:** o plano dos relatórios prescrevia ~28 g de hidratos
+por dia (100 g de arroz ao jantar) para 6 sessões semanais. A compensação de fim de semana é a
+resposta previsível a essa restrição, não falta de disciplina. Ver [plano.md](plano.md).
+
+_Nota: "fins de semana na Póvoa" vinha dos relatórios importados — o atleta não reconheceu a
+referência. Provavelmente inferência errada da fonte. Descartado._
 
 ## Suplementação (conforme relatórios)
 

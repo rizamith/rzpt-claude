@@ -85,9 +85,12 @@ rodapé em cada resposta.
 > commita junto com o registo do dia.
 
 O perfil detalhado — PRs, quadro clínico, histórico ponderal, padrões alimentares — está em
-[perfil.md](perfil.md). Lê-o sempre antes de analisar ou recomendar. Resumo:
+[perfil.md](perfil.md). O plano até julho 2027 está em [plano.md](plano.md). Lê ambos antes de
+analisar ou recomendar. Resumo:
 
-- **Objetivo principal:** _(a definir — meta 2027 em discussão)_
+- **Objetivo principal:** campeão nacional masters +50 em **natação**. 92 kg em março 2027,
+  89.9 kg em julho 2027. CrossFit/Hyrox é reforço e prazer — cede sempre à natação.
+- **Idade / altura:** 50 anos (18/12/1975), 1.85 m.
 - **Modalidades:** CrossFit/Hyrox (2ª, 4ª, 6ª) + Natação (3ª, 5ª, sáb), 07h00. Domingo descanso.
 - **Restrições ativas:** edema no intervalo dos rotadores (ombro dto., RM abr/2026) — sem
   overhead pesado, natação só crawl; epicondilite lateral (cotovelo dto.) — pulso neutro.
