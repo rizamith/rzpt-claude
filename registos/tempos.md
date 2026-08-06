@@ -44,3 +44,17 @@ Prova	Piscina	Tempo	Pts.	Data	Cidade (País)	Torneio
 50m Mariposa	25m	33.96M	247	11 Jan 2020	Aguas Santas	XX Torneio Internacional Cidade da ...
 100m Mariposa	25m	1:13.57M	272	11 Jan 2020	Aguas Santas	XX Torneio Internacional Cidade da ...
 400m Estilos	25m	5:32.67M	351	11 Jan 2020	Aguas Santas	XX Torneio Internacional Cidade da ...
+
+Recordes pess.: 
+2013
+Rankings pess.: 
+Seleccionar...
+Todos os resultados: 
+Seleccionar...
+Recordes pess., Época 2013 (50m: 1 Jan - 31 Dez 2013 | 25m: 1 Ago - 31 Jul 2013)	Imprimir recordes pessoais em formato PDF
+Prova	Piscina	Tempo	Pts.	Data	Cidade (País)	Torneio
+50m Livres	25m	25.14M	495	27 Jan 2013	Felgueiras	VII OPEN Inverno de Masters
+100m Livres	25m	55.88M	516	26 Jan 2013	Felgueiras	VII OPEN Inverno de Masters
+50m Bruços	25m	32.09M	470	27 Jan 2013	Felgueiras	VII OPEN Inverno de Masters
+100m Bruços	25m	1:09.87M	495	26 Jan 2013	Felgueiras	VII OPEN Inverno de Masters
+100m Estilos	25m	1:05.12M	433	26 Jan 2013	Felgueiras	VII OPEN Inverno de Masters

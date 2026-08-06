@@ -33,7 +33,9 @@ O mesmo formato serve uma prova e uma série de treino. Uma prova é `reps = 1`.
 local, notas`
 
 - **`piscina_m`** — `25` ou `50`. **Nunca comparar tempos entre piscinas diferentes.**
-- **`contexto`** — `prova` · `treino` (esforço cronometrado isolado) · `serie` (série de repetições)
+- **`contexto`** — `prova` · `treino` (esforço cronometrado isolado) · `serie` (série de
+  repetições) · `parcial` (tempo de passagem / split, ex. o "Lap" do swimrankings — **não é
+  resultado individual**, não conta como recorde pessoal)
 - **`melhor`** — como se lê (`26.18`, `1:17.29`). **`melhor_s`** — o mesmo em segundos decimais
   (`26.18`, `77.29`). A coluna em segundos é a que permite calcular tendências.
 - **`media_s`** — média da série, em segundos. Vazio numa prova.

@@ -158,9 +158,49 @@ Matriz mantida por agora, com a hierarquia corrigida:
 | 3ª, 5ª, sábado | Natação | **Prioridade.** Prova em março |
 | Domingo | Descanso | |
 
-**Isto vai ter de mudar.** Um título nacional masters não se ganha com 3 sessões de "volume
-técnico" por semana — precisa de trabalho estruturado por prova, por ritmo e por viragens. Mas
-não escrevo sessões de natação sem saber as distâncias e os tempos atuais. Ver secção 6.
+**Piscina fechada até 15 de setembro** — Clube Naval Povoense. Treinos 3ª e 5ª às 7h, sábado às
+8h em piscina de 50 m. Até 15/set só CrossFit e Hyrox.
+
+### A prova do título é o 50 Bruços
+
+Decidido com base no histórico completo (ver [perfil.md](perfil.md)):
+
+| Prova (25 m) | Atual | Alvo março 2027 | Falta | Porquê é credível |
+| --- | --- | --- | --- | --- |
+| **50 Bruços** | 32.66 | **31.9–32.0** | 0.66–0.76 s | Fez **32.03 em nov/2024**, aos 48. Não é território novo — é regressar |
+| 50 Livres | 26.18 | **25.6** | 0.58 s | Suficiente para vencer (o +50 ganhou com 25.7) |
+
+O sub-25 nos livres sai do plano de março: exigiria bater aos 51 anos um recorde pessoal feito
+aos 37. Fica como projeto de longo prazo. **Não desenhamos uma época em torno de um número que
+não vai lá** — desenhamos em torno dos 25.6, que dão o título.
+
+**Os 200 saem.** O 200 Estilos vale 370 pontos, o evento mais fraco. Nadar por prazer se o
+horário os puser depois dos 50; treinar para eles, nunca — diluem o trabalho de sprint nas duas
+provas onde há medalha.
+
+### Onde estão as décimas
+
+Não estão na condição física. Num 50 em piscina de 25 m, a partida e a única viragem valem ~30 %
+do tempo total, e é aí que um masters amador deixa rotineiramente 0.5 a 1.0 s:
+
+1. **Partida** — reação, distância de voo, profundidade e timing da saída de bracejada
+2. **Viragem** — aproximação à parede, impulsão, hidrodinâmica
+3. **Pullout do bruços** — a bracejada submersa. Meio segundo que quase ninguém trabalha, e é a
+   prova do título
+4. **−8 kg de arrasto** — real à velocidade de sprint, e vem de graça com o plano nutricional
+5. **Potência** — o caminho mais lento e mais caro. Onde todos se concentram, e o último da lista
+
+### Janela dos 6 sem piscina (agora → 15/set): trabalho seco específico
+
+- **Impulsão de partida** — a partida é um salto em comprimento. Agachamento com salto, saltos
+  horizontais, trap bar. O CrossFit já faz metade disto; é dirigi-lo.
+- **Tornozelo e rotação interna da coxa** — o pontapé de bruços vive da mobilidade do tornozelo.
+  Totalmente treinável em seco, e é onde há tempo escondido.
+- **Manguito rotador e estabilidade escapular** — construir os últimos 5 % do ombro.
+- **Core em posição hidrodinâmica** — hollow holds, dead bugs.
+- Em défice, o CrossFit deixa de ser onde procuras condição e passa a ser onde **protege a massa
+  magra**: manter intensidade e carga, reduzir volume. Menos metcons longos, mais força com
+  descanso a sério.
 
 **Força, em défice, aos 50 anos:** o CrossFit deixa de ser onde procuras condição e passa a ser
 onde protege a massa magra. Isso quer dizer manter intensidade (carga) e reduzir volume, não o
@@ -189,15 +229,15 @@ aparece na balança e **não é gordura**; ignora-se.
 
 ## 6. O que falta para fechar o plano de natação
 
-Estas cinco respostas são o que separa este documento de um plano a sério:
-
-1. **Que provas nos nacionais de março?** Distâncias e estilos.
-2. **Tempos atuais** em cada uma delas.
-3. **Que tempo ganhou o +50 nessas provas no último nacional?** Sem saber o alvo, "ser campeão"
-   não é um objetivo — é um desejo.
-4. **Bruços e mariposa voltaram?** O ombro está a 95 %, mas houve edema com RM. Quem te deu essa
-   margem — médico, fisioterapeuta, ou a tua própria sensação?
-5. **Tens clube, treinador e filiação masters?** E quantas sessões de piscina consegues por semana?
+1. **Os nacionais de março são em piscina de 25 m ou 50 m?** Muda todos os tempos-alvo.
+2. **Que tempo ganhou o 50 Bruços +50** no último nacional? É a prova do título e é o único
+   número que falta para calibrar.
+3. **Há treinador no Clube Naval Povoense** que possa trabalhar partida, viragem e pullout? É aí
+   que estão as décimas — e não é trabalho que se faça sozinho.
+4. **Consegue-se uma 4ª sessão** a partir de 15/set? Para sprint, 4 sessões de qualidade valem
+   mais que 6 de volume.
+5. **Confirmar a margem do ombro** com médico ou fisioterapeuta antes de subir volume de bruços —
+   a prova do título é precisamente o estilo que a RM de abril proibia.
 
 ---
 
