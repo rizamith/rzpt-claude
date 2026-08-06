@@ -33,12 +33,17 @@ marcados com ⚠️ são inconsistentes ou não confirmados — não usar em an�
 | (fim de semana Jun) | 103.2 → 104.8 | Retenção hídrica, não gordura |
 | 26/06/2026 | 101.7 | Resposta a restrição agressiva |
 | 28/06/2026 | 104.8 **e** 102.1 | ⚠️ **conflito na fonte** — a mesma data aparece com dois valores |
+| 05/08/2026 | 100.1 | Via delta da medição do dia seguinte |
+| **06/08/2026** | **100.0** | **Mínimo registado.** Primeira medição com composição corporal — ver [registo](registos/2026-08-06.md) |
 
-Meta que constava dos relatórios: **99.9 kg até 11/07/2026**. Estado desconhecido.
+Meta que constava dos relatórios: **99.9 kg até 11/07/2026**. Resultado da prova desconhecido,
+mas o peso chegou lá com ~3 semanas de atraso.
 
-Sem dados fiáveis de composição corporal: % gordura, massa muscular, água e TMB aparecem como
-"Elevada", "Pico Inflam.", "2150 kcal (Est.)" — qualitativos ou estimados, não medidos.
-**Idade não consta em nenhum relatório.**
+**Altura: 185 cm** (derivada do IMC 29.2 a 100.0 kg em 06/08/2026).
+**Idade: não consta** — os 48 anos na ficha da balança são "idade corporal" estimada, não a real.
+
+Os relatórios importados não têm composição corporal medida — só qualificadores ("Elevada",
+"Pico Inflam.", "2150 kcal (Est.)"). A série a sério começa em 06/08/2026.
 
 ## Quadro clínico
 
