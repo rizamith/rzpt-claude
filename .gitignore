@@ -1,0 +1,13 @@
+# Fotos e ficheiros temporários — as imagens são efémeras, não entram no repositório
+*.jpg
+*.jpeg
+*.png
+*.heic
+*.webp
+/tmp/
+/uploads/
+
+# Ruído de sistema
+Thumbs.db
+desktop.ini
+.DS_Store
