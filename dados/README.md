@@ -65,6 +65,12 @@ O resumo de nível superior. Serve para medir consistência, carga semanal e dor
 - **`origem`** — de onde veio a linha. Vazio = manual. `<ficheiro>.fit` = importado pelo
   `sincronizar.py` (o mais rico: tem FC a 1 Hz e densidade). `zepp:<instante>` = export completo
   da app. Serve para não duplicar e para saber em que confiar.
+- ⚠️ **`sessao N/M` nas notas = fragmento, não treino.** O relógio grava um ficheiro por *modo*:
+  trocar de CrossFit para corrida a meio do treino parte uma sessão em dois ou três `.fit`, e
+  daí saem duas ou três linhas. Quando o Ricardo confirmar que foi tudo seguido, as linhas
+  ficam (cada uma tem a sua FC), levam o mesmo `rpe` e são marcadas `sessao 1/3`, `2/3`, `3/3`.
+  **Ao contar treinos, um grupo `sessao N/M` conta como UM.** Sem isto a consistência semanal
+  fica inflacionada. Ver `CLAUDE.md`.
 - **`rpe`** — esforço percebido, 1–10. É o campo que distingue progressão real de estagnação:
   as mesmas cargas com RPE a descer é progresso; com RPE a subir é fadiga acumulada.
 - **`resultado`** — score do WOD em texto livre (`21-15-9 em 8:42`, `4 rondas + 12`)

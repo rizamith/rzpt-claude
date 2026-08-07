@@ -8,6 +8,7 @@ Uso:
     python ferramentas/fit.py <ficheiro.fit>              resumo legivel
     python ferramentas/fit.py <ficheiro.fit> --csv        linha para dados/treinos.csv
     python ferramentas/fit.py <ficheiro.fit> --minutos    FC media por minuto
+    python ferramentas/fit.py <ficheiro.fit> --voltas     tempo/distancia de cada volta
 
 Porque existe: o separador Esforco da app mostra indices proprietarios sem
 significado externo. O .FIT tem a serie de FC crua a 1 Hz, que e o que permite
@@ -37,6 +38,13 @@ S = {253: 'timestamp', 2: 'start_time', 5: 'sport', 6: 'sub_sport',
      14: 'vel_media', 15: 'vel_max', 16: 'fc_media', 17: 'fc_max',
      24: 'efeito_aerobio_x10', 26: 'n_voltas', 64: 'fc_min',
      65: 'tempo_por_zona_ms', 137: 'efeito_anaerobio_x10'}
+
+# lap (mensagem 19): so os campos de que precisamos e de que temos certeza.
+# Atencao: os numeros NAO sao os mesmos da sessao - aqui 15/16 sao FC media/max,
+# na sessao sao 16/17. A FC de cada volta e recalculada a partir dos records,
+# que e mais fiavel do que confiar no mapa de campos.
+L = {253: 'timestamp', 2: 'start_time', 7: 'elapsed_ms', 9: 'distancia_cm',
+     11: 'kcal', 25: 'sport'}
 
 
 def ts(v):
@@ -134,6 +142,38 @@ def resumo(msgs):
     return out, fc, recs
 
 
+def mmss(seg):
+    """Segundos -> m:ss, que e como se le um tempo de corrida."""
+    return '%d:%02d' % (int(seg) // 60, int(seg) % 60)
+
+
+def voltas(msgs):
+    """Uma entrada por volta (mensagem 19), com FC calculada dos records.
+
+    Existe para o caso em que uma sessao junta coisas diferentes - aquecimento,
+    corrida, WOD. Marcar volta no relogio nao parte a sessao em tres ficheiros,
+    e e aqui que o corte fica legivel.
+    """
+    recs = msgs.get(20, [])
+    out = []
+    for v in msgs.get(19, []):
+        ini, fim = v.get(2), v.get(253)
+        dur = (v.get(7) or 0) / 1000.0
+        dist = (v.get(9) or 0) / 100.0
+        fcs = [r[3] for r in recs
+               if r.get(3) and ini is not None and fim is not None
+               and ini <= r.get(253, -1) <= fim]
+        out.append({
+            'inicio': ts(ini), 'duracao_s': dur, 'distancia_m': dist,
+            'kcal': v.get(11), 'modalidade': SPORT.get(v.get(25)),
+            'fc_media': round(sum(fcs) / len(fcs)) if fcs else None,
+            'fc_max': max(fcs) if fcs else None,
+            # ritmo so faz sentido quando ha distancia a serio
+            'ritmo_s_km': (dur / (dist / 1000.0)) if dist > 100 else None,
+        })
+    return out
+
+
 def main():
     path = sys.argv[1]
     modo = sys.argv[2] if len(sys.argv) > 2 else ''
@@ -160,6 +200,23 @@ def main():
         for i, z in enumerate(r['zonas_ms']):
             if z:
                 print('     Z%d  %5.1f min  %4.1f%%' % (i, z / 60000.0, 100.0 * z / tot))
+
+    vs = voltas(msgs)
+    if vs and (modo == '--voltas' or len(vs) > 1):
+        print('\n  voltas (%d):' % len(vs))
+        for i, v in enumerate(vs, 1):
+            linha = '     %2d  %6s' % (i, mmss(v['duracao_s']))
+            if v['distancia_m']:
+                linha += '  %6.0f m' % v['distancia_m']
+            if v['ritmo_s_km']:
+                linha += '  %s/km' % mmss(v['ritmo_s_km'])
+            if v['fc_media']:
+                linha += '  FC %s/%s' % (v['fc_media'], v['fc_max'])
+            if v['modalidade']:
+                linha += '  %s' % v['modalidade']
+            print(linha)
+    elif modo == '--voltas':
+        print('\n  sem voltas neste ficheiro.')
 
     if modo == '--minutos' and fc:
         t0 = [r_[253] for r_ in recs if r_.get(3)][0]

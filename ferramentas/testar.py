@@ -143,7 +143,14 @@ za = mods.get('zepp_api')
 if za:
     s = za.ler_segredos()
     if not s:
-        mau('%s nao existe ou esta ilegivel' % za.SEGREDOS)
+        # Na nuvem o ficheiro de segredos NAO existe por desenho: as credenciais
+        # vem dos Secrets do GitHub Actions. Marcar isto como falha ensinava a
+        # ignorar o resultado do testar.py no ambiente onde ele mais corre.
+        if os.name == 'nt':
+            mau('%s nao existe ou esta ilegivel' % za.SEGREDOS)
+        else:
+            aviso('sem ficheiro de segredos — normal fora do PC; na nuvem '
+                  'as credenciais vem do ambiente')
     else:
         for campo, obrig in (('email', True), ('password', False),
                              ('app_token', False), ('user_id', False)):

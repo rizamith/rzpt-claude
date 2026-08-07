@@ -36,8 +36,13 @@ tu. Três peças:
 | --- | --- | --- |
 | Repositório | pasta local | clone no sandbox |
 | Google Drive | montado em `G:\My Drive\Zepp` | **não existe** — só pelo conector |
-| Conector Google Drive | disponível | ⚠️ confirmar; pode faltar em sessões headless |
+| Conector Google Drive | disponível | ✅ testado ponta a ponta (2026-08-07) |
 | Python | sim | sim |
+
+O caminho da nuvem **está confirmado**: em 2026-08-07 descarregou-se um `.fit` pelo conector,
+passou-se ao `sincronizar.py --b64` e a linha saiu correta. Ou seja, **a importação diária dos
+treinos não precisa do PC.** Ressalva: o conector é autorizado *por sessão* — se numa sessão não
+existir, diz-mo em vez de dares o dia por perdido; os `.fit` ficam no Drive à espera.
 
 **Nunca assumas o caminho `G:`.** O `ferramentas/sincronizar.py` deteta sozinho: se não houver
 pasta montada, avisa e é preciso seguir o caminho da nuvem.
@@ -80,16 +85,23 @@ python ferramentas/dedup.py                       # sempre a seguir
 ```
 
 O `dedup.py` a seguir **não é opcional**: a mesma sessão chega pelo `.fit` e pelo export, e sem
-ele fica duplicada. A palavra-passe muda a cada export e vem do Ricardo — **nunca a guardes**
-em ficheiro nenhum.
+ele fica duplicada.
 
-### Credenciais
+### Credenciais — são duas coisas diferentes, não as confundas
 
-Nunca no repositório. No PC vivem em `C:\dev\_secrets\zepp_secrets.json` (fora de qualquer
-git, na pasta de segredos do Ricardo); no GitHub Actions vêm dos Secrets. Os scripts preferem
-sempre o ambiente ao ficheiro, para o mesmo código servir os dois.
+| | O que é | Como chega | Regra |
+| --- | --- | --- | --- |
+| **Palavra-passe da conta Zepp** | acesso à conta do Ricardo | ficheiro de segredos | **nunca a peças no chat** |
+| **Palavra-passe do `.zip` do export** | abre um ficheiro, e só esse | pelo chat, do Ricardo | usa-a e esquece-a |
 
-Se precisares de autenticar na Zepp, usa o ficheiro — **não peças a palavra-passe no chat.**
+A da conta nunca entra numa conversa: se precisares de autenticar na Zepp, lê o ficheiro. A do
+export **tem** de vir pelo chat — muda a cada export e não há outro sítio de onde a tirar. O que
+vale para as duas: **nunca as escrevas em ficheiro nenhum**, nem em notas, nem em registos.
+
+O ficheiro de segredos nunca está no repositório. No PC vive em
+`C:\dev\_secrets\zepp_secrets.json` (fora de qualquer git); no GitHub Actions vem dos Secrets.
+Os scripts preferem sempre o ambiente ao ficheiro, para o mesmo código servir os dois. **Na
+nuvem esse ficheiro não existe, e isso é o esperado** — não é avaria.
 
 ### Regras que valem em qualquer ambiente
 
@@ -104,6 +116,8 @@ Se precisares de autenticar na Zepp, usa o ficheiro — **não peças a palavra-
 
 ```text
 CLAUDE.md            este ficheiro — o sistema
+README.md            a mesma app explicada ao Ricardo (não a mim)
+HANDOFF.md           como o projeto nasceu. Histórico, não normativo.
 perfil.md            quem é o atleta: objetivos, PRs, restrições. Muda devagar.
 plano.md             o plano ativo (Ago/2026 → Jul/2027)
 clinico.md           cronologia clínica: lesões, medicação, exames. Append-only.
@@ -120,11 +134,12 @@ dados/               NÚMEROS — séries temporais em CSV, append-only
 └── sono.csv         sono e recuperação (Amazfit Balance)
 
 ferramentas/         scripts, sem dependências externas
+├── README.md        como correr cada um
 ├── sincronizar.py   .fit do Drive → treinos.csv. Correr no início de cada registo.
 ├── zepp_api.py      API da Zepp. ⚠️ Endpoint fechado — ver acima.
 ├── zepp.py          export manual completo → sono, treinos, corpo, atividade
 ├── dedup.py         funde a mesma sessão vinda de fontes diferentes
-├── fit.py           leitor de um .fit isolado, para inspeção
+├── fit.py           leitor de um .fit isolado. `--voltas` mostra os cortes da sessão.
 └── testar.py        verifica o sistema todo. Correr antes de commits grandes.
 
 .github/workflows/
@@ -153,6 +168,27 @@ Em caso de conflito entre um CSV e um registo diário, **o CSV é a verdade.**
 cada coluna. Nunca acrescentes colunas sem me dizer. Campos sem dado ficam vazios: não
 inventas, não interpolas, não estimas.
 
+### Uma sessão, três ficheiros — não contes três treinos
+
+O relógio grava um ficheiro por **modo**, não por sessão. Se ele mudar de CrossFit para corrida
+a meio do treino, saem dois ou três `.fit` do que foi **um** treino seguido, e o
+`sincronizar.py` escreve uma linha por ficheiro — não tem como saber.
+
+Como reconhecer: mesmo dia, ficheiros encadeados no tempo (o seguinte começa por volta da hora
+a que o anterior acabou), modalidades diferentes.
+
+O que fazer:
+
+1. **Pergunta.** «Isto foram três treinos ou um só?» Nunca decidas sozinho.
+2. Se for um só: **mantém as três linhas** — cada uma tem a FC e as calorias do seu bocado, e
+   apagar isso perdia dados. Marca-as em `notas` com `sessao 1/3`, `2/3`, `3/3` e põe o **mesmo
+   `rpe`** nas três, que é o esforço da sessão inteira.
+3. **Nas análises de volume e consistência, `sessao N/M` conta como UM treino.** Sem isto, uma
+   semana de três treinos fragmentados aparece como nove e a consistência fica inflacionada.
+
+A prevenir na origem: marcar **volta** no relógio em vez de trocar de modo mantém tudo num
+ficheiro só. O `fit.py --voltas` lê as voltas e mostra tempo, distância e FC de cada uma.
+
 ### Regra de ouro sobre o histórico
 
 **Nunca alteras nem apagas registos antigos sem eu pedir explicitamente.** Isto vale para os
@@ -180,15 +216,32 @@ escrevem no mesmo repositório, por isso:
 Quando eu enviar uma foto ou descrever um treino:
 
 1. `git pull`.
-2. **Corre `python ferramentas/sincronizar.py`. Sempre, em qualquer conversa, mesmo que ele só
-   diga "bom dia".** A app Zepp sincroniza para o Drive automaticamente, portanto há treinos
-   novos sem ele ter pedido nada. É idempotente — não há risco em correr à toa, e há risco em
-   não correr. Depois vê que linhas ficaram sem `rpe` e **pergunta**.
+2. **Vai buscar os treinos novos. Sempre, em qualquer conversa, mesmo que ele só diga "bom
+   dia".** A app Zepp sincroniza para o Drive sozinha, portanto há treinos novos sem ele ter
+   pedido nada. É idempotente — não há risco em correr à toa, e há risco em não correr.
+
+   Corre `python ferramentas/sincronizar.py`. **O que ele responder decide o resto:**
+
+   - **encontrou a pasta** (PC) → está feito, importou o que faltava;
+   - **«Nenhuma pasta do Drive montada»** (nuvem) → **não pares aqui.** Vai à pasta `Zepp` do
+     `rizamith@gmail.com` pelo conector, compara com a coluna `origem` de `dados/treinos.csv`,
+     e para **cada ficheiro que ainda lá não esteja**:
+     `python ferramentas/sincronizar.py --b64 <NOME.fit> < <ficheiro_com_o_base64>`
+   - **sem conector nesta sessão** → aí sim, diz-lhe que os treinos ficam à espera.
+
+   No fim, vê que linhas ficaram sem `rpe` e **pergunta**. Se saíram várias linhas encadeadas
+   no mesmo dia, vê a regra «Uma sessão, três ficheiros» acima.
 3. Extrai os dados relevantes.
 4. Se algo estiver ambíguo (carga ilegível, número de séries pouco claro, unidade duvidosa),
    **pergunta antes de escrever**. Não inventes nem assumes valores.
-5. **Acrescenta uma linha aos CSV relevantes** em `dados/` — corpo, treinos, natação, força, sono.
-   É este o passo que não se pode falhar: os CSV são a base da análise.
+5. **Acrescenta uma linha aos CSV relevantes** em `dados/`. São **oito**, não cinco — corpo,
+   treinos, natação, força, sono, **nutrição, prontidão** e atividade. É este o passo que não
+   se pode falhar: os CSV são a base da análise.
+
+   Atenção especial a `nutricao.csv`: se ele disse **qualquer coisa** sobre o que comeu, bebeu
+   ou sobre fome, isso é uma linha. É o ficheiro que existe para corrigir o ciclo
+   restrição→compensação, e é o que mais facilmente se esquece porque não vem de nenhum
+   aparelho. Uma linha com dois campos preenchidos vale mais do que nenhuma linha.
 6. Escreve a narrativa e o subjetivo em `registos/YYYY-MM-DD.md` (cria ou acrescenta ao ficheiro
    do dia). **Sem repetir os números que já foram para os CSV.**
 7. `git add` + `git commit` + `git push`. Mensagem: `registo: YYYY-MM-DD — <resumo curto>`.
@@ -203,16 +256,37 @@ não precisas de criar registo diário nenhum se não houve treino nem nada a di
 
 Quando eu pedir uma "análise" ou "revisão":
 
-**Primeiro verifica o modelo em uso.** Se não estiveres em Opus, avisa-me para eu correr
-`/model opus` e **espera** — não começas a análise em Sonnet.
+**Primeiro, o modelo.** Uma análise longa em Sonnet não presta. Mas um modelo não se
+auto-identifica de forma fiável — em sessões web a identidade é retida — por isso **não digas
+que verificaste: pergunta-me.** «Estás em Opus?» antes de começar. Se eu disser que não, espero
+que eu corra `/model opus`.
 
-Depois lê o histórico **completo** de `registos/` e dá-me:
+**A ordem de leitura importa, e é esta:**
+
+1. **`dados/*.csv` primeiro.** É de lá que saem os números — todos. Um CSV, uma tendência.
+2. **`plano.md` e `perfil.md`** — para saber contra que metas se está a comparar.
+3. **`registos/` por fim, e só o que interessa** — os últimos, ou os dos dias que os CSV
+   marcaram como estranhos. Serve para o *porquê*: dormiu mal, viajou, discutiu no trabalho.
+
+⚠️ **Não abras os `registos/` todos para tirar números.** Está tudo nos CSV, e ler duzentos
+ficheiros para reconstruir uma série que já existe é exatamente o que a separação
+números/narrativa existe para evitar. Se um número só existir num registo diário e não no CSV,
+isso é um **defeito a apontar-me**, não um atalho a usar.
+
+Depois dá-me:
 
 - **Progresso** — evolução de cargas, volume, peso corporal, consistência. Números concretos,
   não impressões.
 - **Alertas** — estagnação, sinais de lesão ou overtraining, inconsistências nos dados, lacunas
   de registo.
 - **Recomendações** — o que fazer nas próximas semanas, concreto e acionável.
+
+Escreve o relatório em `analises/YYYY-MM-DD-<assunto>.md` e committa-o. Uma análise que só vive
+no chat perde-se, e a próxima não tem com que se comparar.
+
+**Lacunas contam.** Se passaram dias sem pesagem ou sem RPE, diz o número de dias em falta em
+vez de analisares só o que existe — um mês com nove pesagens não sustenta as mesmas conclusões
+que um mês com trinta.
 
 ### 3. Tom
 
@@ -227,8 +301,10 @@ rodapé em cada resposta.
 
 ## O que sabes sobre mim
 
-> Mantém esta secção atualizada à medida que eu for dizendo coisas. Quando alterares algo aqui,
-> commita junto com o registo do dia.
+> **Onde escrever o que eu for dizendo:** o detalhe vai para o `perfil.md` — é lá que vive o
+> perfil, não aqui. Esta secção é só o resumo que tem de estar sempre carregado, e só se mexe
+> quando muda algo estrutural (um objetivo, uma restrição, uma modalidade). Facto clínico novo
+> → `clinico.md`. Em qualquer dos casos, commita junto com o registo do dia.
 
 O perfil detalhado — PRs, quadro clínico, histórico ponderal, padrões alimentares — está em
 [perfil.md](perfil.md). O plano até julho 2027 está em [plano.md](plano.md). Lê ambos antes de

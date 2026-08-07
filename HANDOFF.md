@@ -3,6 +3,10 @@
 Notas de arranque, para não se perder o contexto da sessão em que isto foi montado.
 Não é preciso ler para usar o projeto — para isso basta o [README.md](README.md).
 
+> ⚠️ **Documento histórico, congelado em 2026-08-06.** Descreve o que se decidiu nesse dia e
+> porquê; **não descreve o sistema em vigor.** Onde isto e o `CLAUDE.md` divergirem, manda o
+> `CLAUDE.md`. Não se atualiza este ficheiro — o que mudou desde então está na secção final.
+
 ## A decisão
 
 A ideia inicial era um **bot de Telegram** que recebesse fotos e descrições de treino
@@ -47,7 +51,7 @@ perfil pessoal, versionado em git para haver histórico de como evoluiu.
 - **Autenticação por Git Credential Manager** (já vinha com o Git), configurado só neste repo
   (`credential.helper = manager`, local). Não há PAT nem `gh` instalado, e não é preciso.
 
-## Estado
+## Estado em 2026-08-06 (dia do arranque)
 
 - Estrutura criada, `CLAUDE.md` escrito, primeiro commit feito, remote ligado e push feito.
 - O perfil ("o que sabes sobre mim") está todo a `_(a definir)_` — preenche-se na conversa.
@@ -55,3 +59,21 @@ perfil pessoal, versionado em git para haver histórico de como evoluiu.
 
 **Próximo passo:** primeiro registo a sério — descrever um treino ou enviar foto da balança,
 e confirmar que o ciclo extrair → escrever → commit → push funciona ponta a ponta.
+
+## O que mudou desde então
+
+Registado aqui para quem ler o handoff não ficar com a ideia errada. **Nada disto altera as
+notas acima — altera é o que delas continua verdade.**
+
+- **O perfil saiu deste ficheiro para o `perfil.md`.** A nota "perfil dentro do `CLAUDE.md`,
+  não em ficheiro à parte" descreve a decisão de 6 de agosto e **já não é o desenho atual**: o
+  `CLAUDE.md` ficou com um resumo curto e o detalhe (PRs, histórico ponderal, quadro clínico)
+  vive em `perfil.md`, `clinico.md` e `plano.md`. O motivo original — garantir que é sempre
+  carregado — resolve-se com o resumo.
+- **O perfil já não está a `_(a definir)_`** e `registos/` já não tem só o template.
+- **Nasceram os dados a sério:** `dados/` com oito CSV, incluindo a série de atividade desde
+  2020 vinda do export completo da Zepp.
+- **A via da API da Zepp morreu** (HTTP 429 permanente). O sono passou a entrar por export
+  manual e o workflow agendado foi desligado.
+- **O ciclo completo funciona nos dois ambientes.** Em 2026-08-07 confirmou-se que o conector
+  do Google Drive traz os `.fit` na nuvem, portanto o registo diário não depende do PC.

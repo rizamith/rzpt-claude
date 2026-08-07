@@ -148,16 +148,19 @@ declarado — todo o registo diário, que é 95 % do uso.
 
 | | Porquê | Com que frequência |
 | --- | --- | --- |
-| Importar os `.fit` do Drive | Na nuvem não há disco `G:` montado. Há alternativa pelo conector do Drive (`sincronizar.py --b64`), **por confirmar** | Diária, se a alternativa não funcionar |
 | Importar o export da Zepp | O `.zip` é cifrado com AES e precisa do 7-Zip | Mensal — dá para acumular |
 | Análises longas | Leitura de todo o histórico, melhor em Opus e em ecrã grande | Mensal |
 
-**A verificar na primeira sessão pelo telemóvel**, e vale a pena dizer-me o que acontece:
+**Os treinos já não precisam.** Em 2026-08-07 testou-se o caminho da nuvem ponta a ponta:
+descarregou-se um `.fit` pelo conector do Google Drive e o `sincronizar.py --b64` produziu a
+linha correta. O registo diário completo — incluindo os treinos do relógio — faz-se do
+telemóvel. Ressalva: o conector é autorizado por sessão; se numa sessão não estiver lá, eu
+digo-te, e os `.fit` ficam no Drive à espera da seguinte.
+
+**Ainda por confirmar na primeira sessão pelo telemóvel** — diz-me o que acontece:
 
 - A sessão faz `commit` directo no `main` ou abre um *pull request*? Se abrir PR, é atrito
   diário e vale a pena mudar.
-- O conector do Google Drive está disponível? Se sim, a importação dos treinos deixa de precisar
-  do PC.
 
 ---
 
@@ -176,6 +179,7 @@ dados/           NÚMEROS — CSV, append-only
 registos/        NARRATIVA — um .md por dia
 ferramentas/     scripts, sem dependências externas
 analises/        relatórios de análise
+HANDOFF.md       como o projeto nasceu. Histórico — o sistema em vigor é o CLAUDE.md
 ```
 
 **A regra que manda em tudo:** números vão para `dados/*.csv`, narrativa vai para
