@@ -104,6 +104,7 @@ Se precisares de autenticar na Zepp, usa o ficheiro — **não peças a palavra-
 
 ```text
 CLAUDE.md            este ficheiro — o sistema
+pendentes.md         perguntas em aberto. LER NO INÍCIO DE CADA SESSÃO.
 perfil.md            quem é o atleta: objetivos, PRs, restrições. Muda devagar.
 plano.md             o plano ativo (Ago/2026 → Jul/2027)
 clinico.md           cronologia clínica: lesões, medicação, exames. Append-only.
@@ -166,10 +167,15 @@ O registo diário faz-se pela app do Claude Code no Android; as análises fazem-
 escrevem no mesmo repositório, por isso:
 
 1. **No início de cada sessão: `git pull`.** Sem exceção.
-2. **No fim de cada registo: `commit` + `push`.** Não deixes trabalho por committar — a próxima
+2. **Lê o `pendentes.md`.** As conversas **não** viajam entre dispositivos — o histórico desta
+   conversa não existe na próxima sessão. O repositório é a única memória, e o `pendentes.md` é
+   onde ficam as perguntas em aberto. Sem ele, cada sessão nova volta a perguntar o mesmo.
+3. **No fim de cada registo: `commit` + `push`.** Não deixes trabalho por committar — a próxima
    sessão pode ser noutro dispositivo.
-3. Se houver conflito, **paras e perguntas**. Não resolves um conflito em dados de saúde por
+4. Se houver conflito, **paras e perguntas**. Não resolves um conflito em dados de saúde por
    iniciativa própria.
+5. **Nada de importante fica só na conversa.** Se decidem algo, escreve-o no ficheiro que lhe
+   corresponde antes de acabar a sessão.
 
 ---
 

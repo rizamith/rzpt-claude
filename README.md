@@ -133,6 +133,19 @@ automatização as substitui.
 Os dois escrevem no mesmo repositório do GitHub, que é o estado partilhado. Regra em qualquer
 um: **`pull` no início, `push` no fim.**
 
+### ⚠️ As conversas não viajam
+
+O histórico de uma conversa fica no dispositivo onde aconteceu. Uma sessão nova no telemóvel
+**não sabe** o que se disse no PC.
+
+**O que viaja é o repositório.** É por isso que tudo o que importa está escrito em ficheiros:
+o `CLAUDE.md` diz como trabalhar, o `perfil.md` e o `plano.md` dizem o contexto, os CSV têm os
+dados, e o [pendentes.md](pendentes.md) tem as perguntas em aberto. Qualquer sessão nova lê isso
+e sabe o mesmo.
+
+Consequência prática: **não deixes decisões só ditas.** Se combinarmos algo, eu escrevo-o num
+ficheiro antes de acabar — senão desaparece.
+
 ### Arrancar no telemóvel
 
 1. Instalar a app do **Claude** no Android (ou abrir `claude.ai/code` no browser).
@@ -167,6 +180,7 @@ Detalhe completo em [CLAUDE.md](CLAUDE.md) e no contrato de colunas em
 [dados/README.md](dados/README.md).
 
 ```text
+pendentes.md     perguntas em aberto — o que transporta contexto entre sessões
 perfil.md        quem é o atleta: objetivos, PRs, restrições
 plano.md         o plano até julho 2027
 clinico.md       cronologia clínica
