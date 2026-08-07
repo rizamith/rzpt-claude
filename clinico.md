@@ -17,6 +17,19 @@ Só se acrescenta — nada se apaga. O estado atual resumido vive em [perfil.md]
 - **Termogénico:** decisão de cessar após terminar a embalagem em curso.
 - **Sono:** 23h00 → 06h47.
 
+## 2025-07 a 2026-07 — Período de ganho de peso, com causa identificada
+
+**Mudança de emprego em julho de 2025.** O atleta identifica esta janela como aquela em que
+"engordou muito". Mapeia exactamente sobre a queda de performance registada em
+[dados/natacao.csv](dados/natacao.csv): pico de 472 pontos FINA em nov/2024 → 446 em 2026.
+
+## 2025-01 — Início do Cipralex (escitalopram)
+
+⚠️ Contexto relevante para a gestão de peso: o escitalopram está associado a ganho ponderal
+modesto. **Não é razão para alterar a medicação** — está estável em 10 mg, funciona, e o atleta
+sente-se bem. É razão para o défice ser deliberado e planeado em vez de deixado à vontade.
+Duas causas sobrepostas na mesma janela: mudança de emprego e início da medicação.
+
 ## 2026-04 — RM do ombro direito
 
 Edema no intervalo dos rotadores. Prescrição: Etodolac + Condroitina.

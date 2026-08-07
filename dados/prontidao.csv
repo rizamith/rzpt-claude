@@ -5,4 +5,4 @@ data,carga_pct,fadiga,condicao_fisica,estado_treino,fonte,notas
 2026-08-04,,34,30,-4,balance,
 2026-08-05,,38,34,-4,balance,
 2026-08-06,,42,36,-6,balance,Pico de fadiga da semana sem treino que o justifique
-2026-08-07,2,36,32,-4,balance,Carga 1/50. Sugestao do relogio: zona 111-144 bpm 39 min
+2026-08-07,2,36,32,-4,balance,"Carga 1/50. ATENCAO: contradiz o volume real (6 sessoes/semana, 495 min). O algoritmo de carga nao le 'treino cruzado' e a FC otica falha em levantamentos. Interpretar estado_treino com muita cautela"

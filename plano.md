@@ -59,6 +59,19 @@ Para perder **0.25 kg/semana** preciso de um défice de ~2000 kcal/semana — ou
 | Domingo | Descanso + **almoço de família** | 2500 |
 | **Semana** | | **18 200** → −0.25 kg |
 
+### Volume real de treino, verificado 2026-08-07
+
+Os dados do Amazfit de 1 a 7 de agosto: **6 sessões, 495 minutos, ~2100 kcal de treino.**
+O volume está lá e não é preciso acrescentar nada.
+
+O "estado de treino" negativo do relógio **não é destreino** — o algoritmo de carga não lê
+"treino cruzado" e a FC ótica do pulso falha em levantamentos. Confirma-se pelos dados: 59
+minutos com FC média de 78 bpm não é uma medição credível de uma sessão de CrossFit.
+
+**Consequência: o gasto de ~2700 kcal/dia mantém-se, e o alvo de 2150 kcal nos dias de semana
+não muda.** O RPE em `dados/treinos.csv` passa a ser a única medida fiável de intensidade —
+o relógio não serve para isso.
+
 ### ⚠️ Revisão para Agosto → 15 de setembro: a piscina está fechada
 
 Sem natação, são **3 sessões por semana e não 6**. O gasto diário cai para **~2700 kcal**

@@ -126,15 +126,40 @@ Toda a calibração passa a ser em 50 m — os tempos de 25 m servem de indicado
 | 100 Livres | **59.07** | jul/2024 (48 a) | ~59 (estimado pelo atleta) | sub-59 |
 | 100 Bruços | **1:16.45** | jul/2023 (47 a) | 1:17.29 | sub-1:16 |
 
-⚠️ **Tempo vencedor do 50 Bruços +50: 31.90** — mas **falta saber em que piscina**. O diferencial
-do atleta entre 25 m e 50 m nos 50 Bruços é de **1.61 s** (32.03 vs 33.64), por isso a resposta
-muda completamente o tamanho do desafio:
+### A concorrência no 50 Bruços — resolvido 2026-08-07
 
-- Se 31.90 foi em **25 m** → está a 0.13 s do melhor de sempre dele. Alcançável.
-- Se 31.90 foi em **50 m** → está a 1.74 s do melhor de sempre dele. Muito difícil.
+**31.90 foi feito em piscina de 50 m, nos nacionais de verão de 2026, pelo recordista nacional
+e campeão.** O Ricardo não nadou essa prova; estima que faria ~33.6.
 
-⚠️ **Sem tempo de 50 Bruços em piscina de 50 m desde junho/2025.** É a prova do título e não há
+**O diferencial é de 1.7 s.** Isto obriga a separar dois objetivos que estavam a ser tratados
+como um:
+
+| Objetivo | Realista? |
+| --- | --- |
+| **Recorde pessoal em piscina de 50 m** (50 B abaixo de 33.6, 50 L abaixo de 26.60) | **Sim.** É isto que o plano de peso entrega |
+| **Bater 31.90 e ser campeão nacional** | Exige −1.7 s sobre o melhor de sempre. Peso nenhum dá isso — depende da técnica, e é um objetivo de vários anos |
+
+⚠️ **Por confirmar:** o recordista dos 31.90 está na mesma faixa etária (50–54)? Vai competir em
+março? Em masters a composição do pódio muda de ano para ano, e isso altera a leitura.
+
+⚠️ **Sem tempo de 50 Bruços em piscina de 50 m desde junho/2025.** É a prova alvo e não há
 referência recente. Precisa de uma prova de aferição antes de março.
+
+### Relação peso ↔ tempo nos dados dele
+
+| Data | Peso | 50 Livres (50 m) |
+| --- | --- | --- |
+| jan/2024 | ~97 kg | **26.60** |
+| jul/2026 | 100.1 kg | 27.36 |
+
++3.1 kg ↔ +0.76 s, ou seja **~0.25 s por quilo**.
+
+⚠️ **Não extrapolar.** São dois pontos, e a janela contém mais do que peso: +2.5 anos de idade,
+a lesão do ombro, a mudança de emprego e o início do Cipralex. A 92 kg a fórmula daria 25.4 s —
+melhor que o melhor de sempre em piscina longa, o que mostra que a relação não é linear.
+
+**O que se pode afirmar:** voltar aos ~97 kg deve devolver-lhe os ~26.6. Abaixo disso é
+território onde nunca competiu, e provavelmente rápido — mas sem número prometido.
 
 Provas que nada: 50 e 100 Livres, 50 e 100 Bruços. 200 L / 200 B só "se tiver margem" —
 **não recomendado**: 200 Estilos 2026 vale 370 pts, o evento mais fraco.
