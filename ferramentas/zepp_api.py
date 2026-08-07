@@ -289,37 +289,76 @@ def converter(registos):
     return sono, atividade
 
 
+# No PC as credenciais vivem num ficheiro fora de qualquer repositorio git;
+# no GitHub Actions vem do ambiente. O ficheiro nunca e committado.
+SEGREDOS = os.environ.get('ZEPP_SECRETS', r'C:\dev\_secrets\zepp_secrets.json')
+
+
+def ler_segredos():
+    if not os.path.exists(SEGREDOS):
+        return {}
+    try:
+        with open(SEGREDOS, encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        print('Aviso: %s ilegivel (%s). A usar so o ambiente.' % (SEGREDOS, e))
+        return {}
+
+
+def gravar_segredos(**campos):
+    """Actualiza campos no ficheiro sem tocar nos restantes."""
+    d = ler_segredos()
+    d.update(campos)
+    with open(SEGREDOS, 'w', encoding='utf-8') as f:
+        json.dump(d, f, indent=2, ensure_ascii=False)
+        f.write('\n')
+    print('Guardado em %s' % SEGREDOS)
+
+
+def credenciais():
+    """(email, palavra) do ambiente ou do ficheiro de segredos."""
+    s = ler_segredos()
+    email = (os.environ.get('ZEPP_EMAIL') or s.get('email') or '').strip()
+    palavra = (os.environ.get('ZEPP_PASSWORD') or s.get('password') or '').strip()
+    return email, palavra
+
+
 def obter_token():
     """Resolve as credenciais para (app_token, user_id, hosts).
 
     Prefere o token guardado: o endpoint de autenticacao e o unico limitado por
-    numero de pedidos, e o app_token dura semanas. Autenticar uma vez a partir
-    do PC e guardar o token evita o 429 por completo — e tem a vantagem de a
+    numero de pedidos, e o app_token dura semanas. Autenticar uma vez e guardar
+    o token evita o 429 por completo — e no Actions tem a vantagem de a
     palavra-passe nunca chegar a existir na nuvem.
     """
-    token = (os.environ.get('ZEPP_APP_TOKEN') or '').strip()
-    uid = (os.environ.get('ZEPP_USER_ID') or '').strip()
+    s = ler_segredos()
+    token = (os.environ.get('ZEPP_APP_TOKEN') or s.get('app_token') or '').strip()
+    uid = str(os.environ.get('ZEPP_USER_ID') or s.get('user_id') or '').strip()
     if token and uid:
         print('A usar o app_token guardado (sem autenticacao, sem risco de 429).')
         return token, uid, HOSTS
 
-    email = (os.environ.get('ZEPP_EMAIL') or '').strip()
-    palavra = (os.environ.get('ZEPP_PASSWORD') or '').strip()
+    email, palavra = credenciais()
     if not email or not palavra:
-        raise SystemExit('Sem ZEPP_APP_TOKEN + ZEPP_USER_ID nem ZEPP_EMAIL + ZEPP_PASSWORD.')
-    print('Sem app_token guardado. A autenticar com email e palavra-passe '
+        raise SystemExit(
+            'Sem app_token e sem palavra-passe.\n'
+            'No PC: preencher "password" em %s\n'
+            'No Actions: definir os Secrets ZEPP_APP_TOKEN e ZEPP_USER_ID.' % SEGREDOS)
+    print('Sem app_token. A autenticar com email e palavra-passe '
           '(%d e %d caracteres).' % (len(email), len(palavra)))
     return autenticar(email, palavra)
 
 
 def main():
     if '--token' in sys.argv:
-        # Correr no PC, uma vez. Imprime o que ha para colar nos GitHub Secrets.
-        email = (os.environ.get('ZEPP_EMAIL') or '').strip()
-        palavra = (os.environ.get('ZEPP_PASSWORD') or '').strip()
+        # Correr no PC, uma vez. Guarda o token no ficheiro de segredos e
+        # imprime o que ha para colar nos GitHub Secrets.
+        email, palavra = credenciais()
         if not email or not palavra:
-            raise SystemExit('Define ZEPP_EMAIL e ZEPP_PASSWORD no ambiente.')
+            raise SystemExit('Preenche "password" em %s' % SEGREDOS)
         token, uid, hosts = autenticar(email, palavra)
+        gravar_segredos(app_token=token, user_id=str(uid),
+                        obtido_em=datetime.date.today().isoformat())
         print('\n' + '=' * 66)
         print('Guardar como GitHub Secrets (Settings -> Secrets -> Actions):')
         print('=' * 66)
@@ -334,8 +373,9 @@ def main():
 
 
     if '--passo1' in sys.argv:      # teste rapido, so a autenticacao
-        email = (os.environ.get('ZEPP_EMAIL') or '').strip()
-        palavra = (os.environ.get('ZEPP_PASSWORD') or '').strip()
+        email, palavra = credenciais()
+        if not email or not palavra:
+            raise SystemExit('Preenche "password" em %s' % SEGREDOS)
         passo1(email, palavra)
         print('Passo 1 ok.')
         return

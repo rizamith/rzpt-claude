@@ -93,3 +93,33 @@ existem nos CSV.
 
 **As credenciais nunca vivem no repositório** — só em GitHub Secrets, `ZEPP_EMAIL` e
 `ZEPP_PASSWORD`.
+
+## `testar.py` — verificação do sistema todo
+
+```
+python ferramentas/testar.py           tudo menos rede, não escreve nada
+python ferramentas/testar.py --rede    inclui os testes que tocam na Zepp
+```
+
+Verifica: módulos carregam · CSV bem formados (colunas e datas) · sem duplicados ·
+pesos plausíveis · natação sempre com piscina · leitor de FIT contra ficheiros reais ·
+credenciais presentes.
+
+**Sem `--rede` não faz um único pedido à internet.** É deliberado: cada tentativa de
+autenticação conta para o limite de pedidos da Zepp e o bloqueio dura dezenas de minutos.
+Correr à vontade; só usar `--rede` quando se quer mesmo testar a API.
+
+Apanhou logo à primeira uma linha de `natacao.csv` com vírgula não citada na nota, que partia
+a contagem de colunas — é para isso que serve.
+
+## Credenciais: `C:\dev\_secrets\zepp_secrets.json`
+
+Fora de qualquer repositório git, na mesma pasta dos outros segredos do Ricardo.
+
+```json
+{ "email": "...", "password": "...", "app_token": "", "user_id": "", "obtido_em": "" }
+```
+
+Basta preencher `password`. O `app_token` e o `user_id` são escritos automaticamente por
+`python ferramentas/zepp_api.py --token`, e é isso que depois se cola nos GitHub Secrets.
+Os scripts preferem sempre o ambiente ao ficheiro, para o Actions funcionar sem alterações.

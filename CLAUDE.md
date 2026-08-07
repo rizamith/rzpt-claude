@@ -77,6 +77,14 @@ O `dedup.py` a seguir **não é opcional**: a mesma sessão chega pelo `.fit` e 
 ele fica duplicada. A palavra-passe muda a cada export e vem do Ricardo — **nunca a guardes**
 em ficheiro nenhum.
 
+### Credenciais
+
+Nunca no repositório. No PC vivem em `C:\dev\_secrets\zepp_secrets.json` (fora de qualquer
+git, na pasta de segredos do Ricardo); no GitHub Actions vêm dos Secrets. Os scripts preferem
+sempre o ambiente ao ficheiro, para o mesmo código servir os dois.
+
+Se precisares de autenticar na Zepp, usa o ficheiro — **não peças a palavra-passe no chat.**
+
 ### Regras que valem em qualquer ambiente
 
 - Este repositório **é** a base de dados.
@@ -109,7 +117,8 @@ ferramentas/         scripts, sem dependências externas
 ├── zepp_api.py      API da Zepp → sono e atividade. Corre no GitHub Actions.
 ├── zepp.py          export manual completo → sono, treinos, corpo, atividade
 ├── dedup.py         funde a mesma sessão vinda de fontes diferentes
-└── fit.py           leitor de um .fit isolado, para inspeção
+├── fit.py           leitor de um .fit isolado, para inspeção
+└── testar.py        verifica o sistema todo. Correr antes de commits grandes.
 
 .github/workflows/
 └── sincronizar-zepp.yml   diário, 08h20 UTC. Traz o sono e faz commit sozinho.
