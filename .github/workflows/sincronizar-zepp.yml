@@ -29,19 +29,30 @@ jobs:
   sincronizar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
+      # Sem setup-python e sem `pip install`: o runner ja traz Python 3 e os
+      # scripts usam so a biblioteca padrao.
+      - name: Ambiente
+        run: python3 --version
 
-      # Sem `pip install`: os scripts usam so a biblioteca padrao.
+      - name: Verificar que os Secrets existem
+        env:
+          ZEPP_EMAIL: ${{ secrets.ZEPP_EMAIL }}
+          ZEPP_PASSWORD: ${{ secrets.ZEPP_PASSWORD }}
+        run: |
+          # Confirma que os Secrets estao definidos sem revelar o conteudo.
+          if [ -z "$ZEPP_EMAIL" ];    then echo "FALTA o Secret ZEPP_EMAIL";    fi
+          if [ -z "$ZEPP_PASSWORD" ]; then echo "FALTA o Secret ZEPP_PASSWORD"; fi
+          echo "ZEPP_EMAIL:    ${#ZEPP_EMAIL} caracteres"
+          echo "ZEPP_PASSWORD: ${#ZEPP_PASSWORD} caracteres"
+
       - name: Buscar dados da Zepp
         env:
           ZEPP_EMAIL: ${{ secrets.ZEPP_EMAIL }}
           ZEPP_PASSWORD: ${{ secrets.ZEPP_PASSWORD }}
         run: |
-          python ferramentas/zepp_api.py \
+          python3 ferramentas/zepp_api.py \
             --dias "${{ github.event.inputs.dias || '7' }}" \
             --importar --diag
 

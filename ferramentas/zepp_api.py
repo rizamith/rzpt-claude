@@ -79,54 +79,94 @@ def _get(url, headers=None):
         return e.code, e.read().decode('utf-8', 'replace')
 
 
+# A Zepp/Huami tem variantes por regiao e por versao da app. Em vez de gastar
+# uma ronda de depuracao por cada uma, tentam-se todas e reporta-se o que cada
+# uma respondeu.
+THIRD_NAMES = ['huami', 'email', 'huami_phone']
+HOSTS = ['api-mifit-de.huami.com', 'api-mifit-de2.huami.com',
+         'api-mifit-us2.huami.com', 'api-mifit.huami.com']
+
+
 def autenticar(email, palavra):
-    # 1. codigo de acesso
+    # --- passo 1: trocar email+palavra por um codigo de acesso -------------
     url = 'https://api-user.huami.com/registrations/%s/tokens' % urllib.parse.quote(email, safe='')
     status, headers, corpo = _post(url, {
         'client_id': 'HuaMi', 'password': palavra, 'redirect_uri': REDIRECT,
         'token': 'access'}, seguir=False)
     loc = headers.get('Location', '')
-    if DIAG:
-        print('[diag] passo 1: HTTP %s  Location=%s' % (status, loc[:120] or '(vazia)'))
+    print('[passo 1] HTTP %s  Location: %s' % (status, loc[:160] or '(nenhuma)'))
     if 'access=' not in loc:
-        raise SystemExit('Passo 1 falhou (HTTP %s). Email ou palavra-passe errados, '
-                         'ou a Zepp mudou o endpoint.\nResposta: %s' % (status, corpo[:300]))
+        print('[passo 1] corpo da resposta:\n%s' % corpo[:1500])
+        raise SystemExit(
+            'PASSO 1 FALHOU. Causas provaveis, por ordem:\n'
+            '  1. Email ou palavra-passe errados nos Secrets.\n'
+            '  2. A conta Zepp foi criada com "iniciar sessao com Google/Apple" e nao\n'
+            '     tem palavra-passe propria. Definir uma na app resolve.\n'
+            '  3. A conta usa numero de telefone em vez de email.\n'
+            '  4. A Zepp mudou o endpoint.\n'
+            'A Location acima e o corpo dizem qual e.')
     q = urllib.parse.parse_qs(urllib.parse.urlparse(loc).query)
     codigo = q['access'][0]
     pais = (q.get('country_code') or ['PT'])[0]
+    print('[passo 1] ok. codigo obtido, country_code=%s' % pais)
 
-    # 2. login
-    status, _, corpo = _post('https://account.huami.com/v2/client/login', {
-        'app_name': 'com.xiaomi.hm.health', 'app_version': '4.6.0', 'code': codigo,
-        'country_code': pais, 'device_id': '02:00:00:00:00:00', 'device_model': 'phone',
-        'grant_type': 'access_token', 'third_name': 'huami', 'allow_registration': 'false',
-        'dn': 'account.huami.com,api-user.huami.com,api-mifit.huami.com',
-        'source': 'com.xiaomi.hm.health', 'lang': 'pt'})
-    dados = json.loads(corpo)
-    if DIAG:
-        seguro = {k: v for k, v in dados.items() if k != 'token_info'}
-        print('[diag] passo 2: HTTP %s  %s' % (status, json.dumps(seguro)[:300]))
-    ti = dados.get('token_info')
-    if not ti or not ti.get('app_token'):
-        raise SystemExit('Passo 2 falhou (HTTP %s): %s' % (status, corpo[:400]))
-    host = ti.get('region') or 'api-mifit-de.huami.com'
-    if not host.startswith('api-'):
-        host = 'api-mifit-%s.huami.com' % host
-    print('Autenticado. utilizador=%s  regiao=%s' % (ti['user_id'], host))
-    return ti['app_token'], ti['user_id'], host
+    # --- passo 2: trocar o codigo por app_token ---------------------------
+    erros = []
+    for tn in THIRD_NAMES:
+        status, _, corpo = _post('https://account.huami.com/v2/client/login', {
+            'app_name': 'com.xiaomi.hm.health', 'app_version': '4.6.0', 'code': codigo,
+            'country_code': pais, 'device_id': '02:00:00:00:00:00', 'device_model': 'phone',
+            'grant_type': 'access_token', 'third_name': tn, 'allow_registration': 'false',
+            'dn': 'account.huami.com,api-user.huami.com,api-mifit.huami.com',
+            'source': 'com.xiaomi.hm.health', 'lang': 'pt'})
+        try:
+            dados = json.loads(corpo)
+        except ValueError:
+            erros.append('third_name=%s -> HTTP %s, resposta nao e JSON: %s' % (tn, status, corpo[:200]))
+            continue
+        ti = dados.get('token_info') or {}
+        if ti.get('app_token'):
+            print('[passo 2] ok com third_name=%s. utilizador=%s' % (tn, ti['user_id']))
+            regiao = ti.get('region') or ''
+            hosts = HOSTS[:]
+            if regiao:
+                h = regiao if regiao.startswith('api-') else 'api-mifit-%s.huami.com' % regiao
+                hosts = [h] + [x for x in hosts if x != h]
+            return ti['app_token'], ti['user_id'], hosts
+        erros.append('third_name=%s -> HTTP %s, code=%s, msg=%s' % (
+            tn, status, dados.get('code'), dados.get('message') or dados.get('error_code')))
+    print('[passo 2] todas as variantes falharam:')
+    for e in erros:
+        print('   ' + e)
+    raise SystemExit('PASSO 2 FALHOU. O codigo do passo 1 foi obtido, portanto as credenciais '
+                     'estao certas — o problema esta no login. As mensagens acima dizem qual.')
 
 
-def buscar(app_token, uid, host, de, ate):
-    url = ('https://%s/v1/data/band_data.json?query_type=summary&device_type=android_phone'
-           '&userid=%s&from_date=%s&to_date=%s' % (host, uid, de, ate))
-    status, corpo = _get(url, {'apptoken': app_token})
-    d = json.loads(corpo)
-    if DIAG:
-        print('[diag] band_data: HTTP %s  code=%s  n=%d' % (
-            status, d.get('code'), len(d.get('data') or [])))
-    if not d.get('data'):
-        raise SystemExit('band_data sem dados (HTTP %s): %s' % (status, corpo[:400]))
-    return d['data']
+def buscar(app_token, uid, hosts, de, ate):
+    erros = []
+    for host in hosts:
+        url = ('https://%s/v1/data/band_data.json?query_type=summary'
+               '&device_type=android_phone&userid=%s&from_date=%s&to_date=%s'
+               % (host, uid, de, ate))
+        status, corpo = _get(url, {'apptoken': app_token})
+        try:
+            d = json.loads(corpo)
+        except ValueError:
+            erros.append('%s -> HTTP %s, nao e JSON: %s' % (host, status, corpo[:200]))
+            continue
+        n = len(d.get('data') or [])
+        print('[passo 3] %s -> HTTP %s, code=%s, %d dia(s)' % (host, status, d.get('code'), n))
+        if n:
+            if DIAG:
+                print('[diag] chaves do primeiro dia: %s' % sorted(d['data'][0].keys()))
+                print('[diag] summary em bruto: %s' % str(d['data'][0].get('summary'))[:600])
+            return d['data']
+        erros.append('%s -> HTTP %s, sem dados: %s' % (host, status, corpo[:300]))
+    print('[passo 3] nenhum host devolveu dados:')
+    for e in erros:
+        print('   ' + e)
+    raise SystemExit('PASSO 3 FALHOU. Autenticacao ok mas nenhum host regional devolveu dados. '
+                     'Pode ser regiao errada ou o intervalo de datas nao ter nada.')
 
 
 def fc_do_dia(b64):
@@ -193,8 +233,8 @@ def main():
     hoje = datetime.date.today()
     de, ate = hoje - datetime.timedelta(days=dias), hoje
 
-    app_token, uid, host = autenticar(email, palavra)
-    registos = buscar(app_token, uid, host, de.isoformat(), ate.isoformat())
+    app_token, uid, hosts = autenticar(email, palavra)
+    registos = buscar(app_token, uid, hosts, de.isoformat(), ate.isoformat())
     sono, atividade = converter(registos)
     print('%s a %s: %d dia(s) devolvidos, %d com sono, %d com passos' % (
         de, ate, len(registos), len(sono), len(atividade)))
