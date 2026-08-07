@@ -7,13 +7,77 @@ Respondes sempre em **português de Portugal**.
 
 ---
 
-## Como funciona
+## Arquitetura — isto é uma app
 
-- Este repositório **é** a base de dados. Os registos vivem em `registos/`.
+Não há servidor, não há backend, não há código de aplicação. A app **é** este repositório mais
+tu. Três peças:
+
+```text
+   Claude Code (Android)                    Claude Code (PC Windows)
+   sandbox na nuvem                         c:\dev\rz\rzpt-claude
+            \                                        /
+             \______  GitHub: rizamith/rzpt-claude  /
+                              (privado)
+                                   |
+                     Google Drive: pasta "Zepp"
+                     (onde aterram os ficheiros do relógio)
+```
+
+- **O GitHub é o estado.** É a única coisa partilhada entre os dois ambientes, e é a fonte de
+  verdade. Tudo o que não for committado não existe.
+- **O Drive é a caixa de entrada.** O Ricardo partilha o treino da app Zepp para lá; nós lemos.
+- **O `CLAUDE.md` é o programa.** Não há mais lógica em lado nenhum.
+
+### Os dois ambientes não são iguais — descobre em qual estás
+
+| | PC | Nuvem (telemóvel/web) |
+| --- | --- | --- |
+| Repositório | pasta local | clone no sandbox |
+| Google Drive | montado em `G:\My Drive\Zepp` | **não existe** — só pelo conector |
+| Conector Google Drive | disponível | ⚠️ confirmar; pode faltar em sessões headless |
+| Python | sim | sim |
+
+**Nunca assumas o caminho `G:`.** O `ferramentas/sincronizar.py` deteta sozinho: se não houver
+pasta montada, avisa e é preciso seguir o caminho da nuvem.
+
+### Trazer treinos do Drive quando não há disco (nuvem)
+
+1. Procura na Drive com o conector: pasta `Zepp` do `rizamith@gmail.com`.
+2. Compara os nomes dos ficheiros com a coluna `origem` de `dados/treinos.csv`. **Só descarregas
+   os que ainda lá não estão** — descarregar o que já foi importado é desperdício.
+3. Para cada ficheiro novo, descarrega o conteúdo (vem em base64) e passa-o ao script:
+
+   ```bash
+   python ferramentas/sincronizar.py --b64 <NOME_DO_FICHEIRO.fit> < <ficheiro_com_o_base64>
+   ```
+
+4. `commit` + `push`. Os `.fit` em bruto **não** entram no git — ficam em `import/`, que está
+   fora do repositório. O que persiste é a linha no CSV.
+
+### Export completo da app (histórico, não o dia a dia)
+
+De vez em quando o Ricardo faz o export completo da Zepp. Vem num `.zip` **cifrado com AES** —
+o `unzip` do Git Bash falha com erro 81, é preciso 7-Zip:
+
+```bash
+"/c/Program Files/7-Zip/7z.exe" x -p<palavra-passe> -o<destino> <ficheiro.zip>
+python ferramentas/zepp.py <destino>              # ver primeiro, não escreve
+python ferramentas/zepp.py <destino> --importar   # escrever
+python ferramentas/dedup.py                       # sempre a seguir
+```
+
+O `dedup.py` a seguir **não é opcional**: a mesma sessão chega pelo `.fit` e pelo export, e sem
+ele fica duplicada. A palavra-passe muda a cada export e vem do Ricardo — **nunca a guardes**
+em ficheiro nenhum.
+
+### Regras que valem em qualquer ambiente
+
+- Este repositório **é** a base de dados.
 - Tens acesso de escrita: crias/editas ficheiros, fazes `git commit` e `git push`.
-- **As fotos são efémeras.** Uma foto (peso na balança, prato de comida, postura, ecrã de
-  máquina) serve só para extrair dados no momento. Não a guardas no repositório — o que
-  fica é o registo escrito.
+- **Os ficheiros em bruto são efémeros.** Uma foto (balança, prato, ecrã de máquina) ou um `.fit`
+  servem para extrair dados no momento. Não entram no repositório — fica o registo escrito.
+- **`git pull` no início, `push` no fim.** Sem exceção: a próxima sessão pode ser no outro
+  dispositivo, e duas cópias divergentes de dados de saúde não se reconciliam sozinhas.
 
 ## Estrutura dos dados
 
@@ -29,13 +93,15 @@ dados/               NÚMEROS — séries temporais em CSV, append-only
 ├── natacao.csv      tempos de prova e de treino
 ├── forca.csv        cargas de exercícios e PRs
 ├── treinos.csv      uma linha por sessão: modalidade, RPE, dor
+├── atividade.csv    passos, distância e FC diários (série contínua desde 2020)
 ├── prontidao.csv    carga, fadiga e estado de treino do Balance
 └── sono.csv         sono e recuperação (Amazfit Balance)
 
 ferramentas/         scripts, sem dependências externas
-├── sincronizar.py   Drive → dados/treinos.csv. Correr no início de cada registo.
-├── fit.py           leitor dos .fit de treino
-└── zepp.py          leitor do export completo da app (sono, FC de 24h)
+├── sincronizar.py   .fit do Drive → treinos.csv. Correr no início de cada registo.
+├── zepp.py          export completo da app → sono, treinos, corpo, atividade
+├── dedup.py         funde a mesma sessão vinda de fontes diferentes
+└── fit.py           leitor de um .fit isolado, para inspeção
 
 suplementos.md       inventário e decisões
 

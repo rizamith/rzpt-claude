@@ -1,10 +1,391 @@
 data,modalidade,duracao_min,rpe,energia_1_5,resultado,dor_zona,dor_0_10,origem,notas
-2026-08-01,caminhada,33,,,2.89 km / Agucadoura,,,,
-2026-08-01,crossfit,51,,,441 kcal / FC media 113,,,,Registo do Amazfit. Sessao das 10h24
-2026-08-03,crossfit,47,,,464 kcal / FC media 123,,,,Sessao das 07h16
-2026-08-04,crossfit,59,,,269 kcal / FC media 78,,,,Sessao das 07h15. FC media muito baixa
-2026-08-05,crossfit,73,,,594 kcal / FC media 109,,,,Sessao das 07h11
-2026-08-06,caminhada,171,,,5.79 km,,,,NAO e treino - deslocacoes do dia captadas pelo relogio
+2020-01-04,corrida,47,,,647 kcal / 8110 m,,,zepp:2020-01-04 18:00:28,Export Zepp (tipo 1).
+2020-02-02,tipo17,130,,,928 kcal,,,zepp:2020-02-02 16:37:35,Export Zepp (tipo 17).
+2020-02-09,tipo17,121,,,729 kcal,,,zepp:2020-02-09 18:35:06,Export Zepp (tipo 17).
+2020-03-16,corrida,67,,,853 kcal / 8180 m,,,zepp:2020-03-16 10:32:11,Export Zepp (tipo 1).
+2020-03-17,corrida,59,,,745 kcal / 10030 m,,,zepp:2020-03-17 12:10:06,Export Zepp (tipo 1).
+2020-03-21,corrida,56,,,809 kcal / 10020 m,,,zepp:2020-03-21 19:19:22,Export Zepp (tipo 1).
+2020-03-24,corrida,78,,,749 kcal / 9660 m,,,zepp:2020-03-24 13:30:45,Export Zepp (tipo 1).
+2020-03-29,corrida,72,,,759 kcal / 9050 m,,,zepp:2020-03-29 18:03:56,Export Zepp (tipo 1).
+2020-04-01,corrida,39,,,516 kcal / 6160 m,,,zepp:2020-04-01 18:24:01,Export Zepp (tipo 1).
+2020-04-04,corrida,84,,,853 kcal / 9740 m,,,zepp:2020-04-04 18:19:45,Export Zepp (tipo 1).
+2020-04-09,corrida,49,,,516 kcal / 5020 m,,,zepp:2020-04-09 19:22:23,Export Zepp (tipo 1).
+2020-04-10,corrida,87,,,824 kcal / 9990 m,,,zepp:2020-04-10 18:20:49,Export Zepp (tipo 1).
+2020-04-11,corrida,61,,,572 kcal / 7110 m,,,zepp:2020-04-11 18:15:32,Export Zepp (tipo 1).
+2020-04-14,corrida,54,,,555 kcal / 7090 m,,,zepp:2020-04-14 19:19:51,Export Zepp (tipo 1).
+2020-04-19,corrida,67,,,561 kcal / 7110 m,,,zepp:2020-04-19 18:31:29,Export Zepp (tipo 1).
+2020-04-25,corrida,90,,,706 kcal / 9410 m,,,zepp:2020-04-25 18:19:58,Export Zepp (tipo 1).
+2020-05-02,corrida,65,,,790 kcal / 9000 m,,,zepp:2020-05-02 19:39:46,Export Zepp (tipo 1).
+2020-05-15,corrida,50,,,380 kcal / 4600 m,,,zepp:2020-05-15 19:13:38,Export Zepp (tipo 1).
+2020-05-16,corrida,11,,,84 kcal / 1000 m,,,zepp:2020-05-16 16:11:10,Export Zepp (tipo 1).
+2020-05-17,trotinete,290,,,1972 kcal / 68180 m,,,zepp:2020-05-17 07:07:53,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2020-05-19,caminhada,119,,,808 kcal / 10050 m,,,zepp:2020-05-19 18:18:43,Export Zepp (tipo 6).
+2020-05-24,trotinete,199,,,1235 kcal / 37330 m,,,zepp:2020-05-24 06:48:05,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2020-05-25,corrida,96,,,787 kcal / 9000 m,,,zepp:2020-05-25 18:04:42,Export Zepp (tipo 1).
+2020-06-21,tipo22,5,,,28 kcal / 230 m,,,zepp:2020-06-21 09:52:42,Export Zepp (tipo 22).
+2020-06-21,tipo22,156,,,1956 kcal / 10630 m,,,zepp:2020-06-21 10:35:56,Export Zepp (tipo 22).
+2020-09-14,trotinete,41,,,133 kcal / 1890 m,,,zepp:2020-09-14 12:55:16,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2020-10-05,corrida,39,,,470 kcal / 5960 m,,,zepp:2020-10-05 18:28:40,Export Zepp (tipo 1).
+2020-12-01,trotinete,12,,,39 kcal / 1470 m,,,zepp:2020-12-01 12:34:12,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2020-12-27,trotinete,295,,,1935 kcal / 53290 m,,,zepp:2020-12-27 08:09:39,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2021-01-24,ciclismo,107,,,747 kcal,,,zepp:2021-01-24 10:27:25,Export Zepp (tipo 10).
+2021-01-26,ciclismo,82,,,522 kcal,,,zepp:2021-01-26 18:39:00,Export Zepp (tipo 10).
+2021-02-14,trotinete,332,,,976 kcal / 5050 m,,,zepp:2021-02-14 13:33:11,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2021-03-12,corrida,45,,,590 kcal / 5800 m,,,zepp:2021-03-12 18:37:07,Export Zepp (tipo 1).
+2021-03-20,trotinete,10,,,109 kcal / 2300 m,,,zepp:2021-03-20 11:25:34,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2021-03-20,trotinete,48,,,206 kcal / 4720 m,,,zepp:2021-03-20 13:20:00,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2021-03-31,corrida,67,,,876 kcal / 10010 m,,,zepp:2021-03-31 18:14:08,Export Zepp (tipo 1).
+2021-04-15,corrida,12,,,206 kcal / 2340 m,,,zepp:2021-04-15 09:20:34,Export Zepp (tipo 1).
+2021-04-18,corrida,21,,,264 kcal / 2570 m,,,zepp:2021-04-18 11:25:11,Export Zepp (tipo 1).
+2021-04-25,corrida,123,,,910 kcal / 10740 m,,,zepp:2021-04-25 17:39:13,Export Zepp (tipo 1).
+2021-04-27,corrida,11,,,141 kcal / 2010 m,,,zepp:2021-04-27 09:26:26,Export Zepp (tipo 1).
+2021-05-04,corrida,9,,,132 kcal / 1730 m,,,zepp:2021-05-04 09:54:59,Export Zepp (tipo 1).
+2021-05-20,corrida,4,,,30 kcal / 340 m,,,zepp:2021-05-20 09:18:46,Export Zepp (tipo 1).
+2021-05-25,corrida,9,,,118 kcal / 1590 m,,,zepp:2021-05-25 09:59:35,Export Zepp (tipo 1).
+2021-05-29,tipo1015,105,,,606 kcal / 4790 m,,,zepp:2021-05-29 12:13:05,Export Zepp (tipo 1015).
+2021-05-29,tipo2002,105,,,606 kcal / 4790 m,,,zepp:2021-05-29 12:13:04,Export Zepp (tipo 2002).
+2021-06-11,caminhada,21,,,152 kcal / 2158 m,,,zepp:2021-06-11 08:19:55,Export Zepp (tipo 6).
+2021-06-14,corrida,104,,,34 kcal / 472 m,,,zepp:2021-06-14 09:06:00,Export Zepp (tipo 1).
+2021-06-15,corrida,28,,,361 kcal / 5315 m,,,zepp:2021-06-15 09:10:06,Export Zepp (tipo 1).
+2021-07-01,corrida,4,,,44 kcal / 769 m,,,zepp:2021-07-01 09:52:01,Export Zepp (tipo 1).
+2021-07-08,corrida,4,,,55 kcal / 522 m,,,zepp:2021-07-08 09:14:40,Export Zepp (tipo 1).
+2021-07-10,corrida,20,,,200 kcal / 1173 m,,,zepp:2021-07-10 09:32:32,Export Zepp (tipo 1).
+2021-07-20,corrida,9,,,111 kcal / 1675 m,,,zepp:2021-07-20 09:44:52,Export Zepp (tipo 1).
+2021-08-01,trotinete,120,,,656 kcal / 6928 m,,,zepp:2021-08-01 09:22:56,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2021-08-03,corrida,14,,,165 kcal / 2540 m,,,zepp:2021-08-03 09:19:32,Export Zepp (tipo 1).
+2021-08-05,caminhada,252,,,1319 kcal / 14910 m,,,zepp:2021-08-05 10:21:53,Export Zepp (tipo 6).
+2021-09-16,corrida,26,,,343 kcal / 4975 m,,,zepp:2021-09-16 09:29:20,Export Zepp (tipo 1).
+2021-09-18,caminhada,14,,,109 kcal / 1401 m,,,zepp:2021-09-18 16:40:54,Export Zepp (tipo 6).
+2021-10-23,corrida,11,,,124 kcal / 1687 m,,,zepp:2021-10-23 09:13:40,Export Zepp (tipo 1).
+2021-10-24,trotinete,27,,,224 kcal / 5407 m,,,zepp:2021-10-24 11:55:07,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2021-11-03,tipo81,140,,,1204 kcal,,,zepp:2021-11-03 20:54:16,Export Zepp (tipo 81).
+2022-06-17,caminhada,59,,,322 kcal / 3117 m,,,zepp:2022-06-17 16:44:41,Export Zepp (tipo 6).
+2022-07-06,corrida,8,,,89 kcal / 696 m,,,zepp:2022-07-06 09:16:29,Export Zepp (tipo 1).
+2022-07-08,caminhada,17,,,125 kcal / 1687 m,,,zepp:2022-07-08 16:49:15,Export Zepp (tipo 6).
+2022-07-09,corrida,53,,,399 kcal / 5161 m,,,zepp:2022-07-09 19:30:42,Export Zepp (tipo 1).
+2022-07-11,trotinete,81,,,681 kcal / 14264 m,,,zepp:2022-07-11 17:26:31,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2022-07-17,trotinete,217,,,2243 kcal / 51156 m,,,zepp:2022-07-17 07:30:58,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2022-07-26,caminhada,32,,,131 kcal / 2327 m,,,zepp:2022-07-26 19:04:27,Export Zepp (tipo 6).
+2022-08-22,tipo68,12,,,144 kcal / 1038 m,,,zepp:2022-08-22 13:09:03,Export Zepp (tipo 68).
+2022-08-24,caminhada,1,,,8 kcal / 75 m,,,zepp:2022-08-24 12:50:37,Export Zepp (tipo 6).
+2022-08-24,tipo68,21,,,217 kcal / 1975 m,,,zepp:2022-08-24 13:05:48,Export Zepp (tipo 68).
+2022-08-26,natacao aguas abertas,11,,,54 kcal / 282 m,,,zepp:2022-08-26 11:32:40,Export Zepp (tipo 15).
+2022-08-26,natacao aguas abertas,32,,,240 kcal / 1248 m,,,zepp:2022-08-26 11:44:05,Export Zepp (tipo 15).
+2022-09-11,caminhada,29,,,235 kcal / 2736 m,,,zepp:2022-09-11 11:37:28,Export Zepp (tipo 6).
+2022-09-18,caminhada,36,,,120 kcal / 1076 m,,,zepp:2022-09-18 12:46:59,Export Zepp (tipo 6).
+2022-10-05,tipo81,99,,,1028 kcal,,,zepp:2022-10-05 17:20:48,Export Zepp (tipo 81).
+2022-11-20,tipo81,90,,,932 kcal,,,zepp:2022-11-20 18:29:58,Export Zepp (tipo 81).
+2023-04-10,tipo7,9,,,70 kcal / 528 m,,,zepp:2023-04-10 17:03:24,Export Zepp (tipo 7).
+2023-04-16,caminhada,13,,,93 kcal / 1448 m,,,zepp:2023-04-16 12:42:10,Export Zepp (tipo 6).
+2023-04-30,caminhada,28,,,348 kcal / 1506 m,,,zepp:2023-04-30 11:48:07,Export Zepp (tipo 6).
+2023-05-01,natacao,2,,,8 kcal / 45 m,,,zepp:2023-05-01 11:13:26,Export Zepp (tipo 14).
+2023-05-01,trotinete,0,,,4 kcal / 187 m,,,zepp:2023-05-01 15:53:30,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-05-01,trotinete,9,,,45 kcal / 858 m,,,zepp:2023-05-01 15:57:29,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-05-03,caminhada,3,,,24 kcal / 1216 m,,,zepp:2023-05-03 08:31:15,Export Zepp (tipo 6).
+2023-05-06,caminhada,1,,,7 kcal / 126 m,,,zepp:2023-05-06 14:12:37,Export Zepp (tipo 6).
+2023-05-11,caminhada,1008,,,152 kcal / 2227 m,,,zepp:2023-05-11 07:17:31,Export Zepp (tipo 6).
+2023-05-15,caminhada,6,,,43 kcal / 1385 m,,,zepp:2023-05-15 07:19:00,Export Zepp (tipo 6).
+2023-06-17,caminhada,80,,,745 kcal / 3050 m,,,zepp:2023-06-17 07:53:08,Export Zepp (tipo 6).
+2023-06-21,caminhada,4,,,35 kcal / 1012 m,,,zepp:2023-06-21 08:36:43,Export Zepp (tipo 6).
+2023-06-22,caminhada,12,,,94 kcal / 1373 m,,,zepp:2023-06-22 12:03:33,Export Zepp (tipo 6).
+2023-06-24,caminhada,5,,,34 kcal / 325 m,,,zepp:2023-06-24 15:22:59,Export Zepp (tipo 6).
+2023-06-25,caminhada,6,,,45 kcal / 594 m,,,zepp:2023-06-25 11:23:00,Export Zepp (tipo 6).
+2023-07-01,caminhada,15,,,143 kcal / 1410 m,,,zepp:2023-07-01 09:16:05,Export Zepp (tipo 6).
+2023-07-19,crossfit,59,,,395 kcal,,,zepp:2023-07-19 12:06:30,Export Zepp (tipo 130).
+2023-07-20,natacao,53,,,47 kcal / 350 m,,,zepp:2023-07-20 06:10:53,Export Zepp (tipo 14).
+2023-07-21,crossfit,55,,,432 kcal,,,zepp:2023-07-21 18:00:48,Export Zepp (tipo 130).
+2023-07-22,trotinete,157,,,1706 kcal / 22487 m,,,zepp:2023-07-22 16:31:50,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-07-23,caminhada,56,,,436 kcal / 6024 m,,,zepp:2023-07-23 11:55:35,Export Zepp (tipo 6).
+2023-07-24,caminhada,6,,,20 kcal / 1376 m,,,zepp:2023-07-24 11:48:48,Export Zepp (tipo 6).
+2023-07-24,corrida,18,,,166 kcal / 2394 m,,,zepp:2023-07-24 12:30:08,Export Zepp (tipo 1).
+2023-07-30,trotinete,155,,,1533 kcal / 13345 m,,,zepp:2023-07-30 17:09:22,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-08-06,caminhada,50,,,296 kcal / 2576 m,,,zepp:2023-08-06 11:28:25,Export Zepp (tipo 6).
+2023-08-14,trotinete,221,,,1990 kcal / 34490 m,,,zepp:2023-08-14 10:44:54,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-08-17,tipo68,61,,,635 kcal / 2815 m,,,zepp:2023-08-17 10:18:16,Export Zepp (tipo 68).
+2023-08-26,caminhada,6,,,38 kcal / 1110 m,,,zepp:2023-08-26 16:28:26,Export Zepp (tipo 6).
+2023-08-28,caminhada,7,,,37 kcal / 346 m,,,zepp:2023-08-28 15:02:25,Export Zepp (tipo 6).
+2023-09-09,caminhada,7,,,55 kcal / 616 m,,,zepp:2023-09-09 14:09:30,Export Zepp (tipo 6).
+2023-09-09,caminhada,42,,,270 kcal / 2895 m,,,zepp:2023-09-09 14:18:32,Export Zepp (tipo 6).
+2023-09-09,trotinete,101,,,713 kcal / 14555 m,,,zepp:2023-09-09 15:14:12,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-09-22,corrida,2,,,17 kcal / 378 m,,,zepp:2023-09-22 12:29:06,Export Zepp (tipo 1).
+2023-10-01,caminhada,27,,,213 kcal / 2180 m,,,zepp:2023-10-01 11:38:28,Export Zepp (tipo 6).
+2023-10-01,caminhada,374,,,292 kcal / 2671 m,,,zepp:2023-10-01 13:33:00,Export Zepp (tipo 6).
+2023-10-08,caminhada,54,,,293 kcal / 2387 m,,,zepp:2023-10-08 13:20:15,Export Zepp (tipo 6).
+2023-10-15,trotinete,10,,,69 kcal / 1115 m,,,zepp:2023-10-15 07:47:50,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-10-15,trotinete,236,,,2746 kcal / 52492 m,,,zepp:2023-10-15 08:04:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2023-12-25,trotinete,23,,,126 kcal / 2007 m,,,zepp:2023-12-25 17:01:30,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-03-31,tipo42,302,,,1580 kcal / 15435 m,,,zepp:2024-03-31 10:37:27,Export Zepp (tipo 42).
+2024-04-01,tipo42,91,,,426 kcal / 3987 m,,,zepp:2024-04-01 09:41:54,Export Zepp (tipo 42).
+2024-04-02,tipo42,216,,,1297 kcal / 11325 m,,,zepp:2024-04-02 09:12:31,Export Zepp (tipo 42).
+2024-05-30,trotinete,146,,,1772 kcal / 22564 m,,,zepp:2024-05-30 11:08:26,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-08-03,trotinete,48,,,374 kcal / 7090 m,,,zepp:2024-08-03 09:24:02,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-08-03,trotinete,66,,,286 kcal / 6154 m,,,zepp:2024-08-03 17:48:18,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-08-04,caminhada,23,,,140 kcal / 1649 m,,,zepp:2024-08-04 17:12:42,Export Zepp (tipo 6).
+2024-08-17,caminhada,7,,,43 kcal / 554 m,,,zepp:2024-08-17 11:03:21,Export Zepp (tipo 6).
+2024-09-08,trotinete,16,,,74 kcal / 3603 m,,,zepp:2024-09-08 17:04:33,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-09-28,caminhada,125,,,334 kcal / 314 m,,,zepp:2024-09-28 20:24:18,Export Zepp (tipo 6).
+2024-10-17,caminhada,11,,,71 kcal / 335 m,,,zepp:2024-10-17 13:11:33,Export Zepp (tipo 6).
+2024-10-17,corrida,0,,,0 kcal,,,zepp:2024-10-17 08:03:36,Export Zepp (tipo 1).
+2024-11-03,trotinete,15,,,160 kcal / 2581 m,,,zepp:2024-11-03 12:16:31,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-11-11,crossfit,52,,,576 kcal,,,zepp:2024-11-11 13:02:45,Export Zepp (tipo 130).
+2024-11-11,tipo58,10,,,47 kcal,,,zepp:2024-11-11 13:59:42,Export Zepp (tipo 58).
+2024-11-13,caminhada,15,,,101 kcal / 700 m,,,zepp:2024-11-13 09:20:58,Export Zepp (tipo 6).
+2024-11-18,crossfit,33,,,276 kcal,,,zepp:2024-11-18 12:53:09,Export Zepp (tipo 130).
+2024-11-23,natacao,78,,,743 kcal / 3050 m,,,zepp:2024-11-23 08:12:19,Export Zepp (tipo 14).
+2024-11-25,crossfit,57,,,329 kcal,,,zepp:2024-11-25 12:57:44,Export Zepp (tipo 130).
+2024-11-26,natacao,57,,,508 kcal / 2200 m,,,zepp:2024-11-26 07:11:22,Export Zepp (tipo 14).
+2024-11-27,crossfit,26,,,257 kcal,,,zepp:2024-11-27 19:02:07,Export Zepp (tipo 130).
+2024-11-28,natacao,59,,,579 kcal / 2300 m,,,zepp:2024-11-28 07:12:53,Export Zepp (tipo 14).
+2024-12-08,trotinete,23,,,238 kcal / 4364 m,,,zepp:2024-12-08 11:56:07,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-12-08,trotinete,13,,,125 kcal / 2880 m,,,zepp:2024-12-08 12:39:15,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-12-24,trotinete,7,,,37 kcal / 1465 m,,,zepp:2024-12-24 17:04:40,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2024-12-29,trotinete,23,,,192 kcal / 3461 m,,,zepp:2024-12-29 16:21:02,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-01-15,tipo216,89,,,1070 kcal,,,zepp:2025-01-15 17:59:48,Export Zepp (tipo 216).
+2025-02-23,trotinete,18,,,117 kcal,,,zepp:2025-02-23 09:14:59,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-02-23,trotinete,100,,,826 kcal / 17225 m,,,zepp:2025-02-23 09:33:36,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-03-16,caminhada,25,,,219 kcal / 2008 m,,,zepp:2025-03-16 10:18:48,Export Zepp (tipo 6).
+2025-03-16,caminhada,35,,,259 kcal / 2006 m,,,zepp:2025-03-16 12:21:12,Export Zepp (tipo 6).
+2025-03-16,tipo216,80,,,882 kcal,,,zepp:2025-03-16 16:00:27,Export Zepp (tipo 216).
+2025-03-22,trotinete,8,,,50 kcal / 1841 m,,,zepp:2025-03-22 10:23:24,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-04-07,tipo42,320,,,1816 kcal / 43686 m,,,zepp:2025-04-07 08:23:00,Export Zepp (tipo 42).
+2025-04-08,tipo42,353,,,1840 kcal / 44886 m,,,zepp:2025-04-08 08:28:01,Export Zepp (tipo 42).
+2025-04-09,tipo42,60,,,354 kcal / 8110 m,,,zepp:2025-04-09 09:06:39,Export Zepp (tipo 42).
+2025-04-09,tipo42,204,,,966 kcal / 26584 m,,,zepp:2025-04-09 10:07:59,Export Zepp (tipo 42).
+2025-04-27,trotinete,11,,,91 kcal / 2156 m,,,zepp:2025-04-27 11:36:22,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-04-27,trotinete,43,,,294 kcal / 10193 m,,,zepp:2025-04-27 15:18:32,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-04-27,trotinete,16,,,127 kcal / 2024 m,,,zepp:2025-04-27 16:11:43,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-04-30,trotinete,8,,,39 kcal / 1595 m,,,zepp:2025-04-30 17:00:32,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-06,trotinete,8,,,46 kcal / 1759 m,,,zepp:2025-05-06 15:55:36,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-08,trotinete,10,,,43 kcal / 1856 m,,,zepp:2025-05-08 13:52:46,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-09,trotinete,12,,,49 kcal / 3513 m,,,zepp:2025-05-09 11:33:13,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-13,caminhada,170,,,779 kcal / 3993 m,,,zepp:2025-05-13 16:59:24,Export Zepp (tipo 6).
+2025-05-18,trotinete,10,,,69 kcal / 1346 m,,,zepp:2025-05-18 14:55:25,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-19,caminhada,73,,,553 kcal / 6236 m,,,zepp:2025-05-19 16:10:18,Export Zepp (tipo 6).
+2025-05-20,trotinete,10,,,31 kcal / 1605 m,,,zepp:2025-05-20 15:18:14,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-23,tipo216,96,,,1144 kcal,,,zepp:2025-05-23 16:59:24,Export Zepp (tipo 216).
+2025-05-25,trotinete,13,,,72 kcal / 2169 m,,,zepp:2025-05-25 10:27:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-25,trotinete,17,,,113 kcal / 2752 m,,,zepp:2025-05-25 11:57:20,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-27,trotinete,11,,,45 kcal / 8971 m,,,zepp:2025-05-27 08:58:06,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-31,trotinete,14,,,116 kcal / 2516 m,,,zepp:2025-05-31 09:34:47,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-05-31,trotinete,8,,,78 kcal / 833 m,,,zepp:2025-05-31 11:33:54,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-03,trotinete,9,,,58 kcal / 1369 m,,,zepp:2025-06-03 19:53:19,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-03,trotinete,7,,,70 kcal / 1332 m,,,zepp:2025-06-03 20:07:20,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-07,trotinete,7,,,60 kcal / 1407 m,,,zepp:2025-06-07 08:09:38,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-08,trotinete,14,,,129 kcal / 2553 m,,,zepp:2025-06-08 10:13:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-08,trotinete,12,,,86 kcal / 2496 m,,,zepp:2025-06-08 11:59:25,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-09,trotinete,7,,,46 kcal / 914 m,,,zepp:2025-06-09 08:44:20,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-14,trotinete,12,,,77 kcal / 2237 m,,,zepp:2025-06-14 17:42:42,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-14,trotinete,15,,,148 kcal / 2635 m,,,zepp:2025-06-14 20:02:06,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-15,trotinete,13,,,115 kcal / 1938 m,,,zepp:2025-06-15 10:26:16,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-15,trotinete,10,,,70 kcal / 1498 m,,,zepp:2025-06-15 12:21:31,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-17,trotinete,8,,,36 kcal / 1735 m,,,zepp:2025-06-17 07:31:37,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-17,trotinete,14,,,88 kcal / 2689 m,,,zepp:2025-06-17 16:24:47,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-17,trotinete,24,,,156 kcal / 3284 m,,,zepp:2025-06-17 19:46:25,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-18,trotinete,9,,,47 kcal / 1135 m,,,zepp:2025-06-18 08:25:35,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-19,trotinete,8,,,55 kcal / 1312 m,,,zepp:2025-06-19 09:04:34,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-20,trotinete,10,,,33 kcal / 2885 m,,,zepp:2025-06-20 13:47:07,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-20,trotinete,8,,,52 kcal / 2097 m,,,zepp:2025-06-20 16:06:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-21,trotinete,8,,,85 kcal / 1632 m,,,zepp:2025-06-21 08:26:30,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-21,trotinete,12,,,115 kcal / 1700 m,,,zepp:2025-06-21 09:02:50,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-22,trotinete,10,,,66 kcal / 1501 m,,,zepp:2025-06-22 10:55:56,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-22,trotinete,7,,,34 kcal / 1057 m,,,zepp:2025-06-22 17:46:19,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-23,trotinete,23,,,102 kcal / 4387 m,,,zepp:2025-06-23 19:39:54,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-24,trotinete,8,,,72 kcal / 1597 m,,,zepp:2025-06-24 07:35:12,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-24,trotinete,17,,,112 kcal / 3529 m,,,zepp:2025-06-24 10:11:14,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-25,trotinete,8,,,28 kcal / 1910 m,,,zepp:2025-06-25 19:00:42,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-26,trotinete,8,,,38 kcal / 1332 m,,,zepp:2025-06-26 07:34:51,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-27,corrida,0,,,0 kcal / 1 m,,,zepp:2025-06-27 19:21:26,Export Zepp (tipo 1).
+2025-06-27,corrida,29,,,348 kcal / 5067 m,,,zepp:2025-06-27 19:34:22,Export Zepp (tipo 1).
+2025-06-27,trotinete,13,,,120 kcal / 1794 m,,,zepp:2025-06-27 09:52:45,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-06-29,trotinete,10,,,56 kcal / 2185 m,,,zepp:2025-06-29 12:29:13,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-01,trotinete,9,,,64 kcal / 1789 m,,,zepp:2025-07-01 07:47:54,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-02,trotinete,15,,,161 kcal / 3882 m,,,zepp:2025-07-02 19:09:08,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-03,trotinete,11,,,66 kcal / 2278 m,,,zepp:2025-07-03 08:26:54,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-03,trotinete,8,,,61 kcal / 1575 m,,,zepp:2025-07-03 09:24:37,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-03,trotinete,13,,,136 kcal / 2651 m,,,zepp:2025-07-03 11:50:22,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-03,trotinete,18,,,123 kcal / 2335 m,,,zepp:2025-07-03 19:08:03,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-04,trotinete,14,,,56 kcal / 3099 m,,,zepp:2025-07-04 17:07:31,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-05,trotinete,9,,,68 kcal / 1409 m,,,zepp:2025-07-05 08:50:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-06,trotinete,8,,,40 kcal / 2389 m,,,zepp:2025-07-06 10:37:30,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-07,trotinete,12,,,82 kcal / 2313 m,,,zepp:2025-07-07 16:17:19,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-08,trotinete,8,,,43 kcal / 2930 m,,,zepp:2025-07-08 09:14:07,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-08,trotinete,12,,,79 kcal / 2163 m,,,zepp:2025-07-08 17:45:55,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-08,trotinete,15,,,80 kcal / 2387 m,,,zepp:2025-07-08 19:09:49,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-09,trotinete,8,,,30 kcal / 1760 m,,,zepp:2025-07-09 14:29:52,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-10,trotinete,8,,,70 kcal / 1227 m,,,zepp:2025-07-10 07:44:19,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-11,natacao,11,,,80 kcal / 150 m,,,zepp:2025-07-11 15:50:38,Export Zepp (tipo 14).
+2025-07-12,trotinete,27,,,195 kcal / 11784 m,,,zepp:2025-07-12 12:45:36,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-12,trotinete,10,,,73 kcal / 5718 m,,,zepp:2025-07-12 13:20:00,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-14,trotinete,8,,,34 kcal / 2950 m,,,zepp:2025-07-14 13:14:25,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-15,trotinete,7,,,50 kcal / 1454 m,,,zepp:2025-07-15 07:28:14,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-22,trotinete,10,,,72 kcal / 1826 m,,,zepp:2025-07-22 11:40:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-22,trotinete,13,,,110 kcal / 1945 m,,,zepp:2025-07-22 15:05:11,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-22,trotinete,8,,,43 kcal / 993 m,,,zepp:2025-07-22 17:27:17,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-23,trotinete,13,,,139 kcal / 2043 m,,,zepp:2025-07-23 08:11:07,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-23,trotinete,11,,,96 kcal / 2583 m,,,zepp:2025-07-23 11:39:55,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-24,trotinete,12,,,66 kcal / 1736 m,,,zepp:2025-07-24 13:44:35,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-24,trotinete,9,,,50 kcal / 1391 m,,,zepp:2025-07-24 14:12:44,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-26,trotinete,10,,,74 kcal / 3336 m,,,zepp:2025-07-26 09:19:35,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-27,trotinete,15,,,146 kcal / 2281 m,,,zepp:2025-07-27 10:19:43,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-27,trotinete,11,,,80 kcal / 1853 m,,,zepp:2025-07-27 12:27:37,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-30,trotinete,7,,,47 kcal / 1718 m,,,zepp:2025-07-30 13:14:06,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-07-30,trotinete,9,,,73 kcal / 1868 m,,,zepp:2025-07-30 15:22:22,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-01,trotinete,14,,,123 kcal / 7477 m,,,zepp:2025-08-01 07:56:17,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-03,trotinete,9,,,43 kcal / 3481 m,,,zepp:2025-08-03 10:19:02,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-05,natacao,8,,,61 kcal / 100 m,,,zepp:2025-08-05 18:59:08,Export Zepp (tipo 14).
+2025-08-05,trotinete,10,,,35 kcal / 3301 m,,,zepp:2025-08-05 15:35:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-06,trotinete,9,,,62 kcal / 1593 m,,,zepp:2025-08-06 08:01:34,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-11,corrida,31,,,394 kcal / 4971 m,,,zepp:2025-08-11 07:18:43,Export Zepp (tipo 1).
+2025-08-12,corrida,27,,,362 kcal / 4112 m,,,zepp:2025-08-12 07:43:57,Export Zepp (tipo 1).
+2025-08-12,trotinete,11,,,38 kcal / 6840 m,,,zepp:2025-08-12 11:59:18,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-13,caminhada,22,,,177 kcal / 1718 m,,,zepp:2025-08-13 12:15:05,Export Zepp (tipo 6).
+2025-08-15,natacao,10,,,86 kcal / 50 m,,,zepp:2025-08-15 13:26:14,Export Zepp (tipo 14).
+2025-08-15,natacao,8,,,55 kcal / 150 m,,,zepp:2025-08-15 14:55:12,Export Zepp (tipo 14).
+2025-08-15,natacao,22,,,134 kcal / 100 m,,,zepp:2025-08-15 17:31:49,Export Zepp (tipo 14).
+2025-08-18,trotinete,9,,,59 kcal / 2100 m,,,zepp:2025-08-18 14:44:24,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-18,trotinete,18,,,138 kcal / 6171 m,,,zepp:2025-08-18 15:52:49,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-20,trotinete,15,,,127 kcal / 3319 m,,,zepp:2025-08-20 09:10:42,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-21,trotinete,7,,,63 kcal / 1436 m,,,zepp:2025-08-21 17:24:30,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-24,trotinete,27,,,257 kcal / 4542 m,,,zepp:2025-08-24 18:15:08,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-25,trotinete,7,,,53 kcal / 1550 m,,,zepp:2025-08-25 19:43:18,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-27,trotinete,19,,,148 kcal / 3382 m,,,zepp:2025-08-27 09:13:13,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-27,trotinete,22,,,189 kcal / 7975 m,,,zepp:2025-08-27 14:55:13,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-27,trotinete,8,,,81 kcal / 1399 m,,,zepp:2025-08-27 19:31:46,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-30,natacao,9,,,74 kcal / 150 m,,,zepp:2025-08-30 16:23:50,Export Zepp (tipo 14).
+2025-08-30,trotinete,19,,,56 kcal / 15141 m,,,zepp:2025-08-30 11:38:33,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-30,trotinete,10,,,33 kcal / 8056 m,,,zepp:2025-08-30 12:02:47,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-30,trotinete,12,,,41 kcal / 7535 m,,,zepp:2025-08-30 14:52:52,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-08-31,trotinete,13,,,35 kcal / 10492 m,,,zepp:2025-08-31 13:05:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-01,trotinete,8,,,26 kcal / 2727 m,,,zepp:2025-09-01 19:18:23,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-04,trotinete,8,,,65 kcal / 1166 m,,,zepp:2025-09-04 16:00:15,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-07,trotinete,8,,,62 kcal / 1376 m,,,zepp:2025-09-07 09:14:53,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-16,trotinete,8,,,49 kcal / 1214 m,,,zepp:2025-09-16 08:26:04,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-18,trotinete,11,,,88 kcal / 2169 m,,,zepp:2025-09-18 11:32:53,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-18,trotinete,9,,,83 kcal / 1637 m,,,zepp:2025-09-18 13:50:34,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-20,trotinete,9,,,29 kcal / 3022 m,,,zepp:2025-09-20 12:08:05,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-21,trotinete,10,,,83 kcal / 2545 m,,,zepp:2025-09-21 10:09:50,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-22,trotinete,8,,,50 kcal / 1591 m,,,zepp:2025-09-22 14:52:02,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-09-29,corrida,5,,,55 kcal / 697 m,,,zepp:2025-09-29 06:10:53,Export Zepp (tipo 1).
+2025-10-01,trotinete,10,,,88 kcal / 2414 m,,,zepp:2025-10-01 08:32:22,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-01,trotinete,16,,,151 kcal / 3413 m,,,zepp:2025-10-01 10:09:43,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-04,trotinete,11,,,46 kcal / 7063 m,,,zepp:2025-10-04 16:52:01,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-07,trotinete,10,,,37 kcal / 4845 m,,,zepp:2025-10-07 11:32:42,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-08,trotinete,9,,,92 kcal / 1937 m,,,zepp:2025-10-08 14:42:38,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-12,trotinete,12,,,51 kcal / 1466 m,,,zepp:2025-10-12 12:30:55,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-12,trotinete,9,,,53 kcal / 1733 m,,,zepp:2025-10-12 13:03:25,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-17,trotinete,8,,,49 kcal / 1325 m,,,zepp:2025-10-17 18:59:24,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-10-20,corrida,21,,,200 kcal / 2118 m,,,zepp:2025-10-20 06:31:51,Export Zepp (tipo 1).
+2025-10-28,trotinete,7,,,33 kcal / 4381 m,,,zepp:2025-10-28 19:11:05,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-11-04,trotinete,7,,,52 kcal / 2172 m,,,zepp:2025-11-04 13:02:34,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-11-08,trotinete,8,,,61 kcal / 1898 m,,,zepp:2025-11-08 10:13:29,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-11-17,trotinete,8,,,69 kcal / 1979 m,,,zepp:2025-11-17 14:33:56,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-11-18,trotinete,8,,,66 kcal / 1810 m,,,zepp:2025-11-18 14:31:49,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-11-18,trotinete,14,,,111 kcal / 4446 m,,,zepp:2025-11-18 18:27:13,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-12-04,trotinete,10,,,78 kcal / 3192 m,,,zepp:2025-12-04 15:07:55,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-12-17,trotinete,8,,,63 kcal / 2184 m,,,zepp:2025-12-17 09:29:34,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-12-24,crossfit,9,,,74 kcal,,,zepp:2025-12-24 11:31:52,Export Zepp (tipo 130).
+2025-12-28,natacao aguas abertas,0,,,0 kcal,,,zepp:2025-12-28 14:56:56,Export Zepp (tipo 15).
+2025-12-28,tipo21,1,,,3 kcal,,,zepp:2025-12-28 14:55:20,Export Zepp (tipo 21).
+2025-12-28,trotinete,10,,,32 kcal / 3498 m,,,zepp:2025-12-28 16:54:23,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2025-12-31,trotinete,8,,,56 kcal / 1646 m,,,zepp:2025-12-31 16:52:04,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-01-07,trotinete,8,,,72 kcal / 1781 m,,,zepp:2026-01-07 15:23:12,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-01-08,trotinete,9,,,38 kcal / 1677 m,,,zepp:2026-01-08 12:05:36,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-01-13,crossfit,54,,,373 kcal,,,zepp:2026-01-13 18:36:57,Export Zepp (tipo 130).
+2026-01-14,ciclismo,27,,,181 kcal,,,zepp:2026-01-14 19:05:59,Export Zepp (tipo 10).
+2026-01-14,trotinete,8,,,61 kcal / 2347 m,,,zepp:2026-01-14 11:49:19,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-01-16,trotinete,9,,,71 kcal / 2384 m,,,zepp:2026-01-16 18:34:33,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-01-26,crossfit,38,,,405 kcal,,,zepp:2026-01-26 19:45:33,Export Zepp (tipo 130).
+2026-01-28,crossfit,27,,,214 kcal,,,zepp:2026-01-28 18:34:17,Export Zepp (tipo 130).
+2026-02-07,crossfit,11,,,48 kcal,,,zepp:2026-02-07 10:11:08,Export Zepp (tipo 130).
+2026-02-07,crossfit,62,,,571 kcal,,,zepp:2026-02-07 10:26:55,Export Zepp (tipo 130).
+2026-02-11,crossfit,29,,,182 kcal,,,zepp:2026-02-11 18:46:59,Export Zepp (tipo 130).
+2026-02-22,trotinete,9,,,73 kcal / 1063 m,,,zepp:2026-02-22 13:01:30,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-02-24,trotinete,15,,,119 kcal / 3548 m,,,zepp:2026-02-24 19:01:16,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-02-26,trotinete,8,,,33 kcal / 1674 m,,,zepp:2026-02-26 08:26:22,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-03-01,tipo42,138,,,940 kcal / 19495 m,,,zepp:2026-03-01 08:23:08,Export Zepp (tipo 42).
+2026-03-02,tipo42,446,,,2604 kcal / 64855 m,,,zepp:2026-03-02 07:59:30,Export Zepp (tipo 42).
+2026-03-03,tipo42,100,,,522 kcal / 15780 m,,,zepp:2026-03-03 08:10:53,Export Zepp (tipo 42).
+2026-03-03,tipo42,20,,,126 kcal / 7063 m,,,zepp:2026-03-03 12:05:31,Export Zepp (tipo 42).
+2026-03-07,trotinete,14,,,86 kcal / 712 m,,,zepp:2026-03-07 13:06:42,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-03-18,trotinete,7,,,53 kcal / 3589 m,,,zepp:2026-03-18 08:45:35,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-03-24,trotinete,11,,,71 kcal / 2563 m,,,zepp:2026-03-24 11:29:39,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-03-24,trotinete,8,,,57 kcal / 1865 m,,,zepp:2026-03-24 18:39:56,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-03-25,trotinete,10,,,76 kcal / 3745 m,,,zepp:2026-03-25 14:30:35,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-03-26,trotinete,17,,,70 kcal / 4635 m,,,zepp:2026-03-26 16:53:57,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-03-30,crossfit,51,,,323 kcal,,,zepp:2026-03-30 08:08:16,Export Zepp (tipo 130).
+2026-03-30,trotinete,13,,,43 kcal / 5333 m,,,zepp:2026-03-30 09:26:06,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-02,tipo42,3,,,16 kcal / 5 m,,,zepp:2026-04-02 08:40:10,Export Zepp (tipo 42).
+2026-04-02,tipo42,194,,,1093 kcal / 22483 m,,,zepp:2026-04-02 08:44:08,Export Zepp (tipo 42).
+2026-04-03,tipo42,358,,,1814 kcal / 40295 m,,,zepp:2026-04-03 08:49:12,Export Zepp (tipo 42).
+2026-04-04,tipo42,313,,,1706 kcal / 29631 m,,,zepp:2026-04-04 10:00:40,Export Zepp (tipo 42).
+2026-04-06,trotinete,9,,,52 kcal / 1227 m,,,zepp:2026-04-06 10:24:23,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-09,trotinete,8,,,52 kcal / 1177 m,,,zepp:2026-04-09 16:30:37,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-13,trotinete,12,,,70 kcal / 2600 m,,,zepp:2026-04-13 16:33:31,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-15,trotinete,8,,,91 kcal / 1448 m,,,zepp:2026-04-15 13:10:16,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-17,trotinete,7,,,18 kcal / 6625 m,,,zepp:2026-04-17 12:43:49,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-17,trotinete,10,,,67 kcal / 2631 m,,,zepp:2026-04-17 17:47:48,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-19,trotinete,9,,,53 kcal / 1115 m,,,zepp:2026-04-19 12:31:02,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-21,trotinete,8,,,49 kcal / 2457 m,,,zepp:2026-04-21 18:02:08,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-04-27,crossfit,46,,,379 kcal,,,zepp:2026-04-27 17:41:57,Export Zepp (tipo 130).
+2026-04-28,trotinete,9,,,26 kcal / 4700 m,,,zepp:2026-04-28 18:12:44,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-05-06,trotinete,9,,,65 kcal / 2041 m,,,zepp:2026-05-06 12:05:37,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-05-08,trotinete,12,,,53 kcal / 2638 m,,,zepp:2026-05-08 17:46:42,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-05-11,crossfit,9,,,64 kcal,,,zepp:2026-05-11 18:30:47,Export Zepp (tipo 130).
+2026-05-12,trotinete,10,,,38 kcal / 2071 m,,,zepp:2026-05-12 15:35:06,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-05-15,crossfit,72,,,460 kcal,,,zepp:2026-05-15 16:34:28,Export Zepp (tipo 130).
+2026-05-22,trotinete,15,,,40 kcal / 6814 m,,,zepp:2026-05-22 08:11:22,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-05-22,trotinete,8,,,24 kcal / 7507 m,,,zepp:2026-05-22 10:09:19,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-05-27,crossfit,7,,,47 kcal,,,zepp:2026-05-27 17:44:20,Export Zepp (tipo 130).
+2026-05-29,crossfit,55,,,502 kcal,,,zepp:2026-05-29 16:35:12,Export Zepp (tipo 130).
+2026-05-31,trotinete,10,,,39 kcal / 2859 m,,,zepp:2026-05-31 09:36:26,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-05-31,trotinete,15,,,90 kcal / 4508 m,,,zepp:2026-05-31 12:28:47,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-01,crossfit,44,,,291 kcal,,,zepp:2026-06-01 17:48:39,Export Zepp (tipo 130).
+2026-06-08,corrida,22,,,235 kcal / 3018 m,,,zepp:2026-06-08 18:08:16,Export Zepp (tipo 1).
+2026-06-08,trotinete,8,,,77 kcal / 2845 m,,,zepp:2026-06-08 16:16:06,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-10,crossfit,43,,,480 kcal,,,zepp:2026-06-10 09:16:26,Export Zepp (tipo 130).
+2026-06-12,trotinete,14,,,81 kcal / 4110 m,,,zepp:2026-06-12 16:21:41,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-19,crossfit,40,,,341 kcal,,,zepp:2026-06-19 16:39:04,Export Zepp (tipo 130).
+2026-06-20,crossfit,45,,,453 kcal,,,zepp:2026-06-20 10:15:19,Export Zepp (tipo 130).
+2026-06-20,trotinete,8,,,59 kcal / 1560 m,,,zepp:2026-06-20 11:33:23,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-27,trotinete,14,,,91 kcal / 2621 m,,,zepp:2026-06-27 14:04:47,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-27,trotinete,202,,,845 kcal / 18113 m,,,zepp:2026-06-27 15:21:00,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-28,trotinete,10,,,96 kcal / 1510 m,,,zepp:2026-06-28 12:44:29,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-28,trotinete,14,,,66 kcal / 2315 m,,,zepp:2026-06-28 13:52:21,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-06-29,caminhada,62,,,426 kcal / 5003 m,,,zepp:2026-06-29 17:30:40,Export Zepp (tipo 6).
+2026-07-01,trotinete,8,,,82 kcal / 1947 m,,,zepp:2026-07-01 11:31:32,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-02,trotinete,10,,,57 kcal / 1710 m,,,zepp:2026-07-02 18:49:34,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-06,crossfit,44,,,470 kcal,,,zepp:2026-07-06 06:18:08,Export Zepp (tipo 130).
+2026-07-06,trotinete,9,,,41 kcal / 3732 m,,,zepp:2026-07-06 07:44:36,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-07,trotinete,8,,,41 kcal / 952 m,,,zepp:2026-07-07 17:24:36,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-08,crossfit,45,,,462 kcal,,,zepp:2026-07-08 06:19:27,Export Zepp (tipo 130).
+2026-07-08,trotinete,9,,,49 kcal / 3678 m,,,zepp:2026-07-08 07:42:58,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-08,trotinete,20,,,188 kcal / 5081 m,,,zepp:2026-07-08 17:30:37,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-09,trotinete,12,,,125 kcal / 4731 m,,,zepp:2026-07-09 15:33:53,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-09,trotinete,10,,,62 kcal / 3117 m,,,zepp:2026-07-09 17:47:35,Export Zepp (tipo 9). NAO E TREINO - deslocacao.
+2026-07-10,corrida,44,,,258 kcal / 750 m,,,zepp:2026-07-10 08:44:08,Export Zepp (tipo 8).
+2026-07-17,crossfit,8,,,77 kcal,,,zepp:2026-07-17 06:28:17,Export Zepp (tipo 130).
+2026-07-18,caminhada,52,,,391 kcal / 4498 m,,,zepp:2026-07-18 10:34:43,Export Zepp (tipo 6).
+2026-07-18,natacao,9,,,86 kcal / 100 m,,,zepp:2026-07-18 18:29:14,Export Zepp (tipo 14).
+2026-07-20,crossfit,47,,,458 kcal,,,zepp:2026-07-20 06:16:00,Export Zepp (tipo 130).
+2026-07-21,natacao,47,,,477 kcal / 2050 m,,,zepp:2026-07-21 06:15:44,Export Zepp (tipo 14).
+2026-07-22,crossfit,59,,,516 kcal,,,zepp:2026-07-22 06:07:59,Export Zepp (tipo 130).
+2026-07-23,crossfit,64,,,524 kcal,,,zepp:2026-07-23 16:36:26,Export Zepp (tipo 130).
+2026-07-23,natacao aguas abertas,4,,,29 kcal / 69 m,,,zepp:2026-07-23 17:56:32,Export Zepp (tipo 15).
+2026-07-24,crossfit,37,,,296 kcal,,,zepp:2026-07-24 06:27:53,Export Zepp (tipo 130).
+2026-07-25,natacao,14,,,141 kcal / 500 m,,,zepp:2026-07-25 13:07:47,Export Zepp (tipo 14).
+2026-07-26,natacao,7,,,56 kcal / 250 m,,,zepp:2026-07-26 14:51:11,Export Zepp (tipo 14).
+2026-07-27,tipo214,10,,,52 kcal,,,zepp:2026-07-27 06:08:59,Export Zepp (tipo 214).
+2026-07-27,tipo218,39,,,412 kcal,,,zepp:2026-07-27 06:19:33,Export Zepp (tipo 218).
+2026-07-28,crossfit,50,,,262 kcal,,,zepp:2026-07-28 06:16:55,Export Zepp (tipo 130).
+2026-07-29,crossfit,60,,,510 kcal,,,zepp:2026-07-29 06:23:40,Export Zepp (tipo 130).
+2026-07-30,crossfit,70,,,361 kcal,,,zepp:2026-07-30 06:16:50,Export Zepp (tipo 130).
+2026-07-31,crossfit,87,,,342 kcal,,,zepp:2026-07-31 06:16:08,Export Zepp (tipo 130).
+2026-08-01,caminhada,33,,,2.89 km / Agucadoura,,,zepp:2026-08-01 10:51:18,Export Zepp (tipo 6).
+2026-08-01,crossfit,51,,,441 kcal / FC media 113,,,zepp:2026-08-01 09:24:27,Registo do Amazfit. Sessao das 10h24
+2026-08-03,crossfit,47,,,464 kcal / FC media 123,,,zepp:2026-08-03 06:16:44,Export Zepp (tipo 130).
+2026-08-04,crossfit,59,,,269 kcal / FC media 78,,,zepp:2026-08-04 06:15:36,Sessao das 07h15. FC media muito baixa
+2026-08-05,crossfit,73,,,594 kcal / FC media 109,,,zepp:2026-08-05 06:11:09,Export Zepp (tipo 130).
+2026-08-06,caminhada,171,,,899 kcal / 5791 m,,,zepp:2026-08-06 17:27:13,NAO e treino - deslocacoes do dia captadas pelo relogio
 2026-08-06,descanso,,,,,,,,Dia de descanso
 2026-08-07,corrida,10,,,109 kcal / FC 77-142 media 129 / 1696 m,,,Zepp20260807073250.fit,Importado de Zepp20260807073250.fit. 10 de 11 min com FC >= 120. Efeito aerobio 2.2.
 2026-08-07,crossfit,15,,,61 kcal / FC 55-98 media 75,,,Zepp20260807071008.fit,Importado de Zepp20260807071008.fit. 0 de 15 min com FC >= 120.

@@ -1,10 +1,15 @@
 data,peso_kg,gordura_pct,gordura_kg,massa_magra_kg,massa_muscular_kg,musculo_esq_kg,agua_pct,proteina_pct,visceral,tmb_kcal,fc_repouso,fonte,notas
+2020-01-07,97.5,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2020-09-11,97.5,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2021-03-13,96.3,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2022-09-24,98.3,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2024-01-15,97.0,,,,,,,,,,,atleta,APROXIMADO. Pico de forma: 50L em 26.60 (jan) e 50B em 32.03 (nov). Data 15 e marcador
 2026-03-17,100.8,,,,,,,,,,,relatorio,Minimo historico referido nos relatorios importados
 2026-04-13,103.8,,,,,,,,,,,relatorio,Pico pos-excesso
 2026-06-26,101.7,,,,,,,,,,,relatorio,
 2026-06-28,104.8,,,,,,,,,,,relatorio,CONFLITO na fonte: mesma data tambem aparece como 102.1
 2026-07-11,100.1,,,,,,,,,,,atleta,Dia da prova OPEN Internacional Master Famalicao
+2026-07-25,100.0,18.5,,,,,,,,2128,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
 2026-08-05,100.1,,,,,,,,,,,balanca,Derivado do delta -0.1 kg da medicao de 2026-08-06
 2026-08-06,100.0,27.7,27.7,72.3,68.2,41.0,55.5,11.9,11,1932,58,balanca,Primeira medicao completa de composicao corporal
 2026-08-07,100.0,27.6,27.6,72.4,68.3,41.2,55.8,11.7,11,1934,59,balanca,Sem variacao de peso vs. 2026-08-06
-2024-01-15,97.0,,,,,,,,,,,atleta,APROXIMADO. Pico de forma: 50L em 26.60 (jan) e 50B em 32.03 (nov). Data 15 e marcador

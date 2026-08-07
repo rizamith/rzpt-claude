@@ -55,12 +55,33 @@ O resumo de nível superior. Serve para medir consistência, carga semanal e dor
 
 `data, modalidade, duracao_min, rpe, energia_1_5, resultado, dor_zona, dor_0_10, notas`
 
-- **`modalidade`** — `crossfit` · `hyrox` · `natacao` · `forca` · `descanso`
+- **`modalidade`** — `crossfit` · `hyrox` · `natacao` · `natacao aguas abertas` · `corrida` ·
+  `caminhada` · `ciclismo` · `forca` · `descanso` · `trotinete`
+- ⚠️ **`trotinete` NÃO é treino.** O relógio classifica os trajetos de trotinete como ciclismo
+  (tipo 9 da Zepp) — são ~200 deslocações de ~10 min a ~19 km/h. **Filtrar sempre nas análises
+  de volume ou de carga**, senão os números ficam inflacionados.
+- `tipoNN` são códigos da Zepp ainda por identificar. `tipo42` (≈199 min, ≈21 km, abril/2026)
+  é provavelmente snowboard — por confirmar com o Ricardo.
+- **`origem`** — de onde veio a linha. Vazio = manual. `<ficheiro>.fit` = importado pelo
+  `sincronizar.py` (o mais rico: tem FC a 1 Hz e densidade). `zepp:<instante>` = export completo
+  da app. Serve para não duplicar e para saber em que confiar.
 - **`rpe`** — esforço percebido, 1–10. É o campo que distingue progressão real de estagnação:
   as mesmas cargas com RPE a descer é progresso; com RPE a subir é fadiga acumulada.
 - **`resultado`** — score do WOD em texto livre (`21-15-9 em 8:42`, `4 rondas + 12`)
 - **`dor_zona`** / **`dor_0_10`** — vazio quando não há dor. Registar mesmo quando é pouco:
   a série é que revela se o cotovelo está a melhorar ou a piorar.
+
+## `atividade.csv` — dia a dia, do Amazfit Balance
+
+Série contínua desde 2020. É a base para consistência e para estimar gasto energético.
+
+`data, passos, distancia_m, kcal_atividade, fc_repouso, fc_media, fc_max, fonte`
+
+- **`fc_repouso`** — mínimo antes das 06:00, agregado das ~240 amostras diárias de
+  `HEARTRATE_AUTO`. É um proxy melhor da FC de repouso real do que a leitura pontual da balança.
+- **`kcal_atividade`** — estimativa do relógio, tendencialmente otimista. Usar para tendência,
+  não como verdade absoluta.
+- Importado com `python ferramentas/zepp.py <pasta> --importar`.
 
 ## `prontidao.csv` — carga e recuperação do Amazfit Balance
 

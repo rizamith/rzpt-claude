@@ -59,3 +59,13 @@ que distingue 35 minutos de trabalho de 35 minutos com 12 parado. Usa um limiar 
 uma percentagem de FCmax de propósito: a FCmax real do Ricardo não é conhecida.
 
 O que o script **não** consegue dar é o **RPE**. Fica sempre vazio, e é sempre preciso perguntar.
+
+## `dedup.py` — funde a mesma sessão vinda de fontes diferentes
+
+**Correr sempre depois de `zepp.py --importar`.** Uma sessão pode entrar pelo `.fit`, pelo
+export completo e por registo manual; as três são legítimas e trazem campos diferentes.
+
+Duas linhas são a mesma sessão se coincidirem em data, modalidade e duração (±1 min). A fusão
+guarda o melhor de cada campo em vez de escolher uma linha e deitar as outras fora: manda a
+origem mais rica (`.fit` > `zepp:` > manual), mas texto mais completo noutra fonte é aproveitado
+e o que só existe numa — `rpe`, `dor` — nunca se perde.
