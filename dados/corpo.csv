@@ -1,8 +1,8 @@
 data,peso_kg,gordura_pct,gordura_kg,massa_magra_kg,massa_muscular_kg,musculo_esq_kg,agua_pct,proteina_pct,visceral,tmb_kcal,fc_repouso,fonte,notas
-2020-01-07,97.5,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
-2020-09-11,97.5,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
-2021-03-13,96.3,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
-2022-09-24,98.3,,,,,,,,,0,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2020-01-07,97.5,,,,,,,,,,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2020-09-11,97.5,,,,,,,,,,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2021-03-13,96.3,,,,,,,,,,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
+2022-09-24,98.3,,,,,,,,,,,zepp,Export Zepp. Composicao NAO comparavel com a balanca Xiaomi
 2024-01-15,97.0,,,,,,,,,,,atleta,APROXIMADO. Pico de forma: 50L em 26.60 (jan) e 50B em 32.03 (nov). Data 15 e marcador
 2026-03-17,100.8,,,,,,,,,,,relatorio,Minimo historico referido nos relatorios importados
 2026-04-13,103.8,,,,,,,,,,,relatorio,Pico pos-excesso

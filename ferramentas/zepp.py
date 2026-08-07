@@ -116,7 +116,7 @@ def corpo_de(base):
             'gordura_pct': ('%.1f' % gord) if gord else '', 'gordura_kg': '',
             'massa_magra_kg': '', 'massa_muscular_kg': '', 'musculo_esq_kg': '',
             'agua_pct': '', 'proteina_pct': '', 'visceral': '',
-            'tmb_kcal': str(int(num(b.get('metabolism'), float))) or '',
+            'tmb_kcal': str(int(num(b.get('metabolism'), float)) or ''),
             'fc_repouso': '', 'fonte': 'zepp',
             'notas': 'Export Zepp. Composicao NAO comparavel com a balanca Xiaomi'})
     return out
