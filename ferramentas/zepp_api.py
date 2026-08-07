@@ -360,15 +360,16 @@ def main():
         gravar_segredos(app_token=token, user_id=str(uid),
                         obtido_em=datetime.date.today().isoformat())
         print('\n' + '=' * 66)
-        print('Guardar como GitHub Secrets (Settings -> Secrets -> Actions):')
+        print('Token obtido. ZEPP_USER_ID = %s' % uid)
+        print('ZEPP_APP_TOKEN: %d caracteres, guardado no ficheiro.' % len(token))
         print('=' * 66)
-        print('ZEPP_APP_TOKEN = %s' % token)
-        print('ZEPP_USER_ID   = %s' % uid)
-        print('=' * 66)
-        print('Depois disso podes APAGAR os Secrets ZEPP_EMAIL e ZEPP_PASSWORD:')
-        print('a palavra-passe deixa de ser precisa e nao fica na nuvem.')
-        print('O token dura semanas. Quando expirar, o workflow avisa e volta-se')
-        print('a correr este comando.')
+        print('NAO e impresso aqui de proposito: o token e uma credencial tanto')
+        print('como a palavra-passe, e nao deve ficar no historico do terminal.')
+        print('Para o GitHub Actions, copiar os dois valores de')
+        print('  %s' % SEGREDOS)
+        print('para Settings -> Secrets and variables -> Actions.')
+        print('Feito isso, podes APAGAR os Secrets ZEPP_EMAIL e ZEPP_PASSWORD.')
+        print('O token dura semanas; quando expirar o workflow avisa.')
         return
 
 
