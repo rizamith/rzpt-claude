@@ -388,5 +388,5 @@ data,modalidade,duracao_min,rpe,energia_1_5,resultado,dor_zona,dor_0_10,origem,n
 2026-08-06,caminhada,171,,,899 kcal / 5791 m,,,zepp:2026-08-06 17:27:13,NAO e treino - deslocacoes do dia captadas pelo relogio
 2026-08-06,descanso,,,,,,,,Dia de descanso
 2026-08-07,corrida,10,6,,109 kcal / FC 77-142 media 129 / 1696 m,,,Zepp20260807073250.fit,sessao 2/3. Importado de Zepp20260807073250.fit. 10 de 11 min com FC >= 120. Efeito aerobio 2.2.
-2026-08-07,crossfit,15,6,,61 kcal / FC 55-98 media 75,,,Zepp20260807071008.fit,sessao 1/3. Importado de Zepp20260807071008.fit. 0 de 15 min com FC >= 120.
+2026-08-07,crossfit,15,6,,61 kcal / FC 55-98 media 75,ombro dto,,Zepp20260807071008.fit,sessao 1/3. Importado de Zepp20260807071008.fit. 0 de 15 min com FC >= 120. Desconforto no ombro dto so no arranque; passou com o aquecimento e nao voltou. Intensidade nao quantificada.
 2026-08-07,crossfit,35,6,,253 kcal / FC 67-157 media 101,,,Zepp20260807074327.fit,sessao 3/3. Importado de Zepp20260807074327.fit. 8 de 35 min com FC >= 120. Efeito aerobio 2.2.
