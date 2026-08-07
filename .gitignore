@@ -7,6 +7,10 @@
 /tmp/
 /uploads/
 
+# Bytecode do Python — gerado ao correr os scripts, nao e estado
+__pycache__/
+*.pyc
+
 # Ruído de sistema
 Thumbs.db
 desktop.ini
