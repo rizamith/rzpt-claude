@@ -20,7 +20,7 @@ Fluxo de autenticacao, em tres passos:
   3. GET  {host}/v1/data/band_data.json -> um registo por dia, com o sono e os
      passos num campo `summary` em JSON e a FC por minuto em base64.
 """
-import os, sys, json, base64, urllib.parse, urllib.request, urllib.error, datetime
+import os, sys, time, json, base64, urllib.parse, urllib.request, urllib.error, datetime
 
 # A API devolve instantes Unix. As linhas que ja estao em dados/sono.csv usam
 # hora local, por isso convertemos para Europe/Lisbon. O zoneinfo existe no
@@ -48,6 +48,11 @@ import zepp as zepplib
 UA = 'MiFit/4.6.0 (iPhone; iOS 14.0; Scale/3.00)'
 REDIRECT = 'https://s3-us-west-2.amazonaws.com/hm-registration/successsignin.html'
 DIAG = '--diag' in sys.argv
+
+try:                       # ordem correcta das linhas no log do GitHub Actions
+    sys.stdout.reconfigure(line_buffering=True)
+except Exception:
+    pass
 
 # A Huami passou a chamar-se Zepp e manteve as duas infraestruturas. Contas mais
 # recentes vivem em *.zepp.com, as antigas em *.huami.com. Tentam-se as duas.
@@ -92,32 +97,73 @@ HOSTS = ['api-mifit-de.huami.com', 'api-mifit-de2.huami.com',
          'api-mifit-us2.huami.com', 'api-mifit.huami.com']
 
 
+ESPERAS = [0, 45, 90, 180]   # segundos antes de cada tentativa, em caso de 429
+
+
+def _tentar_passo1(email, palavra, user_host, account_host):
+    """(codigo, pais, account_host) | ('429', ...) | None"""
+    url = 'https://%s/registrations/%s/tokens' % (
+        user_host, urllib.parse.quote(email, safe=''))
+    status, headers, corpo = _post(url, {
+        'client_id': 'HuaMi', 'password': palavra, 'redirect_uri': REDIRECT,
+        'token': 'access'}, seguir=False)
+    loc = headers.get('Location', '')
+    erro = urllib.parse.parse_qs(urllib.parse.urlparse(loc).query).get('error', [''])[0]
+    print('[passo 1] %s -> HTTP %s  %s' % (
+        user_host, status, loc[:150] or (corpo[:200].strip() or '(sem Location)')), flush=True)
+    if 'access=' in loc:
+        q = urllib.parse.parse_qs(urllib.parse.urlparse(loc).query)
+        print('[passo 1] ok em %s' % user_host, flush=True)
+        return q['access'][0], (q.get('country_code') or ['PT'])[0], account_host
+    if status == 429 or '"code":12' in corpo or 'too many requests' in corpo.lower():
+        return '429', None, None
+    return None, erro or str(status), None
+
+
 def passo1(email, palavra):
-    """Troca email+palavra por um codigo de acesso. Tenta Huami e Zepp."""
-    for user_host, account_host in HOSTS_AUTH:
-        url = 'https://%s/registrations/%s/tokens' % (
-            user_host, urllib.parse.quote(email, safe=''))
-        status, headers, corpo = _post(url, {
-            'client_id': 'HuaMi', 'password': palavra, 'redirect_uri': REDIRECT,
-            'token': 'access'}, seguir=False)
-        loc = headers.get('Location', '')
-        print('[passo 1] %s -> HTTP %s  %s' % (user_host, status, loc[:150] or '(sem Location)'))
-        if 'access=' in loc:
-            q = urllib.parse.parse_qs(urllib.parse.urlparse(loc).query)
-            print('[passo 1] ok em %s' % user_host)
-            return q['access'][0], (q.get('country_code') or ['PT'])[0], account_host
-        if corpo.strip():
-            print('[passo 1] corpo: %s' % corpo[:600])
-    raise SystemExit(
-        'PASSO 1 FALHOU nos dois dominios, com error=401 (autenticacao rejeitada).\n'
-        'O codigo funciona: o endpoint responde e indica a regiao. O par\n'
-        'email/palavra-passe e que nao e aceite. Causas, por probabilidade:\n'
-        '  1. A conta Zepp nao tem palavra-passe propria: foi criada com "iniciar\n'
-        '     sessao com Google/Apple". Definir uma palavra-passe na app resolve.\n'
-        '  2. A conta identifica-se por numero de telefone e nao por email.\n'
-        '  3. Espaco ou linha a mais no Secret (o script ja faz strip).\n'
-        '  4. Email diferente do usado na Zepp.\n'
-        'Nao e problema de codigo: e preciso mexer na conta Zepp.')
+    """Troca email+palavra por um codigo de acesso.
+
+    Tenta os dois dominios (Huami e Zepp) e, em caso de HTTP 429, volta a
+    tentar com esperas crescentes: a Zepp limita pedidos ao endpoint de tokens
+    e algumas tentativas seguidas bastam para bloquear durante minutos.
+    """
+    ultimo = None
+    for i, espera in enumerate(ESPERAS):
+        if espera:
+            print('[passo 1] limitado por excesso de pedidos. A esperar %ds '
+                  '(tentativa %d de %d)...' % (espera, i + 1, len(ESPERAS)), flush=True)
+            time.sleep(espera)
+        limitado = False
+        for user_host, account_host in HOSTS_AUTH:
+            a, b, c = _tentar_passo1(email, palavra, user_host, account_host)
+            if a == '429':
+                # Os dois dominios partilham a infraestrutura: insistir no
+                # segundo so agrava o limite. Esperar e o unico caminho.
+                limitado = True
+                break
+            if a:
+                return a, b, c
+            ultimo = b
+        if not limitado:
+            break        # falha real, nao vale esperar
+
+    if ultimo in (None, '429'):
+        raise SystemExit(
+            'PASSO 1 FALHOU por LIMITE DE PEDIDOS (HTTP 429), nao por credenciais.\n'
+            'A Zepp bloqueia o endpoint de tokens depois de varias tentativas seguidas,\n'
+            'e ja esperamos %ds sem sucesso.\n'
+            'NAO mexas na conta nem nos Secrets: nao e ai o problema.\n'
+            'Espera 30 a 60 minutos e corre o workflow outra vez.' % sum(ESPERAS))
+    if ultimo == '401':
+        raise SystemExit(
+            'PASSO 1 FALHOU com error=401: a Zepp rejeitou o par email/palavra-passe.\n'
+            '  1. Confirma que consegues entrar na app com exactamente essas credenciais.\n'
+            '  2. Se a conta nao tem palavra-passe propria (criada com Google/Apple),\n'
+            '     define uma nas definicoes da conta Zepp.\n'
+            '  3. Se a conta se identifica por telefone, diz-me: o endpoint aceita o\n'
+            '     numero com indicativo no lugar do email.')
+    raise SystemExit('PASSO 1 FALHOU com erro inesperado: %s. Ver as linhas [passo 1] acima.'
+                     % ultimo)
 
 
 def autenticar(email, palavra):
