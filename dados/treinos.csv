@@ -6,5 +6,6 @@ data,modalidade,duracao_min,rpe,energia_1_5,resultado,dor_zona,dor_0_10,notas
 2026-08-04,crossfit,59,,,269 kcal / FC media 78,,,Sessao das 07h15. FC media muito baixa
 2026-08-05,crossfit,73,,,594 kcal / FC media 109,,,Sessao das 07h11
 2026-08-06,caminhada,171,,,5.79 km,,,NAO e treino - deslocacoes do dia captadas pelo relogio
-2026-08-07,crossfit,50,,,253+61 kcal / FC media 101 e 75,,,Duas partes: 07h10 (15 min) e 07h43 (35 min)
+2026-08-07,crossfit,35,,,"253 kcal / FC 67-157 media 101 / efeito aerobio 2.2",,,"Sessao 07h43. De FIT a 1 Hz: so ~10 min de trabalho real (min 5-14, 118-146 bpm). Ultimos 12 min a ~76 bpm - parado"
+2026-08-07,crossfit,15,,,61 kcal / FC media 75,,,Sessao 07h10. Sem FIT importado
 2026-08-07,corrida,10,,,1.69 km a 6:10 min/km,,,Povoa de Varzim. 07h32 entre as duas partes do CrossFit
