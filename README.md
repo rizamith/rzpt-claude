@@ -133,6 +133,32 @@ automatização as substitui.
 Os dois escrevem no mesmo repositório do GitHub, que é o estado partilhado. Regra em qualquer
 um: **`pull` no início, `push` no fim.**
 
+### Arrancar no telemóvel
+
+1. Instalar a app do **Claude** no Android (ou abrir `claude.ai/code` no browser).
+2. **Ligar o GitHub** e autorizar o acesso ao repositório `rizamith/rzpt-claude`.
+3. Abrir uma sessão apontada a esse repositório. Ele clona sozinho e lê o `CLAUDE.md` — todo o
+   comportamento definido aqui viaja com o repositório, sem configuração extra.
+4. Falar normalmente. Fotos da câmara funcionam.
+
+**O que funciona igual no telemóvel:** foto da balança, RPE, natação, alimentação, dor, sono
+declarado — todo o registo diário, que é 95 % do uso.
+
+**O que continua a precisar do PC:**
+
+| | Porquê | Com que frequência |
+| --- | --- | --- |
+| Importar os `.fit` do Drive | Na nuvem não há disco `G:` montado. Há alternativa pelo conector do Drive (`sincronizar.py --b64`), **por confirmar** | Diária, se a alternativa não funcionar |
+| Importar o export da Zepp | O `.zip` é cifrado com AES e precisa do 7-Zip | Mensal — dá para acumular |
+| Análises longas | Leitura de todo o histórico, melhor em Opus e em ecrã grande | Mensal |
+
+**A verificar na primeira sessão pelo telemóvel**, e vale a pena dizer-me o que acontece:
+
+- A sessão faz `commit` directo no `main` ou abre um *pull request*? Se abrir PR, é atrito
+  diário e vale a pena mudar.
+- O conector do Google Drive está disponível? Se sim, a importação dos treinos deixa de precisar
+  do PC.
+
 ---
 
 ## Estrutura
