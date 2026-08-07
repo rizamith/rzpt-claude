@@ -118,14 +118,14 @@ dados/               NÚMEROS — séries temporais em CSV, append-only
 
 ferramentas/         scripts, sem dependências externas
 ├── sincronizar.py   .fit do Drive → treinos.csv. Correr no início de cada registo.
-├── zepp_api.py      API da Zepp → sono e atividade. Corre no GitHub Actions.
+├── zepp_api.py      API da Zepp. ⚠️ Endpoint fechado — ver acima.
 ├── zepp.py          export manual completo → sono, treinos, corpo, atividade
 ├── dedup.py         funde a mesma sessão vinda de fontes diferentes
 ├── fit.py           leitor de um .fit isolado, para inspeção
 └── testar.py        verifica o sistema todo. Correr antes de commits grandes.
 
 .github/workflows/
-└── sincronizar-zepp.yml   diário, 08h20 UTC. Traz o sono e faz commit sozinho.
+└── sincronizar-zepp.yml   ⚠️ agendamento desligado. Só execução manual.
 
 suplementos.md       inventário e decisões
 
