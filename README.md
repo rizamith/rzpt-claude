@@ -19,8 +19,9 @@ Não há servidor, não há backend, não há processo a correr em lado nenhum. 
    para o Drive                 commit + push
 ```
 
-O único automatismo é o **Google Drive**: partilhas o treino da app Zepp para a pasta `Zepp` e
-ele aparece no disco. O resto acontece quando falas comigo.
+O único automatismo é o **Google Drive**: a app Zepp sincroniza os treinos para a pasta `Zepp`
+**sozinha**, sem o Ricardo fazer nada. Eu verifico essa pasta em **toda** a conversa. O resto
+acontece quando falas comigo.
 
 ---
 
@@ -37,14 +38,13 @@ Se não houve treino nem nada a dizer, **basta isso**. Não é preciso escrever 
 
 ### Depois de treinar
 
-Duas coisas, e a segunda é a que só tu podes dar:
+**O treino entra sozinho.** A app Zepp sincroniza o `.fit` para o Drive e eu verifico a pasta
+sempre que falamos — tempos, calorias, FC a 1 Hz e densidade da sessão vêm de lá.
 
-1. **Partilha o treino da app Zepp para a pasta `Zepp` do Drive.** Dois toques na app. Eu
-   importo sozinho na conversa seguinte — tempos, calorias, FC a 1 Hz e densidade da sessão.
-2. **Diz-me o RPE.** Um número de 1 a 10. Nenhum aparelho o mede, e sem ele não distingo uma
-   sessão dura de uma sessão social.
+Só falta uma coisa, e é a única que nenhum aparelho dá: **o RPE.** Um número de 1 a 10.
+Sem ele não distingo uma sessão dura de uma sessão social.
 
-Se não tiveres partilhado o `.fit`, descreve por palavras — serve.
+Se o treino não ficou gravado no relógio, descreve por palavras — serve.
 
 ### Natação
 
@@ -55,10 +55,21 @@ O relógio não vai à água (é grande e atrapalha a braçada). Portanto **diz-
 Metros e tempo bastam. É a única fonte de volume de natação que existe, e é a que liga o peso
 aos tempos.
 
+### Alimentação
+
+**Uma linha, não um diário alimentar.** O que interessa é a adesão, não a contabilidade:
+
+> comi bem, 2 copos de vinho ao jantar, fome a meio da tarde
+
+Daí saem os campos que importam: adesão (0–5), unidades de álcool e fome (0–5). Se contares
+calorias ou proteína, tanto melhor; se não, fica vazio e não há problema.
+
+O **álcool registra-se sempre**, mesmo quando está previsto no plano: é a variável com maior
+efeito no peso da manhã seguinte e na FC noturna.
+
 ### Quando houver algo a dizer
 
-Dor, sono mau, semana de stress, desvio grande à alimentação, prova, lesão. Não é preciso
-relatório — uma frase.
+Dor, sono mau, semana de stress, prova, lesão, medicação. Não é preciso relatório — uma frase.
 
 ---
 
@@ -101,7 +112,7 @@ Quando quiseres — mensal faz sentido, ou antes de uma prova. Pede "análise" o
 
 | | Como entra | Automático? |
 | --- | --- | --- |
-| Treinos (CrossFit, corrida, caminhada) | `.fit` para o Drive | ✅ eu importo |
+| Treinos (CrossFit, corrida, caminhada) | Zepp sincroniza para o Drive | ✅ totalmente |
 | Peso e composição corporal | Foto da balança | ❌ foto diária |
 | Natação — volume | Texto no chat | ❌ nunca será |
 | RPE, dor, energia | Texto no chat | ❌ nunca será |

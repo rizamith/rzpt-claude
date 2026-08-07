@@ -56,6 +56,7 @@ ESPERADO = {
     'atividade.csv': 'data,passos,distancia_m',
     'forca.csv': 'data,exercicio,series',
     'prontidao.csv': 'data,carga_pct,fadiga',
+    'nutricao.csv': 'data,adesao_0_5,kcal',
 }
 for f, prefixo in ESPERADO.items():
     caminho = os.path.join('dados', f)
@@ -64,6 +65,9 @@ for f, prefixo in ESPERADO.items():
         continue
     linhas = list(csv.DictReader(open(caminho, encoding='utf-8')))
     cab = open(caminho, encoding='utf-8').readline().strip()
+    if not linhas:
+        aviso('%-14s vazio (so cabecalho)' % f)
+        continue
     if not cab.startswith(prefixo):
         mau('%s: cabecalho inesperado -> %s' % (f, cab[:60]))
         continue

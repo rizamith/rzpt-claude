@@ -71,6 +71,28 @@ O resumo de nível superior. Serve para medir consistência, carga semanal e dor
 - **`dor_zona`** / **`dor_0_10`** — vazio quando não há dor. Registar mesmo quando é pouco:
   a série é que revela se o cotovelo está a melhorar ou a piorar.
 
+## `nutricao.csv` — adesão alimentar diária
+
+Ficheiro acrescentado em 2026-08-07. **Deliberadamente de baixo atrito:** contar tudo todos os
+dias não se sustenta, e foi a prescrição excessiva dos relatórios importados que produziu o
+ciclo restrição→compensação que estamos a corrigir. Uma linha com dois campos preenchidos vale
+mais do que nenhuma linha.
+
+`data, adesao_0_5, kcal, proteina_g, hidratos_g, alcool_un, fome_0_5, desvio`
+
+- **`adesao_0_5`** — o campo que importa. Quão perto do plano ficou o dia. 5 = cumprido,
+  0 = descarrilou. Subjetivo e é bom que seja: mede o que o Ricardo sente que controlou.
+- **`alcool_un`** — unidades de álcool. **Registar sempre**, mesmo ao fim de semana quando está
+  previsto. É a variável com maior efeito no peso à balança na manhã seguinte (retenção) e na
+  FC noturna, e sem a coluna não se pode correlacionar.
+- **`fome_0_5`** — fome ao longo do dia. É o indicador de alerta: fome a subir ao longo da
+  semana antecipa o descontrolo de sexta-feira. Serve para ajustar **antes** de acontecer.
+- **`kcal`, `proteina_g`, `hidratos_g`** — só quando ele contar. Vazio é aceitável e normal.
+- **`desvio`** — texto livre do que saiu do plano e porquê. O "porquê" é o que interessa.
+
+Ver as metas em `plano.md`. **Não transformar isto num diário alimentar** — se um dia só houver
+`adesao_0_5` e `alcool_un`, está bem assim.
+
 ## `atividade.csv` — dia a dia, do Amazfit Balance
 
 Série contínua desde 2020. É a base para consistência e para estimar gasto energético.

@@ -25,7 +25,9 @@ tu. Três peças:
 
 - **O GitHub é o estado.** É a única coisa partilhada entre os dois ambientes, e é a fonte de
   verdade. Tudo o que não for committado não existe.
-- **O Drive é a caixa de entrada.** O Ricardo partilha o treino da app Zepp para lá; nós lemos.
+- **O Drive é a caixa de entrada.** A app Zepp sincroniza os treinos para lá **sozinha**, sem
+  o Ricardo fazer nada. Por isso: **verifica sempre a pasta, em toda a conversa.** Pode haver
+  treinos novos de que ele nem se lembra de falar.
 - **O `CLAUDE.md` é o programa.** Não há mais lógica em lado nenhum.
 
 ### Os dois ambientes não são iguais — descobre em qual estás
@@ -112,6 +114,7 @@ dados/               NÚMEROS — séries temporais em CSV, append-only
 ├── natacao.csv      tempos de prova e de treino
 ├── forca.csv        cargas de exercícios e PRs
 ├── treinos.csv      uma linha por sessão: modalidade, RPE, dor
+├── nutricao.csv     adesão alimentar diária, álcool e fome
 ├── atividade.csv    passos, distância e FC diários (série contínua desde 2020)
 ├── prontidao.csv    carga, fadiga e estado de treino do Balance
 └── sono.csv         sono e recuperação (Amazfit Balance)
@@ -177,9 +180,10 @@ escrevem no mesmo repositório, por isso:
 Quando eu enviar uma foto ou descrever um treino:
 
 1. `git pull`.
-2. **Corre `python ferramentas/sincronizar.py`.** Importa automaticamente os treinos novos
-   de `G:\My Drive\Zepp` para `dados/treinos.csv`. É idempotente — corre sempre, mesmo que
-   aches que não há nada novo. Depois vê que linhas ficaram sem `rpe` e pergunta.
+2. **Corre `python ferramentas/sincronizar.py`. Sempre, em qualquer conversa, mesmo que ele só
+   diga "bom dia".** A app Zepp sincroniza para o Drive automaticamente, portanto há treinos
+   novos sem ele ter pedido nada. É idempotente — não há risco em correr à toa, e há risco em
+   não correr. Depois vê que linhas ficaram sem `rpe` e **pergunta**.
 3. Extrai os dados relevantes.
 4. Se algo estiver ambíguo (carga ilegível, número de séries pouco claro, unidade duvidosa),
    **pergunta antes de escrever**. Não inventes nem assumes valores.
