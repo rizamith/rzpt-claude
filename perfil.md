@@ -35,6 +35,10 @@ marcados com ⚠️ são inconsistentes ou não confirmados — não usar em an�
 - **Hora fixa:** 07h00, em jejum (decisão para estabilizar cortisol/ritmo circadiano)
 - **Snowboard** — sazonal, Fev/Mar 2026 (episódio de hipóxia em altitude + queda)
 
+⚠️ **Suspenso até 15/set/2026** — piscina fechada, sem natação. Nesta janela é CrossFit/Hyrox
+quase diário (todos os dias menos domingo e os que o PT marcar como descanso). Detalhe e
+critério de descanso em [plano.md](plano.md). A tabela acima volta a valer a 15 de setembro.
+
 ## PRs e métricas de performance
 
 | Métrica | Valor | Notas |

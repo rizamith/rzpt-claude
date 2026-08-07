@@ -92,6 +92,28 @@ setembro**, para entrar na época já mais leve.
 Repara no que isto significa: os dias "maus" ficam. O que muda é que a semana deixa de ser um
 deserto — 2400 kcal de 2ª a 5ª é **comer**, não sobreviver.
 
+### Atualização 2026-08-07 — a frequência real não é 3x, é quase diária
+
+Correção à tabela acima: **não são 3 sessões por semana.** É CrossFit/Hyrox todos os dias
+menos domingo (descanso fixo) e os dias em que eu recomendar parar. Até 6 sessões por semana,
+não 3.
+
+Isto muda o gasto energético para cima face aos ~2700 kcal/dia da tabela — mas não vou
+inventar o número novo. Fica sob revisão até haver uma semana de dados reais (RPE + kcal do
+relógio) a este ritmo; o alvo de ~97.5 kg a 15/set mantém-se por agora como referência, ajusta-se
+se os dados mostrarem outra coisa.
+
+**Critério para eu chamar descanso**, para não ficar vago:
+
+1. Dor a **subir** ou a repetir-se na mesma zona dois dias seguidos (ex.: ombro, cotovelo) →
+   descanso ou troca por algo leve, sem discussão.
+2. RPE ≥ 8 dois dias seguidos → descanso a seguir. Fadiga que não é sentida ao momento aparece
+   no dia depois.
+3. Sem nenhum destes sinais, segue-se o calendário: seis dias de treino, domingo de descanso.
+
+Não uso o "estado de treino" do relógio para isto — já ficou documentado acima que a FC ótica
+não lê bem levantamentos. O sinal fiável é o que o Ricardo diz: RPE e dor em `treinos.csv`.
+
 ### Macros nos dias de semana (2400 kcal)
 
 | Macro | Alvo | Porquê |
@@ -171,8 +193,13 @@ Matriz mantida por agora, com a hierarquia corrigida:
 | 3ª, 5ª, sábado | Natação | **Prioridade.** Prova em março |
 | Domingo | Descanso | |
 
-**Piscina fechada até 15 de setembro** — Clube Naval Povoense. Treinos 3ª e 5ª às 7h, sábado às
-8h em piscina de 50 m. Até 15/set só CrossFit e Hyrox.
+**Piscina fechada até 15 de setembro** — Clube Naval Povoense.
+
+⚠️ **Até lá, a tabela acima não vale.** É CrossFit/Hyrox **todos os dias menos domingo**, e
+menos os dias em que eu recomendar descanso pelo critério da secção 2. Não é 2ª/4ª/6ª — é
+diário. Hora de treino varia com o dia (normalmente 07h00 em jejum; aos fins de semana pode
+ser mais tarde). A 15 de setembro volta a tabela de cima, com a natação de volta a 3ª, 5ª e
+sábado.
 
 ### A prova do título é o 50 Bruços
 
@@ -248,3 +275,6 @@ aparece na balança e **não é gordura**; ignora-se.
 - **2026-08-06** — Plano criado. Hierarquia definida: natação > composição corporal > CrossFit.
   Abandonada a abordagem de restrição/choque dos relatórios importados em favor de repartição
   semanal com os eventos sociais dentro do orçamento.
+- **2026-08-07** — Corrigida a frequência até 15/set: CrossFit/Hyrox quase diário (todos os dias
+  menos domingo e os dias que eu recomendar parar), não 3x/semana como a revisão inicial
+  assumia. Critério de descanso definido: dor a subir/repetir-se, ou RPE ≥ 8 dois dias seguidos.
