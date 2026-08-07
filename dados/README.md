@@ -62,6 +62,19 @@ O resumo de nível superior. Serve para medir consistência, carga semanal e dor
 - **`dor_zona`** / **`dor_0_10`** — vazio quando não há dor. Registar mesmo quando é pouco:
   a série é que revela se o cotovelo está a melhorar ou a piorar.
 
+## `prontidao.csv` — carga e recuperação do Amazfit Balance
+
+Ficheiro acrescentado em 2026-08-07. Dados do separador **Esforço** da app Zepp.
+
+`data, carga_pct, fadiga, condicao_fisica, estado_treino, fonte, notas`
+
+- **`carga_pct`** — anel de carga de treino, 0–100 %
+- **`fadiga`** / **`condicao_fisica`** — índices proprietários da Zepp. Valores absolutos sem
+  significado externo; **só a tendência interessa**.
+- **`estado_treino`** — negativo = carga abaixo do necessário para manter a condição
+  (destreino); positivo = a construir. **É o campo mais acionável do ficheiro.**
+- Fadiga alta com `estado_treino` negativo não é fadiga de treino — é stress ou falta de sono.
+
 ## `sono.csv` — sono e recuperação
 
 `data, deitar, acordar, cama_min, sono_min, profundo_min, rem_min, leve_min, despertares,
