@@ -69,3 +69,27 @@ Duas linhas são a mesma sessão se coincidirem em data, modalidade e duração 
 guarda o melhor de cada campo em vez de escolher uma linha e deitar as outras fora: manda a
 origem mais rica (`.fit` > `zepp:` > manual), mas texto mais completo noutra fonte é aproveitado
 e o que só existe numa — `rpe`, `dor` — nunca se perde.
+
+## `zepp_api.py` — sono e atividade automáticos, sem export
+
+**⚠️ API não oficial.** A Zepp não publica API para utilizadores; isto usa os mesmos endpoints
+que a app. Funciona, mas parte quando eles mudarem algo — e nesse dia o `zepp.py` com export
+manual continua a ser a rede de segurança.
+
+Corre no **GitHub Actions** (`.github/workflows/sincronizar-zepp.yml`), todos os dias às 08h20
+UTC, e faz commit do que trouxer. Não precisa de PC ligado.
+
+```
+ZEPP_EMAIL=... ZEPP_PASSWORD=... python ferramentas/zepp_api.py --dias 7
+   ... --importar   escreve em dados/sono.csv e dados/atividade.csv
+   ... --diag       diagnóstico verboso (nunca imprime a palavra-passe)
+```
+
+Autenticação em três passos: um `POST` que devolve um 303 cujo `Location` traz o código de
+acesso (não se segue o redireccionamento), um segundo `POST` que troca esse código por
+`app_token` + `user_id` + host regional, e finalmente `GET /v1/data/band_data.json`. As horas
+vêm como instantes Unix e são convertidas para `Europe/Lisbon`, para bater com as linhas que já
+existem nos CSV.
+
+**As credenciais nunca vivem no repositório** — só em GitHub Secrets, `ZEPP_EMAIL` e
+`ZEPP_PASSWORD`.

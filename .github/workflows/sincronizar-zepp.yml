@@ -1,0 +1,62 @@
+name: Sincronizar Zepp
+
+# Corre todos os dias e traz o sono e a atividade do relogio para dados/*.csv.
+# Substitui o export manual. Precisa de dois Secrets no repositorio:
+#   ZEPP_EMAIL     o email da conta Zepp
+#   ZEPP_PASSWORD  a palavra-passe
+# Definir em: Settings -> Secrets and variables -> Actions -> New repository secret
+
+on:
+  schedule:
+    # 08:20 UTC = 09:20 em Portugal no verao. Depois de acordar e do relogio
+    # ja ter sincronizado com o telemovel.
+    - cron: '20 8 * * *'
+  workflow_dispatch:
+    inputs:
+      dias:
+        description: 'Quantos dias para tras ir buscar'
+        required: false
+        default: '7'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sincronizar-zepp
+  cancel-in-progress: false
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Sem `pip install`: os scripts usam so a biblioteca padrao.
+      - name: Buscar dados da Zepp
+        env:
+          ZEPP_EMAIL: ${{ secrets.ZEPP_EMAIL }}
+          ZEPP_PASSWORD: ${{ secrets.ZEPP_PASSWORD }}
+        run: |
+          python ferramentas/zepp_api.py \
+            --dias "${{ github.event.inputs.dias || '7' }}" \
+            --importar --diag
+
+      - name: Committar se houver novidade
+        run: |
+          git config user.name  "Zepp Sync"
+          git config user.email "zepp-sync@users.noreply.github.com"
+          if git diff --quiet -- dados/; then
+            echo "Sem alteracoes."
+            exit 0
+          fi
+          git add dados/
+          git commit -m "dados: sincronizacao automatica da Zepp
+
+          Sono e atividade trazidos pela API. Workflow sincronizar-zepp."
+          # A execucao anterior pode ter ficado a meio: puxar antes de empurrar.
+          git pull --rebase --autostash
+          git push

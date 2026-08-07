@@ -54,7 +54,14 @@ pasta montada, avisa e é preciso seguir o caminho da nuvem.
 4. `commit` + `push`. Os `.fit` em bruto **não** entram no git — ficam em `import/`, que está
    fora do repositório. O que persiste é a linha no CSV.
 
-### Export completo da app (histórico, não o dia a dia)
+### Sono e atividade: automático, sem intervenção
+
+O workflow `sincronizar-zepp.yml` corre todos os dias no GitHub Actions, busca os últimos 7 dias
+pela API da Zepp e faz commit. **Não é preciso fazer nada.** Se um dia o `dados/sono.csv` deixar
+de crescer, é sinal de que a API não oficial partiu: ver o log em Actions e cair no export manual
+abaixo enquanto se arranja.
+
+### Export completo da app (histórico, ou quando a API partir)
 
 De vez em quando o Ricardo faz o export completo da Zepp. Vem num `.zip` **cifrado com AES** —
 o `unzip` do Git Bash falha com erro 81, é preciso 7-Zip:
@@ -99,9 +106,13 @@ dados/               NÚMEROS — séries temporais em CSV, append-only
 
 ferramentas/         scripts, sem dependências externas
 ├── sincronizar.py   .fit do Drive → treinos.csv. Correr no início de cada registo.
-├── zepp.py          export completo da app → sono, treinos, corpo, atividade
+├── zepp_api.py      API da Zepp → sono e atividade. Corre no GitHub Actions.
+├── zepp.py          export manual completo → sono, treinos, corpo, atividade
 ├── dedup.py         funde a mesma sessão vinda de fontes diferentes
 └── fit.py           leitor de um .fit isolado, para inspeção
+
+.github/workflows/
+└── sincronizar-zepp.yml   diário, 08h20 UTC. Traz o sono e faz commit sozinho.
 
 suplementos.md       inventário e decisões
 
