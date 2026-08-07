@@ -18,3 +18,22 @@ uma sessão com muito tempo parado, e é a única forma de medir intensidade sem
 
 **Como exportar na app Zepp:** abrir o treino → menu de partilha → exportar/partilhar ficheiro
 original. Um ficheiro por sessão.
+
+## `zepp.py` — importador do export de dados da Zepp
+
+O export chega num `.zip` **cifrado com AES**, que o `unzip` do Git Bash não abre (erro 81).
+Usar o 7-Zip:
+
+```
+"/c/Program Files/7-Zip/7z.exe" x -p<palavra-passe> -o<destino> <ficheiro.zip>
+python ferramentas/zepp.py <destino>          resumo
+python ferramentas/zepp.py <destino> --csv    linhas para dados/sono.csv e treinos.csv
+```
+
+**Armadilhas do formato, descobertas a 2026-08-07:**
+
+- `SLEEP` está em **UTC**; `SLEEP_MINUTE` e `HEARTRATE_AUTO` estão em **hora local**.
+  Misturar os dois desloca tudo uma hora.
+- As datas em `SLEEP_MINUTE` vêm **deslocadas um dia**. Usar as horas, ignorar a data.
+- `BODY` vem **vazio** — a balança Xiaomi não está na Zepp. Export separado noutra app.
+- O export pode trazer **um único dia**. Escolher intervalo maior na app, se houver opção.

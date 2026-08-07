@@ -1,2 +1,3 @@
-data,deitar,acordar,cama_min,sono_min,profundo_min,rem_min,leve_min,despertares,fc_min,score,fonte,notas
+data,deitar,acordar,cama_min,sono_min,profundo_min,rem_min,leve_min,acordado_min,fc_min,score,fonte,notas
 2026-08-06,23:00,06:47,467,,,,,,,,atleta,Rotina declarada. Dados do Amazfit Balance ainda por importar
+2026-08-07,00:34,06:48,375,372,78,51,243,3,40,,balance,"Sono real 6h12. Latencia ~1h30: FC ja a 53 as 00h00 mas sono so as 00h34. REM em 13.7% (normal 20-25%)"

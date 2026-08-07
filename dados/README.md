@@ -77,9 +77,14 @@ Ficheiro acrescentado em 2026-08-07. Dados do separador **Esforço** da app Zepp
 
 ## `sono.csv` — sono e recuperação
 
-`data, deitar, acordar, cama_min, sono_min, profundo_min, rem_min, leve_min, despertares,
+`data, deitar, acordar, cama_min, sono_min, profundo_min, rem_min, leve_min, acordado_min,
 fc_min, score, fonte, notas`
 
 - A `data` é a da **manhã em que se acordou**.
 - **`fonte`** — `balance` (Amazfit) · `atleta` (declarado)
 - `cama_min` (tempo na cama) e `sono_min` (sono real) são coisas diferentes — não confundir.
+  A diferença entre as duas é latência de adormecimento, e é um sinal por si só.
+- **`acordado_min`** — minutos acordado durante a noite, **não** número de despertares.
+- **`fc_min`** — FC mínima noturna. É o melhor indicador de recuperação que o Balance dá:
+  desce ao longo da noite numa noite boa; fica alta com álcool, stress ou sobretreino.
+- Importar com `python ferramentas/zepp.py <pasta> --csv`.
