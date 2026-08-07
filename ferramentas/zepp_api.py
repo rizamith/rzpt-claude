@@ -49,6 +49,11 @@ UA = 'MiFit/4.6.0 (iPhone; iOS 14.0; Scale/3.00)'
 REDIRECT = 'https://s3-us-west-2.amazonaws.com/hm-registration/successsignin.html'
 DIAG = '--diag' in sys.argv
 
+# A Huami passou a chamar-se Zepp e manteve as duas infraestruturas. Contas mais
+# recentes vivem em *.zepp.com, as antigas em *.huami.com. Tentam-se as duas.
+HOSTS_AUTH = [('api-user.huami.com', 'account.huami.com'),
+              ('api-user.zepp.com', 'account.zepp.com')]
+
 
 def _post(url, dados, headers=None, seguir=True):
     corpo = urllib.parse.urlencode(dados).encode()
@@ -87,33 +92,42 @@ HOSTS = ['api-mifit-de.huami.com', 'api-mifit-de2.huami.com',
          'api-mifit-us2.huami.com', 'api-mifit.huami.com']
 
 
+def passo1(email, palavra):
+    """Troca email+palavra por um codigo de acesso. Tenta Huami e Zepp."""
+    for user_host, account_host in HOSTS_AUTH:
+        url = 'https://%s/registrations/%s/tokens' % (
+            user_host, urllib.parse.quote(email, safe=''))
+        status, headers, corpo = _post(url, {
+            'client_id': 'HuaMi', 'password': palavra, 'redirect_uri': REDIRECT,
+            'token': 'access'}, seguir=False)
+        loc = headers.get('Location', '')
+        print('[passo 1] %s -> HTTP %s  %s' % (user_host, status, loc[:150] or '(sem Location)'))
+        if 'access=' in loc:
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(loc).query)
+            print('[passo 1] ok em %s' % user_host)
+            return q['access'][0], (q.get('country_code') or ['PT'])[0], account_host
+        if corpo.strip():
+            print('[passo 1] corpo: %s' % corpo[:600])
+    raise SystemExit(
+        'PASSO 1 FALHOU nos dois dominios, com error=401 (autenticacao rejeitada).\n'
+        'O codigo funciona: o endpoint responde e indica a regiao. O par\n'
+        'email/palavra-passe e que nao e aceite. Causas, por probabilidade:\n'
+        '  1. A conta Zepp nao tem palavra-passe propria: foi criada com "iniciar\n'
+        '     sessao com Google/Apple". Definir uma palavra-passe na app resolve.\n'
+        '  2. A conta identifica-se por numero de telefone e nao por email.\n'
+        '  3. Espaco ou linha a mais no Secret (o script ja faz strip).\n'
+        '  4. Email diferente do usado na Zepp.\n'
+        'Nao e problema de codigo: e preciso mexer na conta Zepp.')
+
+
 def autenticar(email, palavra):
-    # --- passo 1: trocar email+palavra por um codigo de acesso -------------
-    url = 'https://api-user.huami.com/registrations/%s/tokens' % urllib.parse.quote(email, safe='')
-    status, headers, corpo = _post(url, {
-        'client_id': 'HuaMi', 'password': palavra, 'redirect_uri': REDIRECT,
-        'token': 'access'}, seguir=False)
-    loc = headers.get('Location', '')
-    print('[passo 1] HTTP %s  Location: %s' % (status, loc[:160] or '(nenhuma)'))
-    if 'access=' not in loc:
-        print('[passo 1] corpo da resposta:\n%s' % corpo[:1500])
-        raise SystemExit(
-            'PASSO 1 FALHOU. Causas provaveis, por ordem:\n'
-            '  1. Email ou palavra-passe errados nos Secrets.\n'
-            '  2. A conta Zepp foi criada com "iniciar sessao com Google/Apple" e nao\n'
-            '     tem palavra-passe propria. Definir uma na app resolve.\n'
-            '  3. A conta usa numero de telefone em vez de email.\n'
-            '  4. A Zepp mudou o endpoint.\n'
-            'A Location acima e o corpo dizem qual e.')
-    q = urllib.parse.parse_qs(urllib.parse.urlparse(loc).query)
-    codigo = q['access'][0]
-    pais = (q.get('country_code') or ['PT'])[0]
-    print('[passo 1] ok. codigo obtido, country_code=%s' % pais)
+    codigo, pais, account_host = passo1(email, palavra)
+    print('[passo 1] country_code=%s, login por %s' % (pais, account_host))
 
     # --- passo 2: trocar o codigo por app_token ---------------------------
     erros = []
     for tn in THIRD_NAMES:
-        status, _, corpo = _post('https://account.huami.com/v2/client/login', {
+        status, _, corpo = _post('https://%s/v2/client/login' % account_host, {
             'app_name': 'com.xiaomi.hm.health', 'app_version': '4.6.0', 'code': codigo,
             'country_code': pais, 'device_id': '02:00:00:00:00:00', 'device_model': 'phone',
             'grant_type': 'access_token', 'third_name': tn, 'allow_registration': 'false',
@@ -222,10 +236,18 @@ def converter(registos):
 
 
 def main():
-    email = os.environ.get('ZEPP_EMAIL')
-    palavra = os.environ.get('ZEPP_PASSWORD')
+    # strip(): colar num Secret do GitHub arrasta espacos e mudancas de linha
+    # com facilidade, e isso sozinho da um 401.
+    email = (os.environ.get('ZEPP_EMAIL') or '').strip()
+    palavra = (os.environ.get('ZEPP_PASSWORD') or '').strip()
     if not email or not palavra:
         raise SystemExit('Faltam ZEPP_EMAIL e ZEPP_PASSWORD no ambiente.')
+    print('Credenciais: email com %d caracteres, palavra-passe com %d.' % (len(email), len(palavra)))
+
+    if '--passo1' in sys.argv:      # teste rapido, so a autenticacao
+        passo1(email, palavra)
+        print('Passo 1 ok.')
+        return
 
     dias = 7
     if '--dias' in sys.argv:
