@@ -37,3 +37,25 @@ python ferramentas/zepp.py <destino> --csv    linhas para dados/sono.csv e trein
 - As datas em `SLEEP_MINUTE` vêm **deslocadas um dia**. Usar as horas, ignorar a data.
 - `BODY` vem **vazio** — a balança Xiaomi não está na Zepp. Export separado noutra app.
 - O export pode trazer **um único dia**. Escolher intervalo maior na app, se houver opção.
+
+## `sincronizar.py` — Drive → `dados/treinos.csv`
+
+**É este o comando do dia-a-dia.** Os outros dois são para inspeção manual.
+
+```
+python ferramentas/sincronizar.py           importa o que for novo
+python ferramentas/sincronizar.py --seco    mostra o que faria, sem escrever
+```
+
+O Google Drive for Desktop monta a conta pessoal em `G:`, portanto `G:\My Drive\Zepp` é uma
+pasta local normal — não é preciso API nem autenticação. O Ricardo partilha o treino da app
+Zepp para essa pasta; o script lê, converte e escreve.
+
+**Idempotente.** A coluna `origem` de `treinos.csv` guarda o nome do ficheiro de origem e o que
+já entrou é ignorado. Correr as vezes que se quiser, sem risco de duplicar.
+
+Além do resumo, calcula **quantos minutos da sessão tiveram FC ≥ 120** — a medida de densidade
+que distingue 35 minutos de trabalho de 35 minutos com 12 parado. Usa um limiar absoluto e não
+uma percentagem de FCmax de propósito: a FCmax real do Ricardo não é conhecida.
+
+O que o script **não** consegue dar é o **RPE**. Fica sempre vazio, e é sempre preciso perguntar.

@@ -29,7 +29,15 @@ dados/               NÚMEROS — séries temporais em CSV, append-only
 ├── natacao.csv      tempos de prova e de treino
 ├── forca.csv        cargas de exercícios e PRs
 ├── treinos.csv      uma linha por sessão: modalidade, RPE, dor
+├── prontidao.csv    carga, fadiga e estado de treino do Balance
 └── sono.csv         sono e recuperação (Amazfit Balance)
+
+ferramentas/         scripts, sem dependências externas
+├── sincronizar.py   Drive → dados/treinos.csv. Correr no início de cada registo.
+├── fit.py           leitor dos .fit de treino
+└── zepp.py          leitor do export completo da app (sono, FC de 24h)
+
+suplementos.md       inventário e decisões
 
 registos/            NARRATIVA — um .md por dia
 ├── _TEMPLATE.md     estrutura de referência (não é um registo)
@@ -79,15 +87,18 @@ escrevem no mesmo repositório, por isso:
 Quando eu enviar uma foto ou descrever um treino:
 
 1. `git pull`.
-2. Extrai os dados relevantes.
-3. Se algo estiver ambíguo (carga ilegível, número de séries pouco claro, unidade duvidosa),
+2. **Corre `python ferramentas/sincronizar.py`.** Importa automaticamente os treinos novos
+   de `G:\My Drive\Zepp` para `dados/treinos.csv`. É idempotente — corre sempre, mesmo que
+   aches que não há nada novo. Depois vê que linhas ficaram sem `rpe` e pergunta.
+3. Extrai os dados relevantes.
+4. Se algo estiver ambíguo (carga ilegível, número de séries pouco claro, unidade duvidosa),
    **pergunta antes de escrever**. Não inventes nem assumes valores.
-4. **Acrescenta uma linha aos CSV relevantes** em `dados/` — corpo, treinos, natação, força, sono.
+5. **Acrescenta uma linha aos CSV relevantes** em `dados/` — corpo, treinos, natação, força, sono.
    É este o passo que não se pode falhar: os CSV são a base da análise.
-5. Escreve a narrativa e o subjetivo em `registos/YYYY-MM-DD.md` (cria ou acrescenta ao ficheiro
+6. Escreve a narrativa e o subjetivo em `registos/YYYY-MM-DD.md` (cria ou acrescenta ao ficheiro
    do dia). **Sem repetir os números que já foram para os CSV.**
-6. `git add` + `git commit` + `git push`. Mensagem: `registo: YYYY-MM-DD — <resumo curto>`.
-7. Confirma-me o que ficou registado, em duas ou três linhas.
+7. `git add` + `git commit` + `git push`. Mensagem: `registo: YYYY-MM-DD — <resumo curto>`.
+8. Confirma-me o que ficou registado, em duas ou três linhas.
 
 Se o dia já tiver ficheiro, lê-o primeiro para não duplicar nem contradizer o que lá está.
 
@@ -141,5 +152,6 @@ analisar ou recomendar. Resumo:
   overhead pesado, natação só crawl; epicondilite lateral (cotovelo dto.) — pulso neutro.
 - **Clínico:** ansiedade crónica sob escitalopram (Cipralex), tinnitus reativo como indicador
   de sobrecarga do SNC.
-- **Equipamento / dados:** Amazfit Balance + balança Xiaomi, via app Zepp.
+- **Equipamento / dados:** Amazfit Balance (app Zepp) + balança Xiaomi (app à parte — a Zepp
+  não tem os dados da balança; o peso continua a chegar por foto).
 - **Padrão a corrigir:** ciclo restrição durante a semana → compensação ao fim de semana.

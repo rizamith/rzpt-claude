@@ -29,7 +29,7 @@ BT = {
 }
 
 SPORT = {0: 'generico', 1: 'corrida', 2: 'ciclismo', 4: 'maquina', 5: 'natacao',
-         10: 'treino cruzado', 11: 'caminhada', 15: 'remo', 17: 'caminhada'}
+         10: 'crossfit', 11: 'caminhada', 15: 'remo', 17: 'caminhada'}
 
 # session: field_def_num -> nome
 S = {253: 'timestamp', 2: 'start_time', 5: 'sport', 6: 'sub_sport',
