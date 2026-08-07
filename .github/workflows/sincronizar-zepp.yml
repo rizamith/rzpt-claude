@@ -14,11 +14,23 @@ name: Sincronizar Zepp
 #
 # ZEPP_EMAIL e ZEPP_PASSWORD sao alternativa de recurso, se o token faltar.
 
+# AGENDAMENTO DESLIGADO em 2026-08-07. O endpoint de autenticacao
+# (api-user.huami.com/registrations/.../tokens) devolve sempre HTTP 429
+# "too many requests", e eliminamos por teste as explicacoes plausiveis:
+#   - conta bloqueada por tentativas falhadas -> conta nova tambem da 429
+#   - IP -> runners do GitHub, IPs diferentes, tambem 429
+#   - cliente antigo -> User-Agent moderno, tambem 429
+#   - tempo -> persistiu horas, e 315 s de backoff nao resolveram
+# O que resta constante e o client_id=HuaMi e o proprio endpoint, o mesmo que
+# todos os scripts da comunidade usam. Conclusao: esta estrangulado para uso de
+# terceiros, e nao e um limite que passa com espera.
+#
+# Fica so em execucao manual, para se testar de tempos a tempos sem falhar
+# todas as manhas. Entretanto: treinos pelo Drive (automatico) e sono pelo
+# export manual (ferramentas/zepp.py), que traz o historico todo de uma vez.
 on:
-  schedule:
-    # 08:20 UTC = 09:20 em Portugal no verao. Depois de acordar e do relogio
-    # ja ter sincronizado com o telemovel.
-    - cron: '20 8 * * *'
+  # schedule:
+  #   - cron: '20 8 * * *'
   workflow_dispatch:
     inputs:
       dias:

@@ -54,12 +54,16 @@ pasta montada, avisa e é preciso seguir o caminho da nuvem.
 4. `commit` + `push`. Os `.fit` em bruto **não** entram no git — ficam em `import/`, que está
    fora do repositório. O que persiste é a linha no CSV.
 
-### Sono e atividade: automático, sem intervenção
+### Sono: export manual, por agora
 
-O workflow `sincronizar-zepp.yml` corre todos os dias no GitHub Actions, busca os últimos 7 dias
-pela API da Zepp e faz commit. **Não é preciso fazer nada.** Se um dia o `dados/sono.csv` deixar
-de crescer, é sinal de que a API não oficial partiu: ver o log em Actions e cair no export manual
-abaixo enquanto se arranja.
+⚠️ **A via da API não funciona.** O endpoint de autenticação da Zepp devolve sempre HTTP 429, e
+foram eliminadas por teste as explicações plausíveis: conta nova dá o mesmo, IPs diferentes dão o
+mesmo, User-Agent moderno dá o mesmo, e não passa com o tempo. Está estrangulado para uso de
+terceiros. O workflow `sincronizar-zepp.yml` ficou só em execução manual, para se tentar de
+tempos a tempos.
+
+**O sono entra pelo export manual**, descrito abaixo. Não é mau: um export traz o histórico
+todo de uma vez, e uma vez por mês chega.
 
 ### Export completo da app (histórico, ou quando a API partir)
 
