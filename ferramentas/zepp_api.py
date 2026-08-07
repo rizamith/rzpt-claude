@@ -216,7 +216,15 @@ def buscar(app_token, uid, hosts, de, ate):
             continue
         n = len(d.get('data') or [])
         print('[passo 3] %s -> HTTP %s, code=%s, %d dia(s)' % (host, status, d.get('code'), n))
-        if n:
+        if status == 401 or d.get('code') in (2, 4, 5) or 'token' in corpo.lower()[:200]:
+            raise SystemExit(
+                'PASSO 3: o app_token foi recusado (HTTP %s).\n'
+                'O token expirou ou foi invalidado por se ter saido da sessao na app.\n'
+                'Correr no PC para obter um novo e actualizar o Secret ZEPP_APP_TOKEN:\n'
+                '  $env:ZEPP_EMAIL="..."; $env:ZEPP_PASSWORD="..."\n'
+                '  python ferramentas/zepp_api.py --token\n'
+                'Resposta: %s' % (status, corpo[:300]))
+        if n and d.get('code') == 1:
             if DIAG:
                 print('[diag] chaves do primeiro dia: %s' % sorted(d['data'][0].keys()))
                 print('[diag] summary em bruto: %s' % str(d['data'][0].get('summary'))[:600])
@@ -281,16 +289,53 @@ def converter(registos):
     return sono, atividade
 
 
-def main():
-    # strip(): colar num Secret do GitHub arrasta espacos e mudancas de linha
-    # com facilidade, e isso sozinho da um 401.
+def obter_token():
+    """Resolve as credenciais para (app_token, user_id, hosts).
+
+    Prefere o token guardado: o endpoint de autenticacao e o unico limitado por
+    numero de pedidos, e o app_token dura semanas. Autenticar uma vez a partir
+    do PC e guardar o token evita o 429 por completo — e tem a vantagem de a
+    palavra-passe nunca chegar a existir na nuvem.
+    """
+    token = (os.environ.get('ZEPP_APP_TOKEN') or '').strip()
+    uid = (os.environ.get('ZEPP_USER_ID') or '').strip()
+    if token and uid:
+        print('A usar o app_token guardado (sem autenticacao, sem risco de 429).')
+        return token, uid, HOSTS
+
     email = (os.environ.get('ZEPP_EMAIL') or '').strip()
     palavra = (os.environ.get('ZEPP_PASSWORD') or '').strip()
     if not email or not palavra:
-        raise SystemExit('Faltam ZEPP_EMAIL e ZEPP_PASSWORD no ambiente.')
-    print('Credenciais: email com %d caracteres, palavra-passe com %d.' % (len(email), len(palavra)))
+        raise SystemExit('Sem ZEPP_APP_TOKEN + ZEPP_USER_ID nem ZEPP_EMAIL + ZEPP_PASSWORD.')
+    print('Sem app_token guardado. A autenticar com email e palavra-passe '
+          '(%d e %d caracteres).' % (len(email), len(palavra)))
+    return autenticar(email, palavra)
+
+
+def main():
+    if '--token' in sys.argv:
+        # Correr no PC, uma vez. Imprime o que ha para colar nos GitHub Secrets.
+        email = (os.environ.get('ZEPP_EMAIL') or '').strip()
+        palavra = (os.environ.get('ZEPP_PASSWORD') or '').strip()
+        if not email or not palavra:
+            raise SystemExit('Define ZEPP_EMAIL e ZEPP_PASSWORD no ambiente.')
+        token, uid, hosts = autenticar(email, palavra)
+        print('\n' + '=' * 66)
+        print('Guardar como GitHub Secrets (Settings -> Secrets -> Actions):')
+        print('=' * 66)
+        print('ZEPP_APP_TOKEN = %s' % token)
+        print('ZEPP_USER_ID   = %s' % uid)
+        print('=' * 66)
+        print('Depois disso podes APAGAR os Secrets ZEPP_EMAIL e ZEPP_PASSWORD:')
+        print('a palavra-passe deixa de ser precisa e nao fica na nuvem.')
+        print('O token dura semanas. Quando expirar, o workflow avisa e volta-se')
+        print('a correr este comando.')
+        return
+
 
     if '--passo1' in sys.argv:      # teste rapido, so a autenticacao
+        email = (os.environ.get('ZEPP_EMAIL') or '').strip()
+        palavra = (os.environ.get('ZEPP_PASSWORD') or '').strip()
         passo1(email, palavra)
         print('Passo 1 ok.')
         return
@@ -301,7 +346,7 @@ def main():
     hoje = datetime.date.today()
     de, ate = hoje - datetime.timedelta(days=dias), hoje
 
-    app_token, uid, hosts = autenticar(email, palavra)
+    app_token, uid, hosts = obter_token()
     registos = buscar(app_token, uid, hosts, de.isoformat(), ate.isoformat())
     sono, atividade = converter(registos)
     print('%s a %s: %d dia(s) devolvidos, %d com sono, %d com passos' % (

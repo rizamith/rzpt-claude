@@ -1,10 +1,18 @@
 name: Sincronizar Zepp
 
 # Corre todos os dias e traz o sono e a atividade do relogio para dados/*.csv.
-# Substitui o export manual. Precisa de dois Secrets no repositorio:
-#   ZEPP_EMAIL     o email da conta Zepp
-#   ZEPP_PASSWORD  a palavra-passe
-# Definir em: Settings -> Secrets and variables -> Actions -> New repository secret
+#
+# Secrets necessarios (Settings -> Secrets and variables -> Actions):
+#   ZEPP_APP_TOKEN  \ obtidos uma vez, no PC, com:
+#   ZEPP_USER_ID    /   python ferramentas/zepp_api.py --token
+#
+# Porque token e nao palavra-passe: o endpoint de autenticacao da Zepp e o unico
+# limitado por numero de pedidos, e a partir dos IPs partilhados dos runners do
+# GitHub da 429 com facilidade. Autenticando uma vez a partir de casa e guardando
+# o token, o workflow so toca no endpoint de dados, que nao tem esse limite.
+# Bonus: a palavra-passe nunca chega a existir na nuvem.
+#
+# ZEPP_EMAIL e ZEPP_PASSWORD sao alternativa de recurso, se o token faltar.
 
 on:
   schedule:
@@ -36,19 +44,28 @@ jobs:
       - name: Ambiente
         run: python3 --version
 
-      - name: Verificar que os Secrets existem
+      - name: Verificar os Secrets
         env:
+          ZEPP_APP_TOKEN: ${{ secrets.ZEPP_APP_TOKEN }}
+          ZEPP_USER_ID: ${{ secrets.ZEPP_USER_ID }}
           ZEPP_EMAIL: ${{ secrets.ZEPP_EMAIL }}
           ZEPP_PASSWORD: ${{ secrets.ZEPP_PASSWORD }}
         run: |
-          # Confirma que os Secrets estao definidos sem revelar o conteudo.
-          if [ -z "$ZEPP_EMAIL" ];    then echo "FALTA o Secret ZEPP_EMAIL";    fi
-          if [ -z "$ZEPP_PASSWORD" ]; then echo "FALTA o Secret ZEPP_PASSWORD"; fi
-          echo "ZEPP_EMAIL:    ${#ZEPP_EMAIL} caracteres"
-          echo "ZEPP_PASSWORD: ${#ZEPP_PASSWORD} caracteres"
+          # Confirma que estao definidos, sem revelar o conteudo.
+          echo "ZEPP_APP_TOKEN: ${#ZEPP_APP_TOKEN} caracteres"
+          echo "ZEPP_USER_ID:   ${#ZEPP_USER_ID} caracteres"
+          echo "ZEPP_EMAIL:     ${#ZEPP_EMAIL} caracteres (recurso)"
+          echo "ZEPP_PASSWORD:  ${#ZEPP_PASSWORD} caracteres (recurso)"
+          if [ -z "$ZEPP_APP_TOKEN" ] || [ -z "$ZEPP_USER_ID" ]; then
+            echo "AVISO: sem app_token. Vai autenticar com palavra-passe e"
+            echo "arrisca HTTP 429 a partir dos IPs do GitHub."
+            echo "Correr no PC:  python ferramentas/zepp_api.py --token"
+          fi
 
       - name: Buscar dados da Zepp
         env:
+          ZEPP_APP_TOKEN: ${{ secrets.ZEPP_APP_TOKEN }}
+          ZEPP_USER_ID: ${{ secrets.ZEPP_USER_ID }}
           ZEPP_EMAIL: ${{ secrets.ZEPP_EMAIL }}
           ZEPP_PASSWORD: ${{ secrets.ZEPP_PASSWORD }}
         run: |
