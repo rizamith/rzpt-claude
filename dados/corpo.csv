@@ -13,3 +13,4 @@ data,peso_kg,gordura_pct,gordura_kg,massa_magra_kg,massa_muscular_kg,musculo_esq
 2026-08-05,100.1,,,,,,,,,,,balanca,Derivado do delta -0.1 kg da medicao de 2026-08-06
 2026-08-06,100.0,27.7,27.7,72.3,68.2,41.0,55.5,11.9,11,1932,58,balanca,Primeira medicao completa de composicao corporal
 2026-08-07,100.0,27.6,27.6,72.4,68.3,41.2,55.8,11.7,11,1934,59,balanca,Sem variacao de peso vs. 2026-08-06
+2026-08-08,99.5,27.3,27.2,72.3,68.3,39.8,54.8,13.1,12,1932,64,balanca,"App reporta queda de 1.3 kg vs 1 dia atras; pelo nosso registo (100.0 em 07/08) a queda real foi 0.5 kg. Discrepancia nao explicada, fonte da app"
