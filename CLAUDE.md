@@ -72,13 +72,15 @@ tempos a tempos.
 **O sono entra pelo export manual**, descrito abaixo. Não é mau: um export traz o histórico
 todo de uma vez, e uma vez por mês chega.
 
-### Export completo da app (histórico, ou quando a API partir)
+### Export completo da app (histórico, ou quando a API partir, ou o relógio não sincronizou)
 
-De vez em quando o Ricardo faz o export completo da Zepp. Vem num `.zip` **cifrado com AES** —
-o `unzip` do Git Bash falha com erro 81, é preciso 7-Zip:
+Não é só para o histórico todo — um export pequeno (de um só dia) é caminho válido para trazer
+uma sessão quando o relógio não sincronizou sozinho para a Drive (aconteceu 2026-08-08:
+Bluetooth desligado). Vem num `.zip` **cifrado com AES**; como abrir depende do ambiente — ver
+`ferramentas/README.md` para o comando exato no PC (7-Zip) e na nuvem (`pyzipper`, confirmado
+2026-08-08). Depois, em qualquer ambiente:
 
 ```bash
-"/c/Program Files/7-Zip/7z.exe" x -p<palavra-passe> -o<destino> <ficheiro.zip>
 python ferramentas/zepp.py <destino>              # ver primeiro, não escreve
 python ferramentas/zepp.py <destino> --importar   # escrever
 python ferramentas/dedup.py                       # sempre a seguir

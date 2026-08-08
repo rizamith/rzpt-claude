@@ -21,13 +21,31 @@ original. Um ficheiro por sessão.
 
 ## `zepp.py` — importador do export de dados da Zepp
 
-O export chega num `.zip` **cifrado com AES**, que o `unzip` do Git Bash não abre (erro 81).
-Usar o 7-Zip:
+O export chega num `.zip` **cifrado com AES**. Como abrir depende do ambiente:
+
+**PC:** o `unzip` do Git Bash não abre (erro 81). Usar o 7-Zip:
 
 ```
 "/c/Program Files/7-Zip/7z.exe" x -p<palavra-passe> -o<destino> <ficheiro.zip>
-python ferramentas/zepp.py <destino>          resumo
-python ferramentas/zepp.py <destino> --csv    linhas para dados/sono.csv e treinos.csv
+```
+
+**Nuvem:** não há 7-Zip. Confirmado a funcionar com `pyzipper` (2026-08-08), que não vem
+instalado por omissão:
+
+```
+pip install pyzipper
+python -c "
+import pyzipper
+with pyzipper.AESZipFile('<ficheiro.zip>') as z:
+    z.extractall('<destino>', pwd=b'<palavra-passe>')
+"
+```
+
+Depois, em qualquer ambiente:
+
+```
+python ferramentas/zepp.py <destino>              resumo, sem escrever
+python ferramentas/zepp.py <destino> --importar   escreve em dados/*.csv
 ```
 
 **Armadilhas do formato, descobertas a 2026-08-07:**
@@ -35,8 +53,14 @@ python ferramentas/zepp.py <destino> --csv    linhas para dados/sono.csv e trein
 - `SLEEP` está em **UTC**; `SLEEP_MINUTE` e `HEARTRATE_AUTO` estão em **hora local**.
   Misturar os dois desloca tudo uma hora.
 - As datas em `SLEEP_MINUTE` vêm **deslocadas um dia**. Usar as horas, ignorar a data.
-- `BODY` vem **vazio** — a balança Xiaomi não está na Zepp. Export separado noutra app.
-- O export pode trazer **um único dia**. Escolher intervalo maior na app, se houver opção.
+- `BODY` traz o peso e pouco mais (confirmado 2026-08-08: `weight`, `height`, `bmi` vêm
+  preenchidos; `fatRate` e o resto costumam vir `null`). A composição, quando vem, **não bate
+  com a balança Xiaomi** — o `zepp.py` importa-a com `fonte=zepp` para não contaminar a série
+  da balança, mas um peso igual ao já registado no mesmo dia é redundante: confirmar antes de
+  manter as duas linhas.
+- O export pode trazer **um único dia** — não é preciso pedir sempre o histórico completo; um
+  export pequeno, feito na hora, é uma forma válida de trazer o `.fit` de uma sessão quando o
+  relógio não sincronizou sozinho para a Drive.
 
 ## `sincronizar.py` — Drive → `dados/treinos.csv`
 
